@@ -1,16 +1,15 @@
 {
-  "manifest_version": 1,
+  "manifest_version": 2,
 
-  "name": "Getting started example",
-  "description": "This extension shows a Google Image search result for the current page",
-  "version": "1.0",
+  "name": "Receptų meistras",
+  "description": "HackerGames 2016!!!1111",
+  "version": "0.1",
 
   "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
+   "default_icon": "icon.png",
+   "default_popup": "popup.html"
   },
   "permissions": [
-    "activeTab",
-    "https://ajax.googleapis.com/"
-  ]
+   "activeTab"
+   ]
 }
