@@ -31,6 +31,19 @@ function populatePopupWithIngredients(items){
             produktuHtml = produktuHtml.concat(produktoHtml);
         }
         $resultsForm.html(produktuHtml);
+        // Listen to selection changes
+        $('select.produkto-dropdown').each(function(idx, select) {
+            $(select).change(function() {
+                updateTotalPrice();
+            })
+        });
+        // Listen to checkboxes too
+        $resultsForm.find(':checkbox').each(function(idx, checkbox) {
+            $(checkbox).change(function() {
+                updateTotalPrice();
+            })
+        })
+        updateTotalPrice();
     }
     else {
         console.error("ingredientuSarasas tuscias!");
@@ -38,6 +51,20 @@ function populatePopupWithIngredients(items){
     }
 
     //$resultsForm.html(produktoHtml);
+}
+
+function updateTotalPrice() {
+    total = 0.0;
+    $('.product').each(function(idx, product) {
+        var checkbox = $(product).find(':checkbox');
+        if ($(checkbox).is(':checked')) {
+            var selected_option = $(product).find('select.produkto-dropdown option:selected');
+            total += parseFloat($(selected_option).attr('data-price'));
+        }
+    })
+    parts = total.toFixed(2).toString().split('.');
+    $('.euros').html(parts[0]);
+    $('.cents').html(parts[1]);
 }
 
 function getProduktoHtml(item, i, dropDownHtml){
