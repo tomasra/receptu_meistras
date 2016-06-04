@@ -44,6 +44,7 @@ footer {
   height: 320px;
   width: 400px;
   padding: 12px 10px 30px 12px;
+  overflow-y:scroll;
 }
 ​
 ​
