@@ -60,7 +60,7 @@ function getProduktoHtml(item, i, dropDownHtml){
 </div>';
 
     var ingredientName = item.ingredient;
-    var ingredientKiekis = "TODO";
+    var ingredientKiekis = item.amount;
     var produktoHtml = productTemplate.replace(/{{Nr}}/g, i);
     produktoHtml = produktoHtml.replace(/{{produktoPavadinimas}}/g, ingredientName);
     produktoHtml = produktoHtml.replace(/{{produktoPavadinimas}}/g, ingredientName);
