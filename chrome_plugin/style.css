@@ -74,6 +74,14 @@ section {
   background-color: red;
 }
 
+.checkbox-wrapper {
+  position: relative;
+  left: 20px;
+  display: block;
+  width: 25px;
+  height: 25px;
+}
+
 /* Base for label styling */
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
