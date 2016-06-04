@@ -1,8 +1,9 @@
 ﻿"use strict";
 
-chrome.extension.onRequest.addListener(function (request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+//chrome.extension.onRequest.addListener(function (request, sender, sendResponse) {
     //alert("is background.js ateina!");
-    if (request.action == "getDOM") {
+    if (request == "getDOM") {
         var receptu_langas = $(".recipe-ingredients table tbody tr");
         var jsonObjektas = getJsonFromRecipyTable(receptu_langas, window.location.href );
         sendResponse({ jsonObjektas: jsonObjektas });

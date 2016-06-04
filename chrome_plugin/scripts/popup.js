@@ -1,5 +1,30 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
+﻿var ingredientuSarasas = 'ingredientuSarasas';
+function populatePopupWithIngredients(items){
+    console.log(items);
+    //alert("populatePopupWithIngredients");
+}
+
+document.addEventListener('DOMContentLoaded', function () {
     console.log("pradedam loadint..");
+    
+    chrome.storage.local.get("ingredientuSarasas", function (items) {
+        if (!items) {
+            chrome.storage.onChanged.addListener(function (changes, areaName) {
+                console.log(changes);
+                console.log(areaName);
+                items = changes;
+
+                populatePopupWithIngredients(changes);
+            });
+        }
+        else {
+            populatePopupWithIngredients(items);
+        }
+    });
+
+
+
+    
 
     var checkPageButton = document.getElementById('checkPage');
     checkPageButton.addEventListener('click', function () {
@@ -33,7 +58,4 @@
 
 });
 
-
-    //var receptuLangas = $(".recipe-ingredients");
-    //alert(receptuLangas);
 

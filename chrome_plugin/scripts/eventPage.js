@@ -8,8 +8,10 @@ function checkWebpage() {
                                 chrome.browserAction.setBadgeText({ text: "!" });
 
             // Send a request to the content script.
-            chrome.tabs.sendRequest(tab.id, { action: "getDOM" }, function (response) {
 
+            chrome.tabs.sendMessage(tab.id, "getDOM", {}, function (response){
+            //chrome.tabs.sendRequest(tab.id, { action: "getDOM" }, function (response) {
+                
                 console.log(response);
                 if (response && response.jsonObjektas) {
                     var jsonObjektas = response.jsonObjektas;
@@ -28,8 +30,10 @@ function checkWebpage() {
                         contentType: "application/json; charset=utf-8",
                         success: function (data){
                             console.log(data);
-                            alert(data);
-                            //Gavus duomenis, cia galime pradeti pildyti lentele.
+                            //alert(data);
+                            //Gavus duomenis, cia galime deti i chrome localStorage:
+                            chrome.storage.local.set({ ingredientuSarasas : data  });
+
 
                             //1. Lentele gyvena popup.html
 
@@ -59,7 +63,6 @@ function checkWebpage() {
 
 
 chrome.tabs.onActivated.addListener(function (activeInfo) {
-
     console.log("onActivated loadint..");
     checkWebpage();
 }, false);
@@ -70,9 +73,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     checkWebpage();
 });
 
-//Uzgaudo su onActivated
-//chrome.tabs.onCreated.addListener(function (activeInfo) {
-//    alert("onCreated");
-//    console.log("onCreated loadint..");
-//    checkWebpage();
-//}, false);
+chrome.tabs.onCreated.addListener(function (tabId, changeInfo, tab) {
+    console.log("onCreated loadint..");
+    checkWebpage();
+});

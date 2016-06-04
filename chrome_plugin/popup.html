@@ -13,192 +13,46 @@
 
 </head>
 <body>
-  <header class="emerge" data-effect="slide" data-up="-50px" data-opaque="true" data-duration="1500">
-    <div class="brighter-bg emerge" class="rm-logo emerge" data-effect="slide" data-left="80px" data-up="0px" data-opaque="true" data-duration="1500"> </div>
-    <h3>Receptų meistras</h3>
-    <h1>TIRAMISU tinginiams – per 20 minuciu</h1>
-    <img src="rm-logo.svg" class="rm-logo emerge" data-effect="slide" data-left="-20px" data-opaque="true" data-duration="3000">
-  </header>
+    <header class="emerge" data-effect="slide" data-up="-50px" data-opaque="true" data-duration="1500">
+        <div class="brighter-bg emerge" class="rm-logo emerge" data-effect="slide" data-left="80px" data-up="0px" data-opaque="true" data-duration="1500"> </div>
+        <h3>Receptų meistras</h3>
+        <h1 class="title-pavadinimas">{{TITLE}}</h1>
+        <img src="rm-logo.svg" class="rm-logo emerge" data-effect="slide" data-left="-20px" data-opaque="true" data-duration="3000">
+    </header>
 
-  <div class="section">
-    <form action="">
-      <div class="product emerge" data-effect="slide" data-up="50px" data-duration="1000">
-        <div class="checkbox-wrapper">
-          <input type="checkbox" id="test1" />
-          <label for="test1"></label>
-         </div>
-        <div class="productName inline">
-          	Sausainiai -piršteliai
-        </div>
-        <div class="quantity inline">
-          1 pakelis
-        </div><input type="submit"value="pirk"/><br/>
-<br/>
-        <select/>
-<option value="1">   € 4.29 / Vištienos rinkinys šeimai (filė kepsniams ir blauzd.be sąn.), 1 kg   </option>
-<option value="2"> Vištienos rinkinys šeimai (šlaun. mėsa ir sparnų peteliai), 1 kg /  € 4.29 </option>
-<option value="3">  Vištienos faršas VP, 450 g / € 1.33 </option>
-<option value="4">  Vištienos filė faršas VP, 450 g / € 2.29 </option>
-<option value="5"> Atšaldyta malta vištiena, 1 kg / € 3.32   </option>
-</select> <br/>
-      </div>
-    </form>
-
-
-    <form action="">
-    <div class="product emerge" data-effect="slide" data-up="50px" data-duration="1000">
-      <div class="checkbox-wrapper">
-        <input type="checkbox" id="test2" />
-        <label for="test2"></label>
-       </div>
-      <div class="productName inline">
-        111111111111
-      </div>
-      <div class="quantity inline">
-        22222222
-      </div>
-      <div class="unitPrice inline">
-        €7,12/kg
-      </div>
-      <div class="price inline">
-        44444
-      </div>
-    </div>
-  </form>
-
-
-  <form action="">
-      <div class="product emerge" data-effect="slide" data-up="50px" data-duration="1000">
-        <div class="checkbox-wrapper">
-          <input type="checkbox" id="test3" />
-          <label for="test3"></label>
-         </div>
-        <div class="productName inline">
-          111111111111
-        </div>
-        <div class="quantity inline">
-          22222222
-        </div>
-        <div class="unitPrice inline">
-          €1,98/l
-        </div>
-        <div class="price inline">
-          44444
-        </div>
-      </div>
-    </form>
-
-    <form action="">
-        <div class="product emerge" data-effect="slide" data-up="50px" data-duration="1000">
-          <div class="checkbox-wrapper">
-            <input type="checkbox" id="test4" />
-            <label for="test4"></label>
-           </div>
-          <div class="productName inline">
-            111111111111
-          </div>
-          <div class="quantity inline">
-            22222222
-          </div>
-          <div class="unitPrice inline">
-            €1,30/kg
-          </div>
-          <div class="price inline">
-            44444
-          </div>
-        </div>
-      </form>
-
-      <form action="">
-          <div class="product emerge" data-effect="slide" data-up="50px" data-duration="1000">
-            <div class="checkbox-wrapper">
-              <input type="checkbox" id="test5" />
-              <label for="test5"></label>
-             </div>
-            <div class="productName inline">
-              111111111111
-            </div>
-            <div class="quantity inline">
-              22222222
-            </div>
-            <div class="unitPrice inline">
-              €9,38/kg
-            </div>
-            <div class="price inline">
-              44444
-            </div>
-          </div>
-        </form>
-
+    <div class="section">
         <form action="">
             <div class="product emerge" data-effect="slide" data-up="50px" data-duration="1000">
-              <div class="checkbox-wrapper">
-                <input type="checkbox" id="test6" />
-                <label for="test6"></label>
-               </div>
-              <div class="productName inline">
-                111111111111
-              </div>
-              <div class="quantity inline">
-                22222222
-              </div>
-              <div class="unitPrice inline">
-                €26,04/kg
-              </div>
-              <div class="price inline">
-                44444
-              </div>
-            </div>
-          </form>
-
-          <form action="">
-              <div class="product emerge" data-effect="slide" data-up="50px" data-duration="1000">
                 <div class="checkbox-wrapper">
-                  <input type="checkbox" id="test7" />
-                  <label for="test7"></label>
-                 </div>
+                    <input type="checkbox" class="producto-checkbox" data-checkbox-nr="1" id="checkbox1" checked />
+                    <label for="checkbox1"></label>
+                </div>
                 <div class="productName inline">
-                  111111111111
+                    Sausainiai -piršteliai
                 </div>
                 <div class="quantity inline">
-                  22222222
+                    1 pakelis
                 </div>
-                <div class="unitPrice inline">
-                  €0,72/kg
-                </div>
-                <div class="price inline">
-                  44444
-                </div>
-              </div>
-            </form>
+                <a class="button-buy" href="#"></a>
+                <select class="produkto-dropdown">
+                    <option value="1" data-price="4.29" data-link="/produktai/vistienos-rinkinys-seimai-file-kepsniams-ir-blauzd-be-san-1-kg">4.29€ Vištienos rinkinys šeimai (filė kepsniams ir blauzd.be sąn.), 1 kg</option>
+                    <option value="2" data-price="4.29" data-link="/produktai/vistienos-rinkinys-seimai-slaun-mesa-ir-sparnu-peteliai-1-kg">4.29€ Vištienos rinkinys šeimai (šlaun. mėsa ir sparnų peteliai), 1 kg</option>
+                    <option value="3" data-price="1.33" data-link="/produktai/vistienos-farsas-vp-450-g" >1.33€ Vištienos faršas VP, 450 g</option>
+                    <option value="4" data-price="2.29" data-link="/produktai/vistienos-file-farsas-vp-450-g">2.29€  Vištienos filė faršas VP, 450 g</option>
+                    <option value="5" data-price="3.32" data-link="/produktai/atsaldyta-malta-vistiena-1-kg">3.32€ Atšaldyta malta vištiena, 1 kg</option>
+                </select> 
+            </div>
+        </form>
 
-            <form action="">
-                <div class="product emerge" data-effect="slide" data-up="50px" data-duration="1000">
-                  <div class="checkbox-wrapper">
-                    <input type="checkbox" id="test8" />
-                    <label for="test8"></label>
-                   </div>
-                  <div class="productName inline">
-                    111111111111
-                  </div>
-                  <div class="quantity inline">
-                    22222222
-                  </div>
-                  <div class="unitPrice inline">
-                    €0,39/l
-                  </div>
-                  <div class="price inline">
-                    44444
-                  </div>
-                </div>
-              </form>
-</div>
+
+
+    </div>
 
     <footer>
-    <button id="checkPage" class="button button-order">Užsisakyti</button>
-    <div class="price-total">€&#8202;59&#8202;<span class="cents">25</span></div>
-    <div class="footer-comment">kelius ar visus ingridientus<br />pristatymu is barbora.lt</div>
+        <button id="checkPage" class="button button-order">Užsisakyti</button>
+        <div class="price-total">€&#8202;59&#8202;<span class="cents">25</span></div>
+        <div class="footer-comment">kelius ar visus ingridientus<br />pristatymu is barbora.lt</div>
     </footer>
-  </footer>
+    </footer>
 </body>
 </html>
