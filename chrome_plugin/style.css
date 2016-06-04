@@ -36,11 +36,14 @@ footer {
   background-color: #333;
 }
 
+.product {
+  margin: 0px 0px 10px 0px
+}
 
 .section {
   height: 320px;
   width: 400px;
-  padding: 20px 15px 50px 30px;
+  padding: 12px 10px 30px 12px;
 }
 ​
 ​
@@ -78,6 +81,7 @@ footer {
   width: 25px;
   height: 25px;
   display: inline-block;
+  margin: 0px 5px 0px 0px;
 }
 
 /* Base for label styling */
@@ -219,11 +223,11 @@ h3 {
 }
 
 .rm-logo {
-  width: 40px;
-  heigt: 60px;
+  width: 44px;
+  heigt: 66px;
   position: absolute;
   top: 45px;
-  left: -10px;
+  left: -12px;
 }
 
 .brighter-bg {
