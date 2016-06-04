@@ -35,19 +35,11 @@ function checkWebpage() {
                             console.log(data);
                             //Gavus duomenis, cia galime deti i chrome localStorage:
                             chrome.storage.local.set({ ingredientuSarasas : data  });
-
-
-                            //1. Lentele gyvena popup.html
-
-                            //chrome.tabs.sendRequest(tab.id, { action: "getDOM" }, function (response) {
-                            //});
-
-
                         },
                         error: function (jq, status, message) {
                             var msg = '$.ajax post error when calling http://tomasra.com:5000/match : ' + status + ' - Message: ' + message;
                             console.error(msg);
-                            // alert(msg);
+                            alert(msg);
                         }
                     });
 
