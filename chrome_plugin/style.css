@@ -6,10 +6,6 @@
   font-family: 'Fira Sans', sans-serif;
   font-size: 16px;
 }
-
-*:focus {
-  outline:0;
-}
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans);
 
 body{
@@ -36,9 +32,6 @@ footer {
   background-color: #333;
 }
 
-.product {
-  margin: 0px 0px 10px 0px
-}
 
 .section {
   height: 320px;
@@ -52,13 +45,14 @@ footer {
   text-align: left;
   margin-left: 5px;
   word-wrap: break-word;
+
 }
 ​
 .productName {
-  width: 135px;
-  height: 50px;
+  width: 20px;
+  padding-left: 15px;
+  text-indent: -15px;
   text-overflow: ellipsis;
-  background-color: red;
 }
 ​
 .quantity {
@@ -72,17 +66,19 @@ footer {
 .price {
   width: 85px;
 }
-
+​
+#checkPage {
+  float: right;
+  background-color: red;
+}
 
 .checkbox-wrapper {
   position: relative;
-  left: 0px;
-  top: 5px;
+  left: 5px;
   display: block;
   width: 25px;
   height: 25px;
   display: inline-block;
-  margin: 0px 5px 0px 0px;
 }
 
 /* Base for label styling */
@@ -198,7 +194,7 @@ h1 {
   font-weight: 500;
   font-size: 24px;
   position: relative;
-  top: 30px;
+  top: 40px;
   left: 45px;
   color: white;
   text-transform: lowercase;
@@ -211,7 +207,7 @@ h1::first-letter {
 h3 {
   font-weight: 400;
   position: relative;
-  top: 30px;
+  top: 40px;
   left: 45px;
 }
 
@@ -227,8 +223,8 @@ h3 {
   width: 40px;
   heigt: 60px;
   position: absolute;
-  top: 40px;
-  left: -12px;
+  top: 45px;
+  left: -10px;
 }
 
 .brighter-bg {
@@ -246,11 +242,5 @@ h3 {
   color: #deac00;
   position: relative;
   top: -30px;
-  left: 205px;
-}
-
-.cents {
-  color: #997a23;
-  font-size: 21pt;
-  vertical-align: super;
+  left: 200px;
 }
