@@ -92,8 +92,12 @@ document.addEventListener('DOMContentLoaded', function () {
         var nr = $(this).data("nr");
         var dropDownId = "#produkto" + nr + "dropdown";
         var url = $(dropDownId).val();
-        var fullUrl = "https://www.barbora.lt" + url;
-        window.open(fullUrl, '_blank');
+        var fullUrl = "https://www.barbora.lt" + url + "?pridetiProdukta=1";
+        chrome.tabs.create({ url: fullUrl, selected: false }, function (tab) {
+            //chrome.tabs.update(tab.id, { selected: true });
+        });
+
+        //window.open(fullUrl, '_blank');
         return false;
     });
 
