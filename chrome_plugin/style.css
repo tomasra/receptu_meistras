@@ -30,10 +30,13 @@ footer {
   background-color: #333;
 }
 
-section {
+
+.section {
   height: 300px;
   width: 400px;
   margin: 0;
+  margin-top: -20px;
+  margin-bottom: -20px;
 }
 ​
 ​
