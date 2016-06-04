@@ -3,7 +3,8 @@
     "ingredients": [
         {
             "amount": "400 g",
-            "ingredient": "Vištiena"
+            "ingredient": "Vištiena",
+            "general_name": "vistiena"
         },
         {
             "amount": "1 vnt.",
