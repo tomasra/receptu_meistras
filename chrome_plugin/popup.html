@@ -1,38 +1,95 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 <head>
+    <meta charset="utf-8" />
     <title>Receptų meistras</title>
     <script src="popup.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="scripts/emerge.js"></script>
+    <script src="scripts/hover.js"></script>
+    <html lang="lt">
 </head>
 <body>
-    <h1>Receptų meistras</h1>
-
-    <table>
-        <tr>
-            <td>Pavadinimas</td>
-            <td>Kiekis</td>
-            <td>Kaina</td>
-        </tr>
-        <tr>
-            <td>
-                Sviestas
-            </td>
-            <td>
-                200g
-            </td>
-            <td>1.05 eu</td>
-        </tr>
-        <tr>
-            <td>
-                Kiaušiniai
-            </td>
-            <td>
-                12 vienetų
-            </td>
-            <td>1.55 eu</td>
-        </tr>
-    </table>
+  <header class="emerge" data-effect="slide" data-up="-50px" data-opaque="true" data-duration="1500">
+    <div class="brighter-bg emerge" class="rm-logo emerge" data-effect="slide" data-left="80px" data-up="0px" data-opaque="true" data-duration="1500"> </div>
+    <h3>Receptų meistras</h3>
+    <h1>Tiramisu tinginiams – per 20 minuciu</h1>
+    <img src="rm-logo.svg" class="rm-logo emerge" data-effect="slide" data-left="-20px" data-opaque="true" data-duration="3000">
+  </header>
+​
+  <section>
+    <form action="">
+      <div class="product emerge" data-effect="slide" data-up="50px" data-duration="1000">
+        <div class="check">
+          <input type="checkbox" id="test1" />
+          <label for="test1">asdasd</label>
+         </div>
+        <div class="productName">
+          Kefyras yra kefyras
+        </div>
+        <div class="quantity">
+          1vnt
+        </div>
+        <div class="unitPrice">
+          2 eu uz 1
+        </div>
+        <div class="price">
+          99,99 eu
+        </div>
+      </div>
+    </form>
+​
+​
+    <form action="">
+      <div class="produktas">
+        <div class="check">
+          <input  type="checkbox" name="" value="">
+​
+        </div>
+        <div class="prodpav">
+          Kefyrassssssss ssssss
+        </div>
+        <div class="kiekis">
+          1vnt
+        </div>
+        <div class="kainavnt">
+          2 eu uz 1
+        </div>
+        <div class="sumkaina">
+          99,99 eu
+        </div>
+      </div>
+    </form>
+​
+​
+        <form action="">
+          <div class="produktas">
+            <div class="check">
+              <input class="checkbox" type="checkbox" name="" value="">
+            </div>
+            <div class="prodpav">
+              Kefyrasssssssssssssssssssssssssss
+            </div>
+            <div class="kiekis">
+              40px
+            </div>
+            <div class="kainavnt">
+              55
+            </div>
+            <div class="sumkaina">
+              85
+            </div>
+          </div>
+        </form>
+  </section>
+​
     <br />
-    <button id="checkPage">Pirkti</button>
+    <footer>
+    <button id="checkPage" class="button button-order">Užsisakyti</button>
+    <div class="price-total">€&#8202;59&#8202;<span class="cents">25</span></div>
+    <div class="footer-comment">kelius ar visus ingridientus<br />pristatymu is barbora.lt</div>
+    </footer>
+  </footer>
 </body>
 </html>
