@@ -6,10 +6,15 @@
   "version": "0.1",
 
   "browser_action": {
-   "default_icon": "icon.png",
-   "default_popup": "popup.html"
+    "default_icon": "graphics/icon.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "graphics/receptumeistras-icon-chromestore-128.png"
   },
   "permissions": [
-   "activeTab"
-   ]
+    "activeTab",
+    "https://www.google-analytics.com/",
+    "storage"
+  ]
 }
