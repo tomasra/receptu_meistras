@@ -51,4 +51,4 @@ if __name__ == "__main__":
     # match_products('Druska')
     # import ipdb; ipdb.set_trace()
     # pass
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
