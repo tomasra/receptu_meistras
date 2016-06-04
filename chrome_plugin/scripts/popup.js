@@ -20,11 +20,10 @@ function populatePopupWithIngredients(items){
 
     $resultsForm.html("");
 
-
-    if (items && items.ingredientuSarasas) {
+    if (items.length > 0) {
         var produktuHtml = "";
-        for (var i in items.ingredientuSarasas) {
-            var item = items.ingredientuSarasas[i];
+        for (var i in items) {
+            var item = items[i];
             console.log(item);
             var dropDownHtml = getDropdownHtml(item.products);
             var produktoHtml = getProduktoHtml(item, i, dropDownHtml);
@@ -98,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // console.log(items);
         if (items.ingredientuSarasas !== undefined) {
             spinner.stop();
-            populatePopupWithIngredients(items);
+            populatePopupWithIngredients(items.ingredientuSarasas);
         } else {
             chrome.storage.onChanged.addListener(function(changes, areaName) {
                 // HACK: checking if ingredient list was cleared or populated in eventPage.js
