@@ -223,8 +223,8 @@ h3 {
 }
 
 .rm-logo {
-  width: 44px;
-  heigt: 66px;
+  width: 40px;
+  heigt: 60px;
   position: absolute;
   top: 40px;
   left: -12px;
@@ -245,5 +245,11 @@ h3 {
   color: #deac00;
   position: relative;
   top: -30px;
-  left: 200px;
+  left: 205px;
+}
+
+.cents {
+  color: #997a23;
+  font-size: 21pt;
+  vertical-align: super;
 }
