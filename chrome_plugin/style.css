@@ -27,7 +27,7 @@ footer {
 }
 
 section {
-  height: 300px;
+  height: auto;
   width: 400px;
   margin: 0;
 }
@@ -46,13 +46,15 @@ section {
 .productName, .quantity, .unitPrice, .price {
   text-align: left;
   float: left;
-  padding-bottom: 10px;
   margin-left: 5px;
   word-wrap: break-word;
 }
 ​
 .productName {
-  width: 80px;
+  width: 20px;
+  display: block;
+  padding-left: 15px;
+  text-indent: -15px;
 }
 ​
 .quantity {
@@ -83,6 +85,7 @@ section {
   position: relative;
   padding-left: 30px;
   cursor: pointer;
+  display: block;
 }
 
 /* checkbox aspect */
