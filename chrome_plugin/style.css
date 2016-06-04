@@ -32,7 +32,7 @@ section {
   margin: 0;
 }
 ​
-.produktas {
+.productName {
   margin: 5px 5px 5px 5px;
   clear: both;
 }
@@ -43,7 +43,7 @@ section {
 }
 ​
 ​
-.prodpav, .kiekis, .kainavnt, .sumkaina {
+.productName, .quantity, .unitPrice, .price {
   text-align: left;
   float: left;
   padding-bottom: 10px;
@@ -51,19 +51,19 @@ section {
   word-wrap: break-word;
 }
 ​
-.prodpav {
+.productName {
   width: 80px;
 }
 ​
-.kiekis {
+.quantity {
   width: 40px;
 }
 ​
-.kainavnt {
+.unitPrice {
   width: 55px;
 }
 ​
-.sumkaina {
+.price {
   width: 85px;
 }
 ​
