@@ -112,6 +112,12 @@ function getDropdownHtml(products){
     return selectHtml;
 }
 
+function updateRecipeTitle() {
+    chrome.storage.local.get("recipeTitle", function(obj) {
+        $('h1.title-pavadinimas').text(obj.recipeTitle);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     console.log("pradedam loadint..");
 
@@ -134,6 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (items.ingredientuSarasas !== undefined) {
             spinner.stop();
             populatePopupWithIngredients(items.ingredientuSarasas);
+            updateRecipeTitle();
         } else {
             chrome.storage.onChanged.addListener(function(changes, areaName) {
                 // HACK: checking if ingredient list was cleared or populated in eventPage.js
@@ -145,8 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Populated
                     spinner.stop();
                     populatePopupWithIngredients(changes.ingredientuSarasas.newValue);
-
-
+                    updateRecipeTitle();
                     // console.log(changes);
                 }
             });
