@@ -1,7 +1,89 @@
 ﻿var ingredientuSarasas = 'ingredientuSarasas';
+
+///
+//"ingredient": "Vištiena",
+//"products": [
+//{
+//    "category3": "Vištiena",
+//    "item_netto_weight": "",
+//    "name": "Vištienos rinkinys šeimai (filė kepsniams ir blauzd.be sąn.), 1 kg",
+//    "price": "4.29",
+//    "price_per_unit": "4.29",
+//    "unit": "kg",
+//    "url": "/produktai/vistienos-rinkinys-seimai-file-kepsniams-ir-blauzd-be-san-1-kg"
+//  }
+///
 function populatePopupWithIngredients(items){
+    
     console.log(items);
-    //alert("populatePopupWithIngredients");
+    var $resultsForm = $("#resultsForm");
+
+    $resultsForm.html("");
+
+
+    if (items && items.ingredientuSarasas) {
+        var produktuHtml = "";
+        for (var i in items.ingredientuSarasas) {
+            var item = items.ingredientuSarasas[i];
+            console.log(item);
+            var dropDownHtml = getDropdownHtml(item.products);
+            var produktoHtml = getProduktoHtml(item, i, dropDownHtml);
+            console.log(produktoHtml);
+            produktuHtml = produktuHtml.concat(produktoHtml);
+        }
+        $resultsForm.html(produktuHtml);
+    }
+    else {
+        console.error("ingredientuSarasas tuscias!");
+        alert("ingredientuSarasas tuscias!");
+    }
+
+    //$resultsForm.html(produktoHtml);
+}
+
+function getProduktoHtml(item, i, dropDownHtml){
+    var productTemplate = 
+ '<div class="product"  id="produktas{{Nr}}"> \
+<div class="checkbox-wrapper"> \
+<input type="checkbox" class="producto-checkbox" id="checkbox{{Nr}}" checked /> \
+<label for="checkbox{{Nr}}"></label> \
+</div> \
+<div class="productName inline"> \
+{{produktoPavadinimas}} \
+</div> \
+<div class="quantity inline"> \
+{{produktoKiekis}} \
+</div> \
+<a class="button-buy" href="#"></a> \
+<select class="produkto-dropdown" id="produkto{{Nr}}dropdown"> \
+{{produktoDropdownHtml}} \
+</select> \
+</div>';
+
+    var ingredientName = item.ingredient;
+    var ingredientKiekis = "TODO";
+    var produktoHtml = productTemplate.replace(/{{Nr}}/g, i);
+    produktoHtml = produktoHtml.replace(/{{produktoPavadinimas}}/g, ingredientName);
+    produktoHtml = produktoHtml.replace(/{{produktoPavadinimas}}/g, ingredientName);
+    produktoHtml = produktoHtml.replace(/{{produktoKiekis}}/g, ingredientKiekis);
+    produktoHtml = produktoHtml.replace(/{{produktoDropdownHtml}}/g, dropDownHtml);
+    return produktoHtml;
+}
+
+function getDropdownHtml(products){
+    var selectTemplate = '<option value="{{optionUrl}}" data-price="{{optionPrice}}">{{optionPrice}}€ {{optionText}}</option>';
+    var selectHtml = "";
+    for (var j in products) {
+        var product = products[j];
+        var productPrice = product.price;
+        var productName = product.name;
+        var productUrl = product.url;
+        var workingSelectTemplate = selectTemplate.replace(/{{optionPrice}}/g, productPrice);
+        workingSelectTemplate = workingSelectTemplate.replace(/{{optionUrl}}/g, productUrl);
+        workingSelectTemplate = workingSelectTemplate.replace(/{{optionText}}/g, productName);
+        selectHtml += workingSelectTemplate;
+    }
+    return selectHtml;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -10,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
     chrome.storage.local.get("ingredientuSarasas", function (items) {
         if (!items) {
             chrome.storage.onChanged.addListener(function (changes, areaName) {
+                console.log("onChanged suveike");
                 console.log(changes);
                 console.log(areaName);
                 items = changes;
@@ -18,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
         else {
+            console.log("Jau buvo local storage, tai tik paimam");
             populatePopupWithIngredients(items);
         }
     });
