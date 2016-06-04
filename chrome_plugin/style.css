@@ -17,12 +17,14 @@ body{
 display: inline-block;
 }
 
-footer, header {
+footer {
   width: 400px;
   height: 150px;
 }
 
 header {
+  height: 130px;
+  width: 400px;
   background-color: #deac00;
 }
 
@@ -32,11 +34,10 @@ footer {
 
 
 .section {
-  height: 300px;
+  height: 320px;
   width: 400px;
-  margin: 0;
-  margin-top: -20px;
-  margin-bottom: -20px;
+  padding: 12px 10px 30px 12px;
+  overflow-y:scroll;
 }
 ​
 ​
@@ -228,7 +229,7 @@ h3 {
 
 .brighter-bg {
   background-color: #e5c32e;
-  height: 150px;
+  height: 130px;
   width: 90px;
   position: absolute;
   top: 0px;
