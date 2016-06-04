@@ -15,6 +15,7 @@
   "permissions": [
     "activeTab",
     "https://www.google-analytics.com/",
-    "storage"
+    "storage",
+    "tabs"
   ]
 }

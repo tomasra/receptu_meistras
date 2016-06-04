@@ -1,7 +1,25 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
     var checkPageButton = document.getElementById('checkPage');
+
     chrome.browserAction.setBadgeText({ text: "5.3€" });
 
+    //Gaunam koks url:
+    chrome.tabs.getCurrent(function (tab) {
+        var fullUrl = tab.url;
+        alert("asdasd");
+        var tukstReceptuUrl = "http://www.delfi.lt/1000receptu/receptai/";
+        alert(fullUrl.substring(0, tukstReceptuUrl.length));
+        if (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl) {
+            alert("yra!");
+        }
+        else {
+            alert("nera!");
+        }
+    }
+    );
+
+    //var receptuLangas = $(".recipe-ingredients");
+    //alert(receptuLangas);
     checkPageButton.addEventListener('click', function () {
 
         chrome.tabs.getSelected(null, function (tab) {
