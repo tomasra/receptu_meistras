@@ -36,8 +36,15 @@
     <Content Include="graphics\receptumeistras-icon-chromestore-128.png" />
     <Content Include="manifest.json" />
     <Content Include="popup.html" />
+    <Content Include="rm-logo.svg" />
+    <Content Include="style.css" />
+    <Content Include="tick.png" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="scripts\eventPage.js" />
+    <Compile Include="scripts\content_script.js" />
+    <Compile Include="scripts\emerge.js" />
+    <Compile Include="scripts\hover.js" />
     <Compile Include="scripts\jquery-2.2.4.min.js" />
     <Compile Include="scripts\popup.js" />
   </ItemGroup>
