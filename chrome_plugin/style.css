@@ -255,6 +255,11 @@ h3 {
   left: 205px;
 }
 
+.euros {
+  font-weight: 400;
+  font-size: 54px;
+}
+
 .cents {
   color: #997a23;
   font-size: 21pt;
