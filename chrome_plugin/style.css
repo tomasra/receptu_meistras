@@ -40,7 +40,7 @@ footer {
 .section {
   height: 320px;
   width: 400px;
-  margin: 0;
+  padding: 20px 15px 50px 30px;
 }
 ​
 ​
@@ -48,14 +48,13 @@ footer {
   text-align: left;
   margin-left: 5px;
   word-wrap: break-word;
-
 }
 ​
 .productName {
-  width: 20px;
-  padding-left: 15px;
-  text-indent: -15px;
+  width: 135px;
+  height: 50px;
   text-overflow: ellipsis;
+  background-color: red;
 }
 ​
 .quantity {
@@ -69,15 +68,12 @@ footer {
 .price {
   width: 85px;
 }
-​
-#checkPage {
-  float: right;
-  background-color: red;
-}
+
 
 .checkbox-wrapper {
   position: relative;
-  left: 5px;
+  left: 0px;
+  top: 5px;
   display: block;
   width: 25px;
   height: 25px;
