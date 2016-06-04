@@ -23,12 +23,17 @@ function getJsonFromRecipyTable(receptu_langas, url) {
         var ingredientas = {};
         ingredientas.amount = $(item).find(".amount").html();
         ingredientas.ingredient = $(item).find(".ingredient a").html();
-        
-        var urlWithGeneralName = $(item).find(".ingredient a").attr("href");
-        var urls = urlWithGeneralName.split("/");
-        var generalName = urls.pop();
-        ingredientas.general_name = generalName;
-        jsonObjektas.ingredients.push(ingredientas);
+        // Special cases with ingredient lists consisting of multiple parts
+        // http://www.delfi.lt/1000receptu/receptai/apsilaizysite-pirstelius-chacapuri-su-vistiena.d?id=71449664
+        if ((ingredientas.amount !== undefined && ingredientas.amount.trim().length > 0)
+        || (ingredientas.ingredient !== undefined && ingredientas.ingredient.trim().length > 0)) {
+            console.log(ingredientas);
+            var urlWithGeneralName = $(item).find(".ingredient a").attr("href");
+            var urls = urlWithGeneralName.split("/");
+            var generalName = urls.pop();
+            ingredientas.general_name = generalName;
+            jsonObjektas.ingredients.push(ingredientas);
+        }
     });
     //var jsonString = JSON.stringify(jsonObjektas);
     return jsonObjektas;
