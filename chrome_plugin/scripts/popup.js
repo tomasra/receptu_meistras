@@ -7,24 +7,32 @@ function populatePopupWithIngredients(items){
 document.addEventListener('DOMContentLoaded', function () {
     console.log("pradedam loadint..");
     
-    chrome.storage.local.get("ingredientuSarasas", function (items) {
-        if (!items) {
-            chrome.storage.onChanged.addListener(function (changes, areaName) {
-                console.log(changes);
-                console.log(areaName);
-                items = changes;
+    var spinner = new Spinner({
+        scale: 2.0,
+    }).spin();
+    $('.section').append(spinner.el);
 
-                populatePopupWithIngredients(changes);
+    chrome.storage.local.get("ingredientuSarasas", function(items) {
+        // console.log(items);
+        if (items.ingredientuSarasas !== undefined) {
+            spinner.stop();
+            populatePopupWithIngredients(items);
+        } else {
+            chrome.storage.onChanged.addListener(function(changes, areaName) {
+                // HACK: checking if ingredient list was cleared or populated in eventPage.js
+                if (changes.ingredientuSarasas.newValue === undefined) {
+                    // Cleared - need to wait for data
+                    spinner.spin();
+                    // console.log(changes);
+                } else {
+                    // Populated
+                    spinner.stop();
+                    populatePopupWithIngredients(changes.ingredientuSarasas.newValue);
+                    // console.log(changes);
+                }
             });
         }
-        else {
-            populatePopupWithIngredients(items);
-        }
-    });
-
-
-
-    
+    })
 
     var checkPageButton = document.getElementById('checkPage');
     checkPageButton.addEventListener('click', function () {
@@ -50,12 +58,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
     });
-
-
-
-
-
-
 });
-
-

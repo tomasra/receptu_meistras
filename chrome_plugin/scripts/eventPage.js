@@ -1,5 +1,8 @@
-﻿alert("eventPage loadina!");
+﻿// alert("eventPage loadina!");
 function checkWebpage() {
+    // Clear storage
+    chrome.storage.local.remove('ingredientuSarasas');
+
     //paziurim ar tai 1000 receptu puslapis:
     chrome.tabs.getSelected(null, function (tab) {
         var fullUrl = tab.url;
@@ -30,7 +33,6 @@ function checkWebpage() {
                         contentType: "application/json; charset=utf-8",
                         success: function (data){
                             console.log(data);
-                            //alert(data);
                             //Gavus duomenis, cia galime deti i chrome localStorage:
                             chrome.storage.local.set({ ingredientuSarasas : data  });
 
@@ -45,7 +47,7 @@ function checkWebpage() {
                         error: function (jq, status, message) {
                             var msg = '$.ajax post error when calling http://tomasra.com:5000/match : ' + status + ' - Message: ' + message;
                             console.error(msg);
-                            alert(msg);
+                            // alert(msg);
                         }
                     });
 
@@ -69,8 +71,13 @@ chrome.tabs.onActivated.addListener(function (activeInfo) {
 
 //Kai paklikini ant linko, (onActivated nesuveikia)
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-    console.log("onUpdated loadint..");
-    checkWebpage();
+    // Clear storage
+    chrome.storage.local.remove('ingredientuSarasas');
+    
+    if (changeInfo.status == 'complete') {
+        console.log("onUpdated loadint..");
+        checkWebpage();
+    }
 });
 
 chrome.tabs.onCreated.addListener(function (tabId, changeInfo, tab) {
