@@ -26,7 +26,7 @@ def read_products(path):
 def match_products(ingredients, limit=5):
     products = read_products('../data/barbora_20160603.csv')
     all_matches = []
-    for ingredient in ingredients:
+    for ingredient, amount in ingredients:
         product_ratios = []
         for product in products:
             name_ratio = fuzz.partial_ratio(ingredient, product['name'])
@@ -41,6 +41,7 @@ def match_products(ingredients, limit=5):
         # all_matches.append((ingredient, ingr_products))
         all_matches.append({
             'ingredient': ingredient,
+            'amount': amount,
             'products': ingr_products,
         })
     # 2-tuple list: (ingredient_name, [matched_products])
@@ -48,7 +49,9 @@ def match_products(ingredients, limit=5):
 
 @app.route('/match', methods=['POST'])
 def match():
-    ingredients = [item['ingredient'] for item in request.json['ingredients']]
+    ingredients = [
+        (item['ingredient'], item['amount'])
+        for item in request.json['ingredients']]
     matches = match_products(ingredients)
     return jsonify(matches)
 
