@@ -1,0 +1,402 @@
+[
+  {
+    "ingredient": "Vištiena",
+    "products": [
+      {
+        "category3": "Vištiena",
+        "item_netto_weight": "",
+        "name": "Vištienos rinkinys šeimai (filė kepsniams ir blauzd.be sąn.), 1 kg",
+        "price": "4.29",
+        "price_per_unit": "4.29",
+        "unit": "kg",
+        "url": "/produktai/vistienos-rinkinys-seimai-file-kepsniams-ir-blauzd-be-san-1-kg"
+      },
+      {
+        "category3": "Vištiena",
+        "item_netto_weight": "",
+        "name": "Vištienos rinkinys šeimai (šlaun. mėsa ir sparnų peteliai), 1 kg",
+        "price": "4.29",
+        "price_per_unit": "4.29",
+        "unit": "kg",
+        "url": "/produktai/vistienos-rinkinys-seimai-slaun-mesa-ir-sparnu-peteliai-1-kg"
+      },
+      {
+        "category3": "Malta paukštiena",
+        "item_netto_weight": "450",
+        "name": "Vištienos faršas VP, 450 g",
+        "price": "1.33",
+        "price_per_unit": "2.96",
+        "unit": "kg",
+        "url": "/produktai/vistienos-farsas-vp-450-g"
+      },
+      {
+        "category3": "Malta paukštiena",
+        "item_netto_weight": "",
+        "name": "Vištienos filė faršas VP, 450 g",
+        "price": "2.29",
+        "price_per_unit": "5.09",
+        "unit": "kg",
+        "url": "/produktai/vistienos-file-farsas-vp-450-g"
+      },
+      {
+        "category3": "Malta paukštiena",
+        "item_netto_weight": "",
+        "name": "Atšaldyta malta vištiena, 1 kg",
+        "price": "3.32",
+        "price_per_unit": "3.32",
+        "unit": "kg",
+        "url": "/produktai/atsaldyta-malta-vistiena-1-kg"
+      }
+    ]
+  },
+  {
+    "ingredient": "Svogūnai",
+    "products": [
+      {
+        "category3": "Svogūnai, porai ir česnakai",
+        "item_netto_weight": "",
+        "name": "Svogūnai, 1 kg",
+        "price": "0.54",
+        "price_per_unit": "0.54",
+        "unit": "kg",
+        "url": "/produktai/svogunai-1-kg"
+      },
+      {
+        "category3": "Svogūnai, porai ir česnakai",
+        "item_netto_weight": "500",
+        "name": "Svogūnai ŠALOTAI MOTTE, 500 g",
+        "price": "1.45",
+        "price_per_unit": "2.90",
+        "unit": "kg",
+        "url": "/produktai/svogunai-salotai-motte-500-g"
+      },
+      {
+        "category3": "Svogūnai, porai ir česnakai",
+        "item_netto_weight": "",
+        "name": "Rausvieji svogūnai, 1 kg",
+        "price": "0.99",
+        "price_per_unit": "0.99",
+        "unit": "kg",
+        "url": "/produktai/rausvieji-svogunai-1-kg"
+      },
+      {
+        "category3": "Svogūnai, porai ir česnakai",
+        "item_netto_weight": "",
+        "name": "Saldieji svogūnai GRANO, 1 kg",
+        "price": "1.98",
+        "price_per_unit": "1.98",
+        "unit": "kg",
+        "url": "/produktai/saldieji-svogunai-grano-1-kg"
+      },
+      {
+        "category3": "Svogūnai, porai ir česnakai",
+        "item_netto_weight": "500",
+        "name": "Ekologiški svogūnai (fas.), 500 g",
+        "price": "1.19",
+        "price_per_unit": "2.38",
+        "unit": "kg",
+        "url": "/produktai/ekologiski-svogunai-fas-500-g"
+      }
+    ]
+  },
+  {
+    "ingredient": "Miltai",
+    "products": [
+      {
+        "category3": "Kvietiniai miltai",
+        "item_netto_weight": "1000",
+        "name": "Miltai DIVELLA picoms kepti, 1 kg",
+        "price": "0.99",
+        "price_per_unit": "0.99",
+        "unit": "kg",
+        "url": "/produktai/miltai-divella-picoms-kepti-1-kg"
+      },
+      {
+        "category3": "Kvietiniai miltai",
+        "item_netto_weight": "2000",
+        "name": "Kvietiniai miltai MALSENA, a. r., 550 D, 2 kg",
+        "price": "1.40",
+        "price_per_unit": "0.70",
+        "unit": "kg",
+        "url": "/produktai/kvietiniai-miltai-malsena-a-r-550-d-2-kg"
+      },
+      {
+        "category3": "Kvietiniai miltai",
+        "item_netto_weight": "1750",
+        "name": "KARALIŠKI kvietiniai miltai, a. r., 405 D, 1,75 kg",
+        "price": "1.45",
+        "price_per_unit": "0.83",
+        "unit": "kg",
+        "url": "/produktai/karaliski-kvietiniai-miltai-a-r-405-d-1-75-kg"
+      },
+      {
+        "category3": "Kvietiniai miltai",
+        "item_netto_weight": "1000",
+        "name": "Kvietiniai miltai, a. r., 550 D, 1 kg",
+        "price": "0.75",
+        "price_per_unit": "0.75",
+        "unit": "kg",
+        "url": "/produktai/kvietiniai-miltai-a-r-550-d-1-kg"
+      },
+      {
+        "category3": "Kvietiniai miltai",
+        "item_netto_weight": "1000",
+        "name": "KARALIŠKI kvietiniai miltai MALSENA, a. r., 405 D, 1 kg",
+        "price": "0.89",
+        "price_per_unit": "0.89",
+        "unit": "kg",
+        "url": "/produktai/karaliski-kvietiniai-miltai-malsena-a-r-405-d-1-kg"
+      }
+    ]
+  },
+  {
+    "ingredient": "Grietinėlė",
+    "products": [
+      {
+        "category3": "Grietinėlė",
+        "item_netto_weight": "100",
+        "name": "Grietinėlė PRESIDENT kavai, 10% rieb. (10 x 10 g), 100 g",
+        "price": "0.41",
+        "price_per_unit": "4.10",
+        "unit": "kg",
+        "url": "/produktai/grietinele-president-kavai-10-proc-rieb-10-x-10-g-100-g"
+      },
+      {
+        "category3": "Grietinėlė",
+        "item_netto_weight": "150",
+        "name": "Grietinėlė MŪ kavai, 10% rieb., 150 ml",
+        "price": "0.66",
+        "price_per_unit": "4.40",
+        "unit": "l",
+        "url": "/produktai/grietinele-mu-kavai-10-proc-rieb-150-ml"
+      },
+      {
+        "category3": "Grietinėlė",
+        "item_netto_weight": "200",
+        "name": "UAT Grietinėlė FARM MILK, 30% rieb., 200 ml",
+        "price": "0.68",
+        "price_per_unit": "3.40",
+        "unit": "l",
+        "url": "/produktai/uat-grietinele-farm-milk-30-proc-rieb-200-ml"
+      },
+      {
+        "category3": "Grietinėlė",
+        "item_netto_weight": "200",
+        "name": "Grietinėlė FARM MILK, 30% rieb., 200 ml",
+        "price": "0.61",
+        "price_per_unit": "3.05",
+        "unit": "l",
+        "url": "/produktai/grietinele-farm-milk-30-proc-rieb-200-ml"
+      },
+      {
+        "category3": "Grietinėlė",
+        "item_netto_weight": "420",
+        "name": "Pasterizuota plakamoji grietinėlė SAULĖS PIENAS, 35% rieb., 420 g",
+        "price": "1.37",
+        "price_per_unit": "3.26",
+        "unit": "kg",
+        "url": "/produktai/pasterizuota-plakamoji-grietinele-saules-pienas-35-proc-rieb-420-g"
+      }
+    ]
+  },
+  {
+    "ingredient": "Druska",
+    "products": [
+      {
+        "category3": "Druska",
+        "item_netto_weight": "1000",
+        "name": "Druska IMLITEX, 1 kg",
+        "price": "0.34",
+        "price_per_unit": "0.34",
+        "unit": "kg",
+        "url": "/produktai/druska-imlitex-1-kg"
+      },
+      {
+        "category3": "Druska",
+        "item_netto_weight": "1000",
+        "name": "Smulki valg jūros druska SEL DE MER, 1 kg",
+        "price": "0.52",
+        "price_per_unit": "0.52",
+        "unit": "kg",
+        "url": "/produktai/smulki-valg-juros-druska-sel-de-mer-1-kg"
+      },
+      {
+        "category3": "Druska",
+        "item_netto_weight": "500",
+        "name": "Smulki valgomoji jūros druska SEL DE MER, 500 g",
+        "price": "0.90",
+        "price_per_unit": "1.80",
+        "unit": "kg",
+        "url": "/produktai/smulki-valgomoji-juros-druska-sel-de-mer-500-g"
+      },
+      {
+        "category3": "Druska",
+        "item_netto_weight": "500",
+        "name": "Smulki valgomoji jūros druska DROGA su jodu, 500 g",
+        "price": "0.52",
+        "price_per_unit": "1.04",
+        "unit": "kg",
+        "url": "/produktai/smulki-valgomoji-juros-druska-droga-su-jodu-500-g"
+      },
+      {
+        "category3": "Druska",
+        "item_netto_weight": "500",
+        "name": "Smulki Himalajų druska IMLITEX, 500 g",
+        "price": "0.87",
+        "price_per_unit": "1.74",
+        "unit": "kg",
+        "url": "/produktai/smulki-himalaju-druska-imlitex-500-g"
+      }
+    ]
+  },
+  {
+    "ingredient": "Pipirai",
+    "products": [
+      {
+        "category3": "Vytinti mėsos gaminiai",
+        "item_netto_weight": "40",
+        "name": "Vytinta jautiena su slyvomis ir čili pipirais, 40 g",
+        "price": "2.02",
+        "price_per_unit": "50.50",
+        "unit": "kg",
+        "url": "/produktai/vytinta-jautiena-su-slyvomis-ir-cili-pipirais-40-g"
+      },
+      {
+        "category3": "Tunai ir jų gaminiai",
+        "item_netto_weight": "142",
+        "name": "CALVO Tuno gab.su jalapeno pipirais saulėgrąžų aliej.sumušt., 142 g",
+        "price": "1.78",
+        "price_per_unit": "12.54",
+        "unit": "kg",
+        "url": "/produktai/calvo-tuno-gab-su-jalapeno-pipirais-saulegrazu-aliej-sumust-142-g"
+      },
+      {
+        "category3": "Grynieji prieskoniai",
+        "item_netto_weight": "70",
+        "name": "Juodieji pipirai SANTA MARIA TELLICHERRY PEPPER malūnėlyje, 70 g",
+        "price": "5.46",
+        "price_per_unit": "78.00",
+        "unit": "kg",
+        "url": "/produktai/juodieji-pipirai-santa-maria-tellicherry-pepper-malunelyje-70-g"
+      },
+      {
+        "category3": "Grynieji prieskoniai",
+        "item_netto_weight": "70",
+        "name": "Malti juodieji pipirai TASTY HOME, 70 g",
+        "price": "1.49",
+        "price_per_unit": "21.29",
+        "unit": "kg",
+        "url": "/produktai/malti-juodieji-pipirai-tasty-home-70-g"
+      },
+      {
+        "category3": "Grynieji prieskoniai",
+        "item_netto_weight": "70",
+        "name": "Juodieji pipirai (žirneliais) TASTY HOME, 70 g",
+        "price": "1.99",
+        "price_per_unit": "28.43",
+        "unit": "kg",
+        "url": "/produktai/juodieji-pipirai-zirneliais-tasty-home-70-g"
+      }
+    ]
+  },
+  {
+    "ingredient": "Aitrioji paprika",
+    "products": [
+      {
+        "category3": "Grynieji prieskoniai",
+        "item_netto_weight": "32",
+        "name": "Aitriųjų paprikų dribsniai SANTA MARIA, 32 g",
+        "price": "1.68",
+        "price_per_unit": "52.50",
+        "unit": "kg",
+        "url": "/produktai/aitriuju-papriku-dribsniai-santa-maria-32-g"
+      },
+      {
+        "category3": "Grynieji prieskoniai",
+        "item_netto_weight": "32",
+        "name": "Aitriųjų paprikų dribsniai SANTA MARIA, 32 g",
+        "price": "1.68",
+        "price_per_unit": "52.50",
+        "unit": "kg",
+        "url": "/produktai/aitriuju-papriku-dribsniai-santa-maria-32-g"
+      },
+      {
+        "category3": "Grynieji prieskoniai",
+        "item_netto_weight": "32",
+        "name": "Aitriųjų paprikų dribsniai SANTA MARIA, 32 g",
+        "price": "1.68",
+        "price_per_unit": "52.50",
+        "unit": "kg",
+        "url": "/produktai/aitriuju-papriku-dribsniai-santa-maria-32-g"
+      },
+      {
+        "category3": "Kiti padažai",
+        "item_netto_weight": "",
+        "name": "Aitriųjų paprikų padažas KUHNE, 250 ml",
+        "price": "1.88",
+        "price_per_unit": "7.52",
+        "unit": "l",
+        "url": "/produktai/aitriuju-papriku-padazas-kuhne-250-ml"
+      },
+      {
+        "category3": "Kiti padažai",
+        "item_netto_weight": "290",
+        "name": "Aitriųjų paprikų kepsnių padažas HEINZ, 290 g",
+        "price": "2.21",
+        "price_per_unit": "7.62",
+        "unit": "kg",
+        "url": "/produktai/aitriuju-papriku-kepsniu-padazas-heinz-290-g"
+      }
+    ]
+  },
+  {
+    "ingredient": "Kalendros",
+    "products": [
+      {
+        "category3": "Prieskoninės daržovės ir žolelės",
+        "item_netto_weight": "20",
+        "name": "Kalendros TASTY HOME (indelyje), 15 g",
+        "price": "0.77",
+        "price_per_unit": "51.33",
+        "unit": "kg",
+        "url": "/produktai/kalendros-tasty-home-indelyje-15-g"
+      },
+      {
+        "category3": "Kiauliena",
+        "item_netto_weight": "",
+        "name": "Atšaldytas kiaulienos kumpis be kaulo, 1 kg",
+        "price": "3.62",
+        "price_per_unit": "3.62",
+        "unit": "kg",
+        "url": "/produktai/atsaldytas-kiaulienos-kumpis-be-kaulo-1-kg-169854"
+      },
+      {
+        "category3": "Kiauliena",
+        "item_netto_weight": "",
+        "name": "Atšaldyta kiaulienos sprandinė be kaulų, 1 kg",
+        "price": "4.63",
+        "price_per_unit": "4.63",
+        "unit": "kg",
+        "url": "/produktai/atsaldyta-kiaulienos-sprandine-be-kaulu-1-kg-169809"
+      },
+      {
+        "category3": "Kiauliena",
+        "item_netto_weight": "",
+        "name": "Atšaldyta kiaulienos nugarinė be kaulų, 1 kg",
+        "price": "5.50",
+        "price_per_unit": "5.50",
+        "unit": "kg",
+        "url": "/produktai/atsaldyta-kiaulienos-nugarine-be-kaulu-1-kg-612393"
+      },
+      {
+        "category3": "Kiauliena",
+        "item_netto_weight": "",
+        "name": "Atšaldyta kiaulienos mentė be kaulų, 1 kg",
+        "price": "3.62",
+        "price_per_unit": "3.62",
+        "unit": "kg",
+        "url": "/produktai/atsaldyta-kiaulienos-mente-be-kaulu-1-kg"
+      }
+    ]
+  }
+]
