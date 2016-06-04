@@ -9,7 +9,7 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 
-PRODUCT_ATTRIBUTES = ['name', 'price', 'unit', 'price_per_unit', 'item_netto_weight', 'category3']
+PRODUCT_ATTRIBUTES = ['name', 'price', 'unit', 'price_per_unit', 'item_netto_weight', 'category3', 'url']
 
 
 def read_products(path):
@@ -37,7 +37,12 @@ def match_products(ingredients, limit=5):
             ))
         # Order by sum of ratios
         ingr_matches = sorted(product_ratios, key=lambda p: sum(p[1]), reverse=True)[:limit]
-        all_matches.append((ingredient, ingr_matches))
+        ingr_products = [match[0] for match in ingr_matches]
+        # all_matches.append((ingredient, ingr_products))
+        all_matches.append({
+            'ingredient': ingredient,
+            'products': ingr_products,
+        })
     # 2-tuple list: (ingredient_name, [matched_products])
     return all_matches
 
@@ -50,5 +55,4 @@ def match():
 if __name__ == "__main__":
     # match_products('Druska')
     # import ipdb; ipdb.set_trace()
-    # pass
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
