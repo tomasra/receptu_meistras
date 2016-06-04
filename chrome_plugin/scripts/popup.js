@@ -57,7 +57,7 @@ function getProduktoHtml(item, i, dropDownHtml){
 <select class="produkto-dropdown" id="produkto{{Nr}}dropdown"> \
 {{produktoDropdownHtml}} \
 </select> \
-<a class="button-buy" href="#"></a> \
+<a class="button-buy" id="buttonBuy{{Nr}}" href="#" data-nr="{{Nr}}" target="_blank"></a> \
 </div>';
 
     var ingredientName = item.ingredient;
@@ -88,7 +88,11 @@ function getDropdownHtml(products){
 
 document.addEventListener('DOMContentLoaded', function () {
     console.log("pradedam loadint..");
-    
+
+    $("#resultsForm").on("click", "a.button-buy", function () {
+        $(this).slideToggle();
+    });
+
     var spinner = new Spinner({
         scale: 2.0,
     }).spin();
@@ -110,6 +114,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Populated
                     spinner.stop();
                     populatePopupWithIngredients(changes.ingredientuSarasas.newValue);
+
+
                     // console.log(changes);
                 }
             });
