@@ -64,10 +64,10 @@ function checkWebpage() {
 };
 
 
-chrome.tabs.onActivated.addListener(function (activeInfo) {
-    console.log("onActivated loadint..");
-    checkWebpage();
-}, false);
+//chrome.tabs.onActivated.addListener(function (activeInfo) {
+//    console.log("onActivated loadint..");
+//    checkWebpage();
+//}, false);
 
 //Kai paklikini ant linko, (onActivated nesuveikia)
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
