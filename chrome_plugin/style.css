@@ -52,7 +52,13 @@ footer {
   margin-left: 5px;
   word-wrap: break-word;
 }
-​
+
+select{
+    max-width: 375px;
+    background-color: #e5c32e;
+    border:1px solid #deac00;
+    Down:10px;
+  }​
 .productName {
   width: 135px;
   height: 50px;
@@ -127,7 +133,8 @@ footer {
 [type="checkbox"]:checked + label:after {
   content: url(tick.png);
   position: absolute;
-  top: 4px; left: 2px;
+  top: 4px;
+   left: 2px;
   color: #333;
   transition: all .2s;
 }
