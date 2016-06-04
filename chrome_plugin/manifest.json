@@ -29,8 +29,13 @@
       ],
       "js": [ "scripts/jquery-2.2.4.min.js", "scripts/content_script.js" ],
       "run_at": "document_end" // pay attention to this line
-    }
-  ],
+    },
+      {"matches": [
+        "https://www.barbora.lt/produktai/*"
+      ],
+      "js": [ "scripts/jquery-2.2.4.min.js", "scripts/context_barbora.js" ],
+      "run_at": "document_end" // pay attention to this line
+    }],
   "background": {
     "scripts": [ "scripts/jquery-2.2.4.min.js", "scripts/eventPage.js" ],
     "persistent": true
