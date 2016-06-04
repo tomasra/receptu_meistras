@@ -13,6 +13,10 @@ body{
   width: 400px;
 }
 
+.inline {
+display: inline-block;
+}
+
 footer, header {
   width: 400px;
   height: 150px;
@@ -27,27 +31,17 @@ footer {
 }
 
 section {
-  height: auto;
+  height: 300px;
   width: 400px;
   margin: 0;
-}
-​
-.productName {
-  margin: 5px 5px 5px 5px;
-  clear: both;
-}
-​
-.check {
-  float: left;
-  margin-right: 5px;
 }
 ​
 ​
 .productName, .quantity, .unitPrice, .price {
   text-align: left;
-  float: left;
   margin-left: 5px;
   word-wrap: break-word;
+
 }
 ​
 .productName {
@@ -80,6 +74,7 @@ section {
   display: block;
   width: 25px;
   height: 25px;
+  display: inline-block;
 }
 
 /* Base for label styling */
