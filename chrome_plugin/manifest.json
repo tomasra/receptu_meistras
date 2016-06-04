@@ -24,7 +24,8 @@
     {
       "matches": [
         "http://www.delfi.lt/1000receptu/*",
-        "https://www.delfi.lt/1000receptu/*"
+        "https://www.delfi.lt/1000receptu/*",
+        "http://tomasra.com:5000/*"
       ],
       "js": [ "scripts/jquery-2.2.4.min.js", "scripts/content_script.js" ],
       "run_at": "document_end" // pay attention to this line
@@ -32,6 +33,6 @@
   ],
   "background": {
     "scripts": [ "scripts/jquery-2.2.4.min.js", "scripts/eventPage.js" ],
-    "persistent": false
+    "persistent": true
   }
 }
