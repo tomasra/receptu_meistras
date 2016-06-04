@@ -38,7 +38,11 @@ def match_products(ingredients, limit=5):
         # Order by sum of ratios
         ingr_matches = sorted(product_ratios, key=lambda p: sum(p[1]), reverse=True)[:limit]
         ingr_products = [match[0] for match in ingr_matches]
-        all_matches.append((ingredient, ingr_products))
+        # all_matches.append((ingredient, ingr_products))
+        all_matches.append({
+            'ingredient': ingredient,
+            'products': ingr_products,
+        })
     # 2-tuple list: (ingredient_name, [matched_products])
     return all_matches
 

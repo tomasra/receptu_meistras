@@ -1,7 +1,7 @@
 [
-  [
-    "Vištiena",
-    [
+  {
+    "ingredient": "Vištiena",
+    "products": [
       {
         "category3": "Vištiena",
         "item_netto_weight": "",
@@ -48,10 +48,10 @@
         "url": "/produktai/atsaldyta-malta-vistiena-1-kg"
       }
     ]
-  ],
-  [
-    "Svogūnai",
-    [
+  },
+  {
+    "ingredient": "Svogūnai",
+    "products": [
       {
         "category3": "Svogūnai, porai ir česnakai",
         "item_netto_weight": "",
@@ -98,10 +98,10 @@
         "url": "/produktai/ekologiski-svogunai-fas-500-g"
       }
     ]
-  ],
-  [
-    "Miltai",
-    [
+  },
+  {
+    "ingredient": "Miltai",
+    "products": [
       {
         "category3": "Kvietiniai miltai",
         "item_netto_weight": "1000",
@@ -148,10 +148,10 @@
         "url": "/produktai/karaliski-kvietiniai-miltai-malsena-a-r-405-d-1-kg"
       }
     ]
-  ],
-  [
-    "Grietinėlė",
-    [
+  },
+  {
+    "ingredient": "Grietinėlė",
+    "products": [
       {
         "category3": "Grietinėlė",
         "item_netto_weight": "100",
@@ -198,10 +198,10 @@
         "url": "/produktai/pasterizuota-plakamoji-grietinele-saules-pienas-35-proc-rieb-420-g"
       }
     ]
-  ],
-  [
-    "Druska",
-    [
+  },
+  {
+    "ingredient": "Druska",
+    "products": [
       {
         "category3": "Druska",
         "item_netto_weight": "1000",
@@ -248,10 +248,10 @@
         "url": "/produktai/smulki-himalaju-druska-imlitex-500-g"
       }
     ]
-  ],
-  [
-    "Pipirai",
-    [
+  },
+  {
+    "ingredient": "Pipirai",
+    "products": [
       {
         "category3": "Vytinti mėsos gaminiai",
         "item_netto_weight": "40",
@@ -298,10 +298,10 @@
         "url": "/produktai/juodieji-pipirai-zirneliais-tasty-home-70-g"
       }
     ]
-  ],
-  [
-    "Aitrioji paprika",
-    [
+  },
+  {
+    "ingredient": "Aitrioji paprika",
+    "products": [
       {
         "category3": "Grynieji prieskoniai",
         "item_netto_weight": "32",
@@ -348,10 +348,10 @@
         "url": "/produktai/aitriuju-papriku-kepsniu-padazas-heinz-290-g"
       }
     ]
-  ],
-  [
-    "Kalendros",
-    [
+  },
+  {
+    "ingredient": "Kalendros",
+    "products": [
       {
         "category3": "Prieskoninės daržovės ir žolelės",
         "item_netto_weight": "20",
@@ -398,5 +398,5 @@
         "url": "/produktai/atsaldyta-kiaulienos-mente-be-kaulu-1-kg"
       }
     ]
-  ]
+  }
 ]
