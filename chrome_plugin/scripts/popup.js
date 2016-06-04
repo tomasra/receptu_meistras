@@ -53,10 +53,10 @@ function getProduktoHtml(item, i, dropDownHtml){
 <div class="quantity inline"> \
 {{produktoKiekis}} \
 </div> \
-<a class="button-buy" href="#"></a> \
 <select class="produkto-dropdown" id="produkto{{Nr}}dropdown"> \
 {{produktoDropdownHtml}} \
 </select> \
+<a class="button-buy" href="#"></a> \
 </div>';
 
     var ingredientName = item.ingredient;
