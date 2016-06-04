@@ -54,7 +54,7 @@ footer {
 }
 
 select{
-    max-width: 375px;
+    width: 315px;
     background-color: #e5c32e;
     border:1px solid #deac00;
     Down:10px;
@@ -308,4 +308,18 @@ h3 {
     left: 3px;
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABKklEQVRIic3TIU/DUBQF4C+wEMQEAoUiiGVBTqNZQlAIDIZgSHBY/gcCRZAI9CQJ/ACCIEFAgFkEEDIQbBmiJZSu7bq2gpPc5L7m9pxz330XhpEYoKViDGNxUiV5Dbth3sYGNtEPoyzOo4cFfBrtqEz0piMC71hU7QyO4x+a+KrI/ZvgVkZwWpHAQVpbLcFzLUP+hHqaAHRKCmxnkcNKCfIrTI0TgMsC5AOs5iGHvQICnbzuZ3AzIfkDGnGiWob75TDfx8UYQ33c4SOP+zqe/Q4szUQuJP28hPkw72KnAO+tjK7n8KLcHhz9kCVN/BVbeCzg/P+giTPBsuWZwUT1s7j3907Xi9YnzaAheElRtDMEMuuTBLqCQUdxnSEwaT1YE6x+D4fGL1tq/Td8g9Y0zi2NVAAAAABJRU5ErkJggg==") no-repeat left center transparent;
     background-size: 100% 100%;
+}
+
+.header {
+    position:absolute; top:0px; left:0px;  right:0px;overflow:hidden;
+    /*height:200px;*/
+}
+
+.footer {
+    position:absolute; bottom:0px;left:0px; right:0px; overflow:hidden;
+     /*height:200px;*/ 
+}
+.main-content {
+    position:absolute;  left:0px; right:0px; overflow:auto;
+    top:130px; bottom:130px;
 }
