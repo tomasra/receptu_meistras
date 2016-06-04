@@ -5,7 +5,7 @@ function checkWebpage() {
         var fullUrl = tab.url;
         var tukstReceptuUrl = "http://www.delfi.lt/1000receptu/receptai/";
         if (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl) {
-            chrome.browserAction.setBadgeText({ text: "5.3€" });
+                                chrome.browserAction.setBadgeText({ text: "!" });
 
             // Send a request to the content script.
             chrome.tabs.sendRequest(tab.id, { action: "getDOM" }, function (response) {
@@ -16,7 +16,10 @@ function checkWebpage() {
                     console.log(jsonObjektas);
                     var jsonString = JSON.stringify(jsonObjektas);
                     console.log(jsonString);
-                //cia reikia callinti tomo scripta!
+                    
+                    //Cia reikia gauti popup contexta:
+
+                    //cia reikia callinti tomo scripta!
                     $.ajax({
                         type: "post",
                         url: "http://tomasra.com:5000/match",
@@ -28,7 +31,8 @@ function checkWebpage() {
                             alert(data);
                             //Gavus duomenis, cia galime pradeti pildyti lentele.
 
-                            //1. Ja reikia pasiekti
+                            //1. Lentele gyvena popup.html
+
                             //chrome.tabs.sendRequest(tab.id, { action: "getDOM" }, function (response) {
                             //});
 
@@ -40,6 +44,8 @@ function checkWebpage() {
                             alert(msg);
                         }
                     });
+
+                //Isvalyti lentele is popup.html, updatinti kad ten rodytu loading...
                 //http://tomasra.com:5000/match
                 }
             });

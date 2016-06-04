@@ -19,6 +19,18 @@
             f.submit();
         });
     }, false);
+    
+    chrome.browserAction.getBadgeText({}, function (badgeText) {
+        if (badgeText) {
+
+        }
+    });
+
+
+
+
+
+
 });
 
 
