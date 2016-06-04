@@ -186,6 +186,11 @@ h1 {
   top: 40px;
   left: 45px;
   color: white;
+  text-transform: lowercase;
+}
+
+h1::first-letter {
+  text-transform: uppercase;
 }
 
 h3 {
