@@ -89,12 +89,12 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log("pradedam loadint..");
 
     $("#resultsForm").on("click", "a.button-buy", function () {
-        //var nr = $(this).data("nr");
-        //var dropDownId = "#produkto" + nr + "dropdown";
-        //var url = $(dropDownId).val();
-        //var fullUrl = "https://www.barbora.lt" + url;
-        //window.open(fullUrl, '_blank');
-        //return false;
+        var nr = $(this).data("nr");
+        var dropDownId = "#produkto" + nr + "dropdown";
+        var url = $(dropDownId).val();
+        var fullUrl = "https://www.barbora.lt" + url;
+        window.open(fullUrl, '_blank');
+        return false;
     });
 
     var spinner = new Spinner({
