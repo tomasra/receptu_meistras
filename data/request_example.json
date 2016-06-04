@@ -1,0 +1,37 @@
+{
+    "url": "http://1000receptu.lt/foo/bar",
+    "ingredients": [
+        {
+            "amount": "400 g",
+            "ingredient": "Vištiena"
+        },
+        {
+            "amount": "1 vnt.",
+            "ingredient": "Svogūnai"
+        },
+        {
+            "amount": "2 šaukštas",
+            "ingredient": "Miltai"
+        },
+        {
+            "amount": "250 ml",
+            "ingredient": "Grietinėlė"
+        },
+        {
+            "amount": "pagal skonį",
+            "ingredient": "Druska"
+        },
+        {
+            "amount": "pagal skonį",
+            "ingredient": "Pipirai"
+        },
+        {
+            "amount": "2 vnt.",
+            "ingredient": "Aitrioji paprika"
+        },
+        {
+            "amount": "1 sauja",
+            "ingredient": "Kalendros"
+        }
+    ]
+}
