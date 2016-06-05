@@ -324,3 +324,9 @@ h3 {
     border-top: 1px solid #87153e;
     border-bottom: 1px solid #e07b36;
 }
+
+.recipe-not-found {
+  width: 400px;
+  height: 600px;
+  overflow: hidden;
+}

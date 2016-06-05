@@ -8,8 +8,16 @@ from fuzzywuzzy import process
 from flask import Flask, request, jsonify
 app = Flask(__name__)
 
+import unicodedata
+ 
+def remove_accents(input_str):
+    nfkd_form = unicodedata.normalize('NFKD', input_str)
+    only_ascii = nfkd_form.encode('ASCII', 'ignore')
+    return only_ascii.decode('utf-8')
+
 
 PRODUCT_ATTRIBUTES = ['name', 'price', 'unit', 'price_per_unit', 'item_netto_weight', 'category3', 'url']
+EXCLUDE_CATEGORIES = ['Kūdikių ir vaikų prekės', 'Kosmetika ir higiena', 'Namų ūkio ir gyvūnų prekės']
 
 
 def read_products(path):
@@ -17,23 +25,31 @@ def read_products(path):
     with open(path) as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            product = {}
-            for attr in PRODUCT_ATTRIBUTES:
-                product[attr] = row[attr]
-            products.append(product)
+            if row['category1'] not in EXCLUDE_CATEGORIES:
+                product = {}
+                for attr in PRODUCT_ATTRIBUTES:
+                    product[attr] = row[attr]
+                products.append(product)
     return products
 
 def match_products(ingredients, limit=5):
     products = read_products('../data/barbora_20160603.csv')
     all_matches = []
-    for ingredient, amount in ingredients:
+    # for ingredient, amount in ingredients:
+    for ingr_dict in ingredients:
+        ingredient = ingr_dict['ingredient']
+        amount = ingr_dict['amount']
+        general_name = ingr_dict['general_name'].replace('-', ' ')
+
         product_ratios = []
         for product in products:
             name_ratio = fuzz.partial_ratio(ingredient, product['name'])
             cat3_ratio = fuzz.partial_ratio(ingredient, product['category3'])
+            gen_name_ratio = fuzz.partial_ratio(general_name, remove_accents(product['name']).lower())
             product_ratios.append((
                 product,
-                [name_ratio, cat3_ratio]
+                [name_ratio, cat3_ratio, gen_name_ratio]
+                # [name_ratio, cat3_ratio]
             ))
         # Order by sum of ratios
         ingr_matches = sorted(product_ratios, key=lambda p: sum(p[1]), reverse=True)[:limit]
@@ -49,13 +65,9 @@ def match_products(ingredients, limit=5):
 
 @app.route('/match', methods=['POST'])
 def match():
-    ingredients = [
-        (item['ingredient'], item['amount'])
-        for item in request.json['ingredients']]
+    ingredients = [item for item in request.json['ingredients']]
     matches = match_products(ingredients)
     return jsonify(matches)
 
 if __name__ == "__main__":
-    # match_products('Druska')
-    # import ipdb; ipdb.set_trace()
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', debug=False)
