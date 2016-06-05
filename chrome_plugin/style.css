@@ -301,11 +301,11 @@ h3 {
     font-weight: 600;
     color: white;
     font-size: 24px;
-    border-top: 2px solid #e07b36;
-    border-bottom: 2px solid #87153e;
+    border-top: 1px solid #e07b36;
+    border-bottom: 1px solid #87153e;
     cursor: pointer;
     padding: 0px 9px 0px 9px;
-    border-radius: 0px;
+    border-radius: 6px;
     -webkit-transition: all 1s ease-out;
     transition: all 1s ease-out;
 }
@@ -314,8 +314,8 @@ h3 {
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
     background: #e8371f;
-    border-top: 2px solid #f2982c;
-    border-bottom: 2px solid #931634;
+    border-top: 1px solid #f2982c;
+    border-bottom: 1px solid #931634;
 
 }
 
@@ -323,6 +323,6 @@ h3 {
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
     background: #9c0734;
-    border-top: 2px solid #87153e;
-    border-bottom: 2px solid #e07b36;
+    border-top: 1px solid #87153e;
+    border-bottom: 1px solid #e07b36;
 }
