@@ -1,10 +1,8 @@
 ﻿{
   "manifest_version": 2,
-
   "name": "Receptų meistras",
   "description": "HackerGames 2016!!!1",
   "version": "0.2",
-
   "browser_action": {
     "default_icon": "graphics/receptumeistras-icon-chrome-38-2-neutral.png",
     "default_popup": "popup.html"
@@ -26,14 +24,14 @@
         "http://tomasra.com:5000/*"
       ],
       "js": [ "scripts/jquery-2.2.4.min.js", "scripts/content_script.js" ],
-      "run_at": "document_end" // pay attention to this line
+      "run_at": "document_end"
     },
     {
       "matches": [
         "https://www.barbora.lt/produktai/*"
       ],
       "js": [ "scripts/jquery-2.2.4.min.js", "scripts/context_barbora.js" ],
-      "run_at": "document_end" // pay attention to this line
+      "run_at": "document_end"
     }
   ],
   "background": {
