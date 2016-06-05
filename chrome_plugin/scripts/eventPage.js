@@ -24,6 +24,7 @@ function checkWebpage(loadingStatus) {
             }
         });
     } else if (loadingStatus === 'complete') {
+        //BUG? Cia gali buti paselektintas kitas tabas!
         chrome.tabs.query({active: true}, function(tab) {
             tab = tab[0];
             chrome.tabs.sendMessage(tab.id, "getDOM", {}, function (response){
@@ -73,17 +74,19 @@ function checkWebpage(loadingStatus) {
                 console.log("arTukstantisReceptuLangas: " + arTukstantisReceptuLangas);
                 var arYraIngredientuSarasas = data && data.ingredientuSarasas;
                 console.log("arYraIngredientuSarasas: " + arYraIngredientuSarasas);
-                if (arTukstantisReceptuLangas && arYraIngredientuSarasas) {
+                if (arTukstantisReceptuLangas) {
+                    if (arYraIngredientuSarasas) {
                         // console.log('recipe found');
                         chrome.storage.local.set({ recipeFound: true });
                         chrome.browserAction.setBadgeText({ text: "!" });
                         chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-active.png" });
-                    } else {
-                        // console.log('recipe not found');
-                        chrome.storage.local.set({ recipeFound: false });
-                        chrome.browserAction.setBadgeText({ text: "" });
-                        chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-neutral.png" });
                     }
+                } else {
+                    // console.log('recipe not found');
+                    chrome.storage.local.set({ recipeFound: false });
+                    chrome.browserAction.setBadgeText({ text: "" });
+                    chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-neutral.png" });
+                }
                 });
             //}
         });
