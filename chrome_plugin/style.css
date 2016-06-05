@@ -5,6 +5,7 @@
   box-sizing: border-box;
   font-family: 'Fira Sans', sans-serif;
   font-size: 16px;
+  text-decoration:none;
 }
 
 *:focus {
@@ -274,50 +275,7 @@ h3 {
     margin-top: 8px;
 }
 
-.button-buy {
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    padding: 2px 7px;
-    border: 1px solid #a12727;
-    border-radius: 10px;
-    background: #deaa00;
-    background: -webkit-gradient(linear, left top, left bottom, from(#deaa00), to(#deaa00));
-    background: -moz-linear-gradient(top, #deaa00, #deaa00);
-    background: linear-gradient(to bottom, #deaa00, #deaa00);
-    text-shadow: #591717 1px 1px 1px;
-    font: normal normal bold 20px arial;
-    color: #ffffff;
-    text-decoration: none;
-}
-.button-buy:hover,
-.button-buy:focus {
-    background: #ffcc00;
-    background: -webkit-gradient(linear, left top, left bottom, from(#ffcc00), to(#ffcc00));
-    background: -moz-linear-gradient(top, #ffcc00, #ffcc00);
-    background: linear-gradient(to bottom, #ffcc00, #ffcc00);
-    color: #ffffff;
-    text-decoration: none;
-}
-.button-buy:active {
-    background: #856600;
-    background: -webkit-gradient(linear, left top, left bottom, from(#856600), to(#deaa00));
-    background: -moz-linear-gradient(top, #856600, #deaa00);
-    background: linear-gradient(to bottom, #856600, #deaa00);
-}
-.button-buy:before{
-    content:  "\0000a0";
-    display: inline-block;
-    height: 24px;
-    width: 24px;
-    line-height: 24px;
-    margin: 0 4px -6px -4px;
-    position: relative;
-    top: 0px;
-    left: 3px;
-    background: url(cart.png) no-repeat left center transparent;
-    background-size: 100% 100%;
-}
+
 
 .header {
     position:absolute; top:0px; left:0px;  right:0px;overflow:hidden;
@@ -336,17 +294,18 @@ h3 {
 
 
 .button-buy {
+    position: relative;
+    top: 3px;
+    left:3px;
     background: #d81313;
-    font-family: 'Fira Sans', 'Fira Sans' serif;
-    font-weight: 500;
+    font-weight: 600;
     color: white;
     font-size: 24px;
-    border: 0;
     border-top: 2px solid #e07b36;
     border-bottom: 2px solid #87153e;
     cursor: pointer;
-    padding: 2px 5px 2px 5px;
-    border-radius: 5px;
+    padding: 0px 9px 0px 9px;
+    border-radius: 0px;
     -webkit-transition: all 1s ease-out;
     transition: all 1s ease-out;
 }
@@ -360,7 +319,7 @@ h3 {
 
 }
 
-button-buy:active{
+.button-buy:active{
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
     background: #9c0734;
