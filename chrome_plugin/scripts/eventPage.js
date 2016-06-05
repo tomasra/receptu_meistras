@@ -1,15 +1,16 @@
 ﻿// alert("eventPage loadina!");
+var tukstReceptuUrl = "http://www.delfi.lt/1000receptu/receptai/";
 
 function checkWebpage(loadingStatus) {
     if (loadingStatus === undefined) {
         // No url yet or no changes in it
-    } else if (loadingStatus === 'loading') {
+    }
+    else if (loadingStatus === 'loading') {
         chrome.storage.local.remove('ingredientuSarasas');
         // Check if page contains a recipe and store result in local storage
         chrome.tabs.query({active: true}, function(tab) {
             tab = tab[0];
             var fullUrl = tab.url;
-            var tukstReceptuUrl = "http://www.delfi.lt/1000receptu/receptai/";
             if (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl) {
                 // console.log('recipe found');
                 chrome.storage.local.set({ recipeFound: true });
@@ -59,12 +60,40 @@ function checkWebpage(loadingStatus) {
             });
         });
     }
+    else if (loadingStatus == "onActivated") {
+        chrome.storage.local.get("ingredientuSarasas", function (data) {
+            console.log("ingredientuSarasas!!");
+            
+            console.log(data);
+
+                chrome.tabs.query({ active: true }, function (tab) {
+                    tab = tab[0];
+                    var fullUrl = tab.url;
+                var arTukstantisReceptuLangas = (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl);
+                console.log("arTukstantisReceptuLangas: " + arTukstantisReceptuLangas);
+                var arYraIngredientuSarasas = data && data.ingredientuSarasas;
+                console.log("arYraIngredientuSarasas: " + arYraIngredientuSarasas);
+                if (arTukstantisReceptuLangas && arYraIngredientuSarasas) {
+                        // console.log('recipe found');
+                        chrome.storage.local.set({ recipeFound: true });
+                        chrome.browserAction.setBadgeText({ text: "!" });
+                        chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-active.png" });
+                    } else {
+                        // console.log('recipe not found');
+                        chrome.storage.local.set({ recipeFound: false });
+                        chrome.browserAction.setBadgeText({ text: "" });
+                        chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-neutral.png" });
+                    }
+                });
+            //}
+        });
+    }
 };
 
 
 chrome.tabs.onActivated.addListener(function (activeInfo) {
     console.log("onActivated loadint..");
-    checkWebpage(undefined);
+    checkWebpage("onActivated");
 }, false);
 
 //Kai paklikini ant linko, (onActivated nesuveikia)
