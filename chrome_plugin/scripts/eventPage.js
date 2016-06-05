@@ -8,7 +8,8 @@ function checkWebpage() {
         var fullUrl = tab.url;
         var tukstReceptuUrl = "http://www.delfi.lt/1000receptu/receptai/";
         if (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl) {
-                                chrome.browserAction.setBadgeText({ text: "!" });
+            chrome.browserAction.setBadgeText({ text: "!" });
+            chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-active.png" });
 
             // Send a request to the content script.
 
@@ -54,6 +55,8 @@ function checkWebpage() {
         }
         else {
             chrome.browserAction.setBadgeText({ text: "" });
+            chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-neutral.png" });
+
         }
     });
 };
