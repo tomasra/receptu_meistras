@@ -14,6 +14,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 function getJsonFromRecipyTable(receptu_langas, url) {
     var jsonObjektas = {};
+    jsonObjektas.recipeTitle = $('h1#article-title').text();
     jsonObjektas.url = url;
     jsonObjektas.ingredients = [];
     
@@ -27,7 +28,6 @@ function getJsonFromRecipyTable(receptu_langas, url) {
         // http://www.delfi.lt/1000receptu/receptai/apsilaizysite-pirstelius-chacapuri-su-vistiena.d?id=71449664
         if ((ingredientas.amount !== undefined && ingredientas.amount.trim().length > 0)
         || (ingredientas.ingredient !== undefined && ingredientas.ingredient.trim().length > 0)) {
-            console.log(ingredientas);
             var urlWithGeneralName = $(item).find(".ingredient a").attr("href");
             var urls = urlWithGeneralName.split("/");
             var generalName = urls.pop();

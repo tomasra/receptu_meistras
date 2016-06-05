@@ -34,7 +34,10 @@ function checkWebpage() {
                         success: function (data){
                             console.log(data);
                             //Gavus duomenis, cia galime deti i chrome localStorage:
-                            chrome.storage.local.set({ ingredientuSarasas : data  });
+                            chrome.storage.local.set({
+                                ingredientuSarasas : data,
+                                recipeTitle: response.jsonObjektas.recipeTitle,
+                            });
                         },
                         error: function (jq, status, message) {
                             var msg = '$.ajax post error when calling http://tomasra.com:5000/match : ' + status + ' - Message: ' + message;
