@@ -15,7 +15,7 @@ function checkWebpage(loadingStatus) {
                 // console.log('recipe found');
                 chrome.storage.local.set({ recipeFound: true });
                 chrome.browserAction.setBadgeText({ text: "!" });
-                chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-active.png" });                
+                chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-active.png" });
             } else {
                 // console.log('recipe not found');
                 chrome.storage.local.set({ recipeFound: false });
@@ -74,12 +74,12 @@ function checkWebpage(loadingStatus) {
                 var arYraIngredientuSarasas = data && data.ingredientuSarasas;
                 console.log("arYraIngredientuSarasas: " + arYraIngredientuSarasas);
                 if (arTukstantisReceptuLangas && arYraIngredientuSarasas) {
-                        // console.log('recipe found');
+                        console.log('recipe found');
                         chrome.storage.local.set({ recipeFound: true });
                         chrome.browserAction.setBadgeText({ text: "!" });
                         chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-active.png" });
                     } else {
-                        // console.log('recipe not found');
+                        console.log('recipe not found');
                         chrome.storage.local.set({ recipeFound: false });
                         chrome.browserAction.setBadgeText({ text: "" });
                         chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-neutral.png" });
@@ -92,8 +92,20 @@ function checkWebpage(loadingStatus) {
 
 
 chrome.tabs.onActivated.addListener(function (activeInfo) {
-    console.log("onActivated loadint..");
-    checkWebpage("onActivated");
+    chrome.tabs.get(activeInfo.tabId, function(tab) {
+        // console.log(tab.url);
+        var keyRecipeFound = 'recipe-found-' + tab.url;
+        chrome.storage.local.get(keyRecipeFound, function(data) {
+            var recipeFound = data[keyRecipeFound];
+            if (recipeFound === true) {
+                chrome.browserAction.setBadgeText({ text: "!" });
+                chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-active.png" });
+            } else {
+                chrome.browserAction.setBadgeText({ text: "" });
+                chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-neutral.png" });
+            }
+        })
+    })
 }, false);
 
 //Kai paklikini ant linko, (onActivated nesuveikia)

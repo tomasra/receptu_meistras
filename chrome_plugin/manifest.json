@@ -19,9 +19,11 @@
   "content_scripts": [
     {
       "matches": [
-        "http://www.delfi.lt/1000receptu/*",
-        "https://www.delfi.lt/1000receptu/*",
-        "http://tomasra.com:5000/*"
+        "http://*/*",
+        "https://*/*"
+        // "http://www.delfi.lt/1000receptu/*",
+        // "https://www.delfi.lt/1000receptu/*",
+        // "http://tomasra.com:5000/*"
       ],
       "js": [ "scripts/jquery-2.2.4.min.js", "scripts/content_script.js" ],
       "run_at": "document_end"

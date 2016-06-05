@@ -140,29 +140,78 @@ function recipeFound() {
     }).spin();
     $('.section').append(spinner.el);
 
-    chrome.storage.local.get("ingredientuSarasas", function(items) {
-        // console.log(items);
-        if (items.ingredientuSarasas !== undefined) {
-            spinner.stop();
-            populatePopupWithIngredients(items.ingredientuSarasas);
-            updateRecipeTitle();
-        } else {
-            chrome.storage.onChanged.addListener(function(changes, areaName) {
-                // HACK: checking if ingredient list was cleared or populated in eventPage.js
-                if (changes.ingredientuSarasas.newValue === undefined) {
-                    // Cleared - need to wait for data
-                    spinner.spin();
+    chrome.tabs.query({active: true}, function(tab) {
+        tab = tab[0];
+        var keyIngredients = 'ingredients-' + tab.url;
+
+        chrome.storage.local.get(keyIngredients, function(data) {
+            var ingredients = data[keyIngredients];
+            if (ingredients) {
+                // Ingredients already loaded
+                spinner.stop();
+                populatePopupWithIngredients(ingredients);
+                updateRecipeTitle();
+            } else {
+                // Need to wait
+                chrome.storage.onChanged.addListener(function(changes, areaName) {
+                    if (changes[keyIngredients] !== undefined) {
+                        spinner.stop();
+                        populatePopupWithIngredients(changes[keyIngredients].newValue);
+                        updateRecipeTitle();
+                    }
                     // console.log(changes);
-                } else {
-                    // Populated
-                    spinner.stop();
-                    populatePopupWithIngredients(changes.ingredientuSarasas.newValue);
-                    updateRecipeTitle();
-                    // console.log(changes);
-                }
-            });
-        }
-    })
+                })
+            }
+
+            // console.log(data);
+
+            // // console.log(items);
+            // if (items.ingredientuSarasas !== undefined) {
+            //     spinner.stop();
+            //     populatePopupWithIngredients(items.ingredientuSarasas);
+            //     updateRecipeTitle();
+            // } else {
+            //     chrome.storage.onChanged.addListener(function(changes, areaName) {
+            //         // HACK: checking if ingredient list was cleared or populated in eventPage.js
+            //         if (changes.ingredientuSarasas.newValue === undefined) {
+            //             // Cleared - need to wait for data
+            //             spinner.spin();
+            //             // console.log(changes);
+            //         } else {
+            //             // Populated
+            //             spinner.stop();
+            //             populatePopupWithIngredients(changes.ingredientuSarasas.newValue);
+            //             updateRecipeTitle();
+            //             // console.log(changes);
+            //         }
+            //     });
+            // }
+        })
+
+        // chrome.storage.local.get("ingredientuSarasas", function(items) {
+        //     // console.log(items);
+        //     if (items.ingredientuSarasas !== undefined) {
+        //         spinner.stop();
+        //         populatePopupWithIngredients(items.ingredientuSarasas);
+        //         updateRecipeTitle();
+        //     } else {
+        //         chrome.storage.onChanged.addListener(function(changes, areaName) {
+        //             // HACK: checking if ingredient list was cleared or populated in eventPage.js
+        //             if (changes.ingredientuSarasas.newValue === undefined) {
+        //                 // Cleared - need to wait for data
+        //                 spinner.spin();
+        //                 // console.log(changes);
+        //             } else {
+        //                 // Populated
+        //                 spinner.stop();
+        //                 populatePopupWithIngredients(changes.ingredientuSarasas.newValue);
+        //                 updateRecipeTitle();
+        //                 // console.log(changes);
+        //             }
+        //         });
+        //     }
+        // })
+    });
 
     var checkPageButton = document.getElementById('checkPage');
     checkPageButton.addEventListener('click', function () {
@@ -237,11 +286,46 @@ function recipeNotFound() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    chrome.storage.local.get("recipeFound", function(obj) {
-        if (obj.recipeFound === true) {
-            recipeFound();
-        } else {
-            recipeNotFound();
-        }
-    });
+    chrome.tabs.query({active: true}, function(tab) {
+        tab = tab[0];
+        var keyRecipeFound = 'recipe-found-' + tab.url;
+        var keyIngredients = 'ingredients-' + tab.url;
+
+        // var spinner = new Spinner({
+        //     scale: 2.0,
+        // }).spin();
+        // $('.section').append(spinner.el);
+
+        chrome.storage.local.get(keyRecipeFound, function(data) {
+            var valRecipeFound = data[keyRecipeFound];
+            console.log(data);
+            if (valRecipeFound === true) {
+                console.log(valRecipeFound);
+                // TODO
+                recipeFound();
+            } else if (valRecipeFound === false) {
+                // spinner.stop();
+                recipeNotFound();
+            } else {
+                // Need to wait, up until then show spinner
+                // var spinner = new Spinner({
+                //     scale: 2.0,
+                // }).spin();
+                // $('.section').append(spinner.el);
+            }
+        })
+
+        // console.log(keyRecipeFound);
+        // console.log(keyIngredients);
+    })
+
+
+
+    // chrome.storage.local.get("recipeFound", function(obj) {
+    //     if (obj.recipeFound === true) {
+    //         recipeFound();
+    //     } else {
+    //         recipeNotFound();
+    //     }
+    // });
 });
