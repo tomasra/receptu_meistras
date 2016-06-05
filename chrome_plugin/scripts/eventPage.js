@@ -70,12 +70,12 @@ function checkWebpage(loadingStatus) {
                 chrome.tabs.query({ active: true }, function (tab) {
                     tab = tab[0];
                     var fullUrl = tab.url;
-                var arTukstantisReceptuLangas = (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl);
-                console.log("arTukstantisReceptuLangas: " + arTukstantisReceptuLangas);
-                var arYraIngredientuSarasas = data && data.ingredientuSarasas;
-                console.log("arYraIngredientuSarasas: " + arYraIngredientuSarasas);
+                    var arTukstantisReceptuLangas = (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl);
+                    console.log("arTukstantisReceptuLangas: " + arTukstantisReceptuLangas);
+                    var arYraIngredientuSarasas = data && data.ingredientuSarasas;
+                    console.log("arYraIngredientuSarasas: " + arYraIngredientuSarasas);
 
-                if (arTukstantisReceptuLangas && arYraIngredientuSarasas) {
+                    if (arTukstantisReceptuLangas && arYraIngredientuSarasas) {
                         console.log('recipe found');
                         chrome.storage.local.set({ recipeFound: true });
                         chrome.browserAction.setBadgeText({ text: "!" });
@@ -85,6 +85,7 @@ function checkWebpage(loadingStatus) {
                         chrome.storage.local.set({ recipeFound: false });
                         chrome.browserAction.setBadgeText({ text: "" });
                         chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-neutral.png" });
+                    }
                 });
             //}
         });
