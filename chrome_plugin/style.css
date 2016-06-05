@@ -85,8 +85,8 @@ select{
 
 .checkbox-wrapper {
   position: relative;
-  left: 0px;
-  top: 5px;
+  left: -2px;
+  top: 38px;
   display: block;
   width: 25px;
   height: 25px;
@@ -315,7 +315,7 @@ h3 {
     position: relative;
     top: 0px;
     left: 3px;
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABKklEQVRIic3TIU/DUBQF4C+wEMQEAoUiiGVBTqNZQlAIDIZgSHBY/gcCRZAI9CQJ/ACCIEFAgFkEEDIQbBmiJZSu7bq2gpPc5L7m9pxz330XhpEYoKViDGNxUiV5Dbth3sYGNtEPoyzOo4cFfBrtqEz0piMC71hU7QyO4x+a+KrI/ZvgVkZwWpHAQVpbLcFzLUP+hHqaAHRKCmxnkcNKCfIrTI0TgMsC5AOs5iGHvQICnbzuZ3AzIfkDGnGiWob75TDfx8UYQ33c4SOP+zqe/Q4szUQuJP28hPkw72KnAO+tjK7n8KLcHhz9kCVN/BVbeCzg/P+giTPBsuWZwUT1s7j3907Xi9YnzaAheElRtDMEMuuTBLqCQUdxnSEwaT1YE6x+D4fGL1tq/Td8g9Y0zi2NVAAAAABJRU5ErkJggg==") no-repeat left center transparent;
+    background: url(cart.png) no-repeat left center transparent;
     background-size: 100% 100%;
 }
 
@@ -331,4 +331,39 @@ h3 {
 .main-content {
     position:absolute;  left:0px; right:0px; overflow:auto;
     top:130px; bottom:130px;
+}
+
+
+
+.button-buy {
+    background: #d81313;
+    font-family: 'Fira Sans', 'Fira Sans' serif;
+    font-weight: 500;
+    color: white;
+    font-size: 24px;
+    border: 0;
+    border-top: 2px solid #e07b36;
+    border-bottom: 2px solid #87153e;
+    cursor: pointer;
+    padding: 2px 5px 2px 5px;
+    border-radius: 5px;
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+.button-buy:hover {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    background: #e8371f;
+    border-top: 2px solid #f2982c;
+    border-bottom: 2px solid #931634;
+
+}
+
+button-buy:active{
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    background: #9c0734;
+    border-top: 2px solid #87153e;
+    border-bottom: 2px solid #e07b36;
 }
