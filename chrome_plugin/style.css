@@ -5,6 +5,7 @@
   box-sizing: border-box;
   font-family: 'Fira Sans', sans-serif;
   font-size: 16px;
+  text-decoration:none;
 }
 
 *:focus {
@@ -54,11 +55,15 @@ footer {
 }
 
 select{
-    width: 315px;
-    background-color: #e5c32e;
+    width: 280px;
+    margin-left: 28px;
+    background-color: #fff;
     border:1px solid #deac00;
-    Down:10px;
+    color: 333;
+    height: 30px;
+    font-weight: 300;
   }​
+
 .productName {
   width: 135px;
   height: 50px;
@@ -81,8 +86,8 @@ select{
 
 .checkbox-wrapper {
   position: relative;
-  left: 0px;
-  top: 5px;
+  left: -2px;
+  top: 38px;
   display: block;
   width: 25px;
   height: 25px;
@@ -146,11 +151,7 @@ select{
   opacity: 1;
 }
 
-/* accessibility */
-[type="checkbox"]:checked:focus + label:before,
-[type="checkbox"]:not(:checked):focus + label:before {
-  border: 1px dotted blue;
-}
+
 
 /* hover style just for information */
 label:hover:before {
@@ -191,6 +192,8 @@ label:hover:before {
     border-top: 2px solid #87153e;
     border-bottom: 2px solid #e07b36;
 }
+
+
 
 .button-order {
   top: 25px;
@@ -267,53 +270,10 @@ h3 {
 }
 
 .produkto-dropdown {
-    margin-top: 6px;
+    margin-top: 8px;
 }
 
-.button-buy {
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    padding: 2px 7px;
-    border: 1px solid #a12727;
-    border-radius: 10px;
-    background: #deaa00;
-    background: -webkit-gradient(linear, left top, left bottom, from(#deaa00), to(#deaa00));
-    background: -moz-linear-gradient(top, #deaa00, #deaa00);
-    background: linear-gradient(to bottom, #deaa00, #deaa00);
-    text-shadow: #591717 1px 1px 1px;
-    font: normal normal bold 20px arial;
-    color: #ffffff;
-    text-decoration: none;
-}
-.button-buy:hover,
-.button-buy:focus {
-    background: #ffcc00;
-    background: -webkit-gradient(linear, left top, left bottom, from(#ffcc00), to(#ffcc00));
-    background: -moz-linear-gradient(top, #ffcc00, #ffcc00);
-    background: linear-gradient(to bottom, #ffcc00, #ffcc00);
-    color: #ffffff;
-    text-decoration: none;
-}
-.button-buy:active {
-    background: #856600;
-    background: -webkit-gradient(linear, left top, left bottom, from(#856600), to(#deaa00));
-    background: -moz-linear-gradient(top, #856600, #deaa00);
-    background: linear-gradient(to bottom, #856600, #deaa00);
-}
-.button-buy:before{
-    content:  "\0000a0";
-    display: inline-block;
-    height: 24px;
-    width: 24px;
-    line-height: 24px;
-    margin: 0 4px -6px -4px;
-    position: relative;
-    top: 0px;
-    left: 3px;
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABKklEQVRIic3TIU/DUBQF4C+wEMQEAoUiiGVBTqNZQlAIDIZgSHBY/gcCRZAI9CQJ/ACCIEFAgFkEEDIQbBmiJZSu7bq2gpPc5L7m9pxz330XhpEYoKViDGNxUiV5Dbth3sYGNtEPoyzOo4cFfBrtqEz0piMC71hU7QyO4x+a+KrI/ZvgVkZwWpHAQVpbLcFzLUP+hHqaAHRKCmxnkcNKCfIrTI0TgMsC5AOs5iGHvQICnbzuZ3AzIfkDGnGiWob75TDfx8UYQ33c4SOP+zqe/Q4szUQuJP28hPkw72KnAO+tjK7n8KLcHhz9kCVN/BVbeCzg/P+giTPBsuWZwUT1s7j3907Xi9YnzaAheElRtDMEMuuTBLqCQUdxnSEwaT1YE6x+D4fGL1tq/Td8g9Y0zi2NVAAAAABJRU5ErkJggg==") no-repeat left center transparent;
-    background-size: 100% 100%;
-}
+
 
 .header {
     position:absolute; top:0px; left:0px;  right:0px;overflow:hidden;
@@ -322,9 +282,45 @@ h3 {
 
 .footer {
     position:absolute; bottom:0px;left:0px; right:0px; overflow:hidden;
-     /*height:200px;*/ 
+     /*height:200px;*/
 }
 .main-content {
     position:absolute;  left:0px; right:0px; overflow:auto;
     top:130px; bottom:130px;
+}
+
+
+
+.button-buy {
+    position: relative;
+    top: 3px;
+    left:3px;
+    background: #d81313;
+    font-weight: 600;
+    color: white;
+    font-size: 24px;
+    border-top: 1px solid #e07b36;
+    border-bottom: 1px solid #87153e;
+    cursor: pointer;
+    padding: 0px 9px 0px 9px;
+    border-radius: 6px;
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+.button-buy:hover {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    background: #e8371f;
+    border-top: 1px solid #f2982c;
+    border-bottom: 1px solid #931634;
+
+}
+
+.button-buy:active{
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    background: #9c0734;
+    border-top: 1px solid #87153e;
+    border-bottom: 1px solid #e07b36;
 }

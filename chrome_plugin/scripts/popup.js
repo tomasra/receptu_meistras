@@ -14,7 +14,7 @@
 //  }
 ///
 function populatePopupWithIngredients(items){
-    
+
     console.log(items);
     var $resultsForm = $("#resultsForm");
 
@@ -68,7 +68,7 @@ function updateTotalPrice() {
 }
 
 function getProduktoHtml(item, i, dropDownHtml){
-    var productTemplate = 
+    var productTemplate =
  '<div class="product"  id="produktas{{Nr}}"> \
 <div class="checkbox-wrapper"> \
 <input type="checkbox" class="producto-checkbox" id="checkbox{{Nr}}" checked /> \
@@ -83,7 +83,7 @@ function getProduktoHtml(item, i, dropDownHtml){
 <select class="produkto-dropdown" id="produkto{{Nr}}dropdown"> \
 {{produktoDropdownHtml}} \
 </select> \
-<a class="button-buy" id="buttonBuy{{Nr}}" href="#" data-nr="{{Nr}}" target="_blank"></a> \
+<a class="button-buy" id="buttonBuy{{Nr}}" href="#" data-nr="{{Nr}}" target="_blank">+</a> \
 </div>';
 
     var ingredientName = item.ingredient;
@@ -166,7 +166,7 @@ function recipeFound() {
 
     var checkPageButton = document.getElementById('checkPage');
     checkPageButton.addEventListener('click', function () {
-        
+
         var urlsToCall = [];
         $('.product').each(function (idx, product) {
             var checkbox = $(product).find(':checkbox');
@@ -177,7 +177,7 @@ function recipeFound() {
             }
         });
         console.log(urlsToCall);
-        
+
         for (i in urlsToCall) {
             var fullUrl = "";
             var selected1 = false;
@@ -211,7 +211,7 @@ function recipeFound() {
 
         //chrome.tabs.getSelected(null, function (tab) {
         //    d = document;
-            
+
         //    var f = d.createElement('form');
         //    f.action = 'http://gtmetrix.com/analyze.html?bm';
         //    f.method = 'post';
@@ -224,7 +224,7 @@ function recipeFound() {
         //    f.submit();
         //});
     }, false);
-    
+
     chrome.browserAction.getBadgeText({}, function (badgeText) {
         if (badgeText) {
 
