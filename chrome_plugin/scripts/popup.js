@@ -112,9 +112,6 @@ function getDropdownHtml(products){
     return selectHtml;
 }
 
-<<<<<<< HEAD
-document.addEventListener('DOMContentLoaded', function() {
-=======
 function updateRecipeTitle() {
     chrome.storage.local.get("recipeTitle", function(obj) {
         $('h1.title-pavadinimas').text(obj.recipeTitle);
@@ -122,7 +119,6 @@ function updateRecipeTitle() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
->>>>>>> 8657e68828abfb67d6a820c169f04e16f13185c4
     console.log("pradedam loadint..");
 
     $("#resultsForm").on("click", "a.button-buy", function () {

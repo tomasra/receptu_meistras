@@ -41,6 +41,7 @@
     <Content Include="tick.png" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="scripts\context_barbora.js" />
     <Compile Include="scripts\eventPage.js" />
     <Compile Include="scripts\content_script.js" />
     <Compile Include="scripts\emerge.js" />
