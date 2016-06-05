@@ -118,7 +118,8 @@ function updateRecipeTitle() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+function recipeFound() {
+    $('.recipe-not-found').detach();
     console.log("pradedam loadint..");
 
     $("#resultsForm").on("click", "a.button-buy", function () {
@@ -185,6 +186,20 @@ document.addEventListener('DOMContentLoaded', function () {
     chrome.browserAction.getBadgeText({}, function (badgeText) {
         if (badgeText) {
 
+        }
+    });    
+}
+
+function recipeNotFound() {
+    $('.recipe-found').detach();
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    chrome.storage.local.get("recipeFound", function(obj) {
+        if (obj.recipeFound === true) {
+            recipeFound();
+        } else {
+            recipeNotFound();
         }
     });
 });
