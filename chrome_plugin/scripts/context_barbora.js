@@ -33,7 +33,7 @@ if (pridetiProdukta == 1) {
             //chrome.tabs.remove(tab.id, function () { });
                 //});
                 window.close();
-        }, 400);
+        }, 1000);
     }
     if (aktyvinti == 1) {
         setTimeout(function () {

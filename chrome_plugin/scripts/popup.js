@@ -192,9 +192,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 fullUrl = "https://www.barbora.lt" + urlsToCall[i] + "?receptuMeistrasPridetiProdukta=1&receptuMeistrasUzdaryti=1";
             }
             //var selected1 = (i + 1 == urlsToCall.length);
-            chrome.tabs.create({ url: fullUrl, selected: selected1 }, function (tab) {
-            //chrome.tabs.update(tab.id, { selected: true });
-            });
+            
+            if (selected1) {
+                setTimeout(function () {
+                    chrome.tabs.create({ url: fullUrl, selected: selected1 }, function (tab) {
+                        //chrome.tabs.update(tab.id, { selected: true });
+                    });
+                }, 3000);
+            }
+            else
+            {
+                chrome.tabs.create({ url: fullUrl, selected: selected1 }, function (tab) {
+                    //chrome.tabs.update(tab.id, { selected: true });
+                });
+            }
         }
 
         //chrome.tabs.getSelected(null, function (tab) {
