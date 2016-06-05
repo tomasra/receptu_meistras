@@ -307,6 +307,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // spinner.stop();
                 recipeNotFound();
             } else {
+                recipeNotFound();
                 // Need to wait, up until then show spinner
                 // var spinner = new Spinner({
                 //     scale: 2.0,
