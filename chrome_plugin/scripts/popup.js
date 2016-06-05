@@ -126,7 +126,7 @@ function recipeFound() {
         var nr = $(this).data("nr");
         var dropDownId = "#produkto" + nr + "dropdown";
         var url = $(dropDownId).val();
-        var fullUrl = "https://www.barbora.lt" + url + "?pridetiProdukta=1";
+        var fullUrl = "https://www.barbora.lt" + url + "?receptuMeistrasPridetiProdukta=1";
         chrome.tabs.create({ url: fullUrl, selected: false }, function (tab) {
             //chrome.tabs.update(tab.id, { selected: true });
         });
@@ -167,20 +167,51 @@ function recipeFound() {
     var checkPageButton = document.getElementById('checkPage');
     checkPageButton.addEventListener('click', function () {
         
-        chrome.tabs.getSelected(null, function (tab) {
-            d = document;
-            
-            var f = d.createElement('form');
-            f.action = 'http://gtmetrix.com/analyze.html?bm';
-            f.method = 'post';
-            var i = d.createElement('input');
-            i.type = 'hidden';
-            i.name = 'url';
-            i.value = tab.url;
-            f.appendChild(i);
-            d.body.appendChild(f);
-            f.submit();
+        var urlsToCall = [];
+        $('.product').each(function (idx, product) {
+            var checkbox = $(product).find(':checkbox');
+            if ($(checkbox).is(':checked')) {
+                var selected_option = $(product).find('select.produkto-dropdown option:selected');
+                var url = $(selected_option).val();
+                urlsToCall.push(url);
+            }
         });
+        console.log(urlsToCall);
+        
+        for (i in urlsToCall) {
+            var fullUrl = "";
+            var selected1 = false;
+            console.log("selected1");
+            console.log(i);
+            if (parseInt(i) + 1 == urlsToCall.length) {
+                selected1 = true;
+            }
+            if (selected1) {
+                fullUrl = "https://www.barbora.lt" + urlsToCall[i] + "?receptuMeistrasPridetiProdukta=1&receptuMeistrasAktyvinti=1";
+            }
+            else {
+                fullUrl = "https://www.barbora.lt" + urlsToCall[i] + "?receptuMeistrasPridetiProdukta=1&receptuMeistrasUzdaryti=1";
+            }
+            //var selected1 = (i + 1 == urlsToCall.length);
+            chrome.tabs.create({ url: fullUrl, selected: selected1 }, function (tab) {
+            //chrome.tabs.update(tab.id, { selected: true });
+            });
+        }
+
+        //chrome.tabs.getSelected(null, function (tab) {
+        //    d = document;
+            
+        //    var f = d.createElement('form');
+        //    f.action = 'http://gtmetrix.com/analyze.html?bm';
+        //    f.method = 'post';
+        //    var i = d.createElement('input');
+        //    i.type = 'hidden';
+        //    i.name = 'url';
+        //    i.value = tab.url;
+        //    f.appendChild(i);
+        //    d.body.appendChild(f);
+        //    f.submit();
+        //});
     }, false);
     
     chrome.browserAction.getBadgeText({}, function (badgeText) {

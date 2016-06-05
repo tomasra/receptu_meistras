@@ -14,10 +14,12 @@ function checkWebpage(loadingStatus) {
                 // console.log('recipe found');
                 chrome.storage.local.set({ recipeFound: true });
                 chrome.browserAction.setBadgeText({ text: "!" });
+                chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-active.png" });                
             } else {
                 // console.log('recipe not found');
                 chrome.storage.local.set({ recipeFound: false });
                 chrome.browserAction.setBadgeText({ text: "" });
+                chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-neutral.png" });
             }
         });
     } else if (loadingStatus === 'complete') {
