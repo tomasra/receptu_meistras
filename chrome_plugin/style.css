@@ -10,9 +10,6 @@
 
 *:focus {
   outline:0;
-  box-shadow: 0px 0px 3px blue;
-  transition: 0.3s;
-  border: 0;
 }
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans);
 
@@ -154,12 +151,7 @@ select{
   opacity: 1;
 }
 
-/* accessibility */
-[type="checkbox"]:checked:focus + label:before,
-[type="checkbox"]:not(:checked):focus + label:before {
-    box-shadow: 0px 0px 3px blue;
-    transition: 0.3s;
-}
+
 
 /* hover style just for information */
 label:hover:before {
@@ -336,9 +328,4 @@ h3 {
     background: #9c0734;
     border-top: 1px solid #87153e;
     border-bottom: 1px solid #e07b36;
-}
-
-.button-buy:focus{
-  box-shadow: 0px 0px 3px blue;
-  transition: 0.3s;
 }
