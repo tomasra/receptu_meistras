@@ -54,11 +54,15 @@ footer {
 }
 
 select{
-    width: 315px;
-    background-color: #e5c32e;
+    width: 280px;
+    margin-left: 28px;
+    background-color: #fff;
     border:1px solid #deac00;
-    Down:10px;
+    color: 333;
+    height: 30px;
+    font-weight: 300;
   }​
+
 .productName {
   width: 135px;
   height: 50px;
@@ -267,7 +271,7 @@ h3 {
 }
 
 .produkto-dropdown {
-    margin-top: 6px;
+    margin-top: 8px;
 }
 
 .button-buy {
@@ -322,7 +326,7 @@ h3 {
 
 .footer {
     position:absolute; bottom:0px;left:0px; right:0px; overflow:hidden;
-     /*height:200px;*/ 
+     /*height:200px;*/
 }
 .main-content {
     position:absolute;  left:0px; right:0px; overflow:auto;
