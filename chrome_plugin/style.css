@@ -117,9 +117,10 @@ select{
   left:0; top: 2px;
   width: 20px;
   height: 20px;
-  border: 2px solid #deac00;
-  background: #e5c32e;
+  border: 1px solid #deac00;
+  background: #fff;
   opacity:0.5;
+  border-radius: 3px;
 }
 
 [type="checkbox"]:checked + label:before {
@@ -128,18 +129,19 @@ select{
   left:0; top: 2px;
   width: 20px;
   height: 20px;
-  border: 2px solid #deac00;
-  background: #e5c32e;
+  border: 1px solid #deac00;
+  background: #fff;
   transition: all .2s;
+    border-radius: 3px;
 }
 
 /* checked mark aspect */
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
-  content: url(tick.png);
+  content: url("tick.png");
   position: absolute;
-  top: 4px;
-   left: 2px;
+  top: 3px;
+  left: 1px;
   color: #333;
   transition: all .2s;
 }
@@ -155,7 +157,8 @@ select{
 
 /* hover style just for information */
 label:hover:before {
-  border: 2px solid #ad7317!important;
+  border: 1px solid #ad7317!important;
+  background-color: #eee!important;
 }
 
 
