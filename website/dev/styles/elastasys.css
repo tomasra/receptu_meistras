@@ -1,0 +1,181 @@
+/* Left */
+
+.l000 {
+	left: 0;
+}
+
+.l025 {
+	left: calc(4vw - 12.5px + 15.625px - 5vw); 
+}
+
+.l050 {
+	left: calc(8vw - 25px + 15.625px - 5vw);
+}
+
+.l075 {
+	left: calc(12vw - 37.5px + 15.625px - 5vw);
+}
+
+.l100 {
+	left: calc(16vw - 50px + 15.625px - 5vw);
+}
+
+.l125 {
+	left: calc(20vw - 62.5px + 15.625px - 5vw);
+}
+
+.l150 {
+	left: calc(24vw - 75px + 15.625px - 5vw);
+}
+
+.l175 {
+	left: calc(28vw - 87.5px + 15.625px - 5vw);
+}
+
+.l200 {
+	left: calc(32vw - 100px + 15.625px - 5vw);
+}
+
+.l225 {
+	left: calc(36vw - 112.5px + 15.625px - 5vw);
+}
+
+.l250 {
+	left: calc(40vw - 125px + 15.625px - 5vw);
+}
+
+
+/* Width */
+
+.w1000 {
+	width: 100%;
+}
+
+.w950 {
+	width: calc(92vw + 25px);
+}
+
+.w900 {
+	width: calc(84vw + 50px);
+}
+
+.w850 {
+	width: calc(78vw + 75px);
+}
+
+.w800 {
+	width: calc(68vw + 100px);
+}
+
+.w750 {
+	width: calc(60vw + 125px);
+}
+
+.w700 {
+	width: calc(52vw + 150px);
+}
+
+.w650 {
+	width: calc(44vw + 175px);
+}
+
+.w600 {
+	width: calc(26vw + 225px);
+}
+
+.w550 {
+	width: calc(18vw + 250px);
+}
+
+.w500 {
+	width: calc(10vw + 275px);
+}
+
+.w450 {
+	width: calc(2vw + 300px);
+}
+
+.w400 {
+	width: calc(300px - 6vw);
+}
+
+.w350 {
+	width: calc(325px - 14vw);
+}
+
+.w300 {
+	width: calc(350px - 22vw);
+}
+
+.w250 {
+	width: calc(375px - 30vw);
+}
+
+.w200 {
+	width: calc(400px - 38vw);
+}
+
+.w150 {
+	width: calc(425px - 46vw);
+}
+
+.w100 {
+	width: calc(450px - 54vw - 31.250px + 10vw);
+}
+
+.w50 {
+	width: calc(475px - 62vw);
+}
+
+.w0 {
+	width: calc(500px - 70vw);
+}
+
+
+
+
+/* Width with additional space*/
+
+.ww1000 {
+	width: calc(70vw + 100px);
+}
+
+.ww900 {
+	width: calc(62vw + 100px);
+}
+
+.ww800 {
+	width: calc(56vw + 100px);
+}
+
+.ww700 {
+	width: calc(48vw + 100px);
+}
+
+.ww600 {
+	width: calc(40vw + 100px);
+}
+
+.ww500 {
+	width: calc(32vw + 100px);
+}
+
+.ww400 {
+	width: calc(24vw + 100px);
+}
+
+.ww300 {
+	width: calc(16vw + 100px);
+}
+
+.ww200 {
+	width: calc(8vw + 100px);
+}
+
+.ww100 {
+	width: calc(0vw + 100px);
+}
+
+.ww0 {
+	width: calc(0px -8vw + 100px);
+}

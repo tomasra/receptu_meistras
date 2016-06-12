@@ -1,0 +1,21 @@
+.sheet {
+	position: relative;
+  z-index: 100;
+	width: 100;
+}
+
+@media (max-width: 600px) {
+  .sheet {
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-radius: 0px;
+  }
+}
+
+.floor {
+	position: relative;
+	top: 0;	left: 0;
+	width: 100%;
+	height: auto;
+}

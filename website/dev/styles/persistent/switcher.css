@@ -1,0 +1,71 @@
+.switcher div{
+	display: none;
+}
+
+.switcher .description {
+	line-height: 1.5;
+	display: block;
+}
+
+.switcher div.selected_layout {
+	display: block;
+}
+
+.switcher span {
+	color: orange;
+	cursor: pointer;
+	border-bottom: 1px dotted orange;
+	margin: 2px;
+}
+
+.switcher span.active {
+	color: black;
+	background-color: #EBEBCF;
+	cursor: default;
+	padding: 2px;
+	margin: 0;
+	border: 0;
+}
+
+.switcher span:hover {
+	color: orangered;
+	border-bottom-color: orangered;
+}
+.switcher span.active:hover {
+	color: black;
+}
+
+.switcher .switch-pic {
+	width: 100%;
+	padding-bottom: 10px;
+	margin-left: 0px;
+	text-align:center;
+	white-space: nowrap;
+}
+
+.switcher .switch-pic .switch {
+	display: inline-block;
+	border-bottom: none !important;
+	position: relative;
+	cursor: pointer;
+}
+
+.switcher .switch-pic .switch span {
+	display: none;
+}
+
+.switcher .switch-pic .switch.active {
+	cursor: default;
+}
+
+.switcher .switch-pic .active.switch span {
+	display: block;
+	border-bottom: none !important;
+	color: black;
+	cursor: default;
+}
+
+.switcher p {
+	position: relative;
+	z-index:10;
+}

@@ -1,0 +1,37 @@
+
+.button, button.button {
+    position: absolute;
+    top: 30px;
+    left: 100px;
+    background: #5080d8;
+    font-weight: 400;
+    color: white;
+    font-size: 14px;
+    line-height: 20px;
+    border: 0;
+    border-top: 2px solid #5b91ff;
+    border-bottom: 2px solid #2d53af;
+    cursor: pointer;
+    padding: 7px 30px 10px 30px;
+    border-radius: 5px;
+    -webkit-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+    text-shadow: 0px -1px 2px #2d53af;
+}
+
+.button:hover, button.button:hover {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    background: #5b91ff;
+    border-top: 2px solid #5b91ff;
+    border-bottom: 2px solid #2d53af;
+
+}
+
+.button:active, button.button:active {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    background: #2d53af;
+    border-top: 2px solid #2d53af;
+    border-bottom: 2px solid #5080d8;
+}

@@ -1,0 +1,80 @@
+
+.chepulislogo {
+	position: absolute;
+
+  left: calc(12vw - 37.5px);
+	top: calc(8.5vw - 10px);
+
+	width: calc(2.75vw + 27.5px);
+	height: calc(1.5vw + 15px);
+
+	border-radius: 2px;
+
+  background-color: orange;
+
+  box-shadow: inset 0px 10px 10px 0px rgba(255, 255, 255, 0);
+	transition: background-color 0.5s ease-out;
+  transition: box-shadow 0.33s ease-out;
+
+/*
+	font-size: 1vw;
+	line-height: 3vw;
+	font-family: dinpro, helvetica;
+	text-align: center;
+
+	color: rgba(0, 0, 0, 0);
+  */
+}
+
+.chepulislogo:hover {
+	background-color: darkorange;
+  box-shadow: inset 0px 10px 10px 0px rgba(255, 255, 255, 0.5);
+
+	transition: background-color 0s;
+  transition: box-shadow 0s;
+}
+
+.chepulislogo:active {
+	background-color: orangered;
+  box-shadow: inset 1px 3px 10px 0px rgba(0, 0, 0, 1);
+
+	transition: background-color 0;
+  transition: box-shadow 0;
+}
+
+.chepulislogo-cutout {
+	position: absolute;
+  overflow: hidden;
+
+	left: calc(50% - 0.125vw - 1.25px);
+
+	width: calc(0.25vw + 2.5px);
+	height: calc(0.25vw + 2.5px);
+
+
+	border-radius:  calc(0.125vw + 1.25px);
+}
+
+.chepulislogo-cutout-top {
+  top: calc(0px - 0.125vw - 1.25px);
+}
+
+.chepulislogo-cutout-bottom {
+  bottom: calc(0px - 0.125vw - 1.25px);
+}
+
+.chepulislogo-cutout-bg {
+  position: absolute;
+  width: 100vw;
+  top: 0px;
+  height: 500px;
+  left: calc(0px - 13.25vw + 25px);
+}
+
+.chepulislogo-cutout-bg.top {
+  top: calc(0px - 8.375vw + 11.25px);
+}
+
+.chepulislogo-cutout-bg.bottom {
+  top: calc(0px - 9.875vw - 3.75px);
+}

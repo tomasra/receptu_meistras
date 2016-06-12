@@ -1,0 +1,91 @@
+
+
+.header {
+	height: calc(16vw + 50px);
+	width: 100%;
+}
+
+.body-text {
+	width: calc(40vw + 75px);
+	left: calc(24vw - 75px);
+
+	font-size: calc(0.5vw + 10pt);
+	font-family: 'Dinpro', Helvetica;
+	line-height: 133%;
+
+	padding-top: calc(1vw + 10px);
+}
+
+
+
+.text {
+	margin: 4vw 0 4vw 0;
+}
+
+
+.annotation {
+	top: 0;
+	left: calc(68vw + 10px);
+	width: calc(12vw + 50px);
+}
+
+.annotation2 {
+	top: 0;
+	left: calc(68vw + 0px);
+	width: calc(16vw + 50px);
+}
+
+
+
+
+
+
+
+
+
+.header-bg {
+  position: absolute;
+
+  top: 0px;
+  left: 0px;
+
+  border-radius: 3px;
+
+  width: 100%;
+  height: calc(62vw + 40px);
+}
+
+.header-bg, .chepulislogo-cutout-bg {
+/* header background here, also makes cennik masks work */
+  background:
+    url(../img/whiteout-gradient.png) repeat-x,
+    url(../img/header-bg.jpg) no-repeat,
+    rgba(255, 255, 255, 0);
+  background-size: 100px calc(62vw + 40px), cover;
+  background-position: top left, top;
+}
+
+
+.border-offset {
+  left: calc(15.625px - 5vw) ;
+}
+
+
+.line {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+.insert {
+  font-weight: bold;
+  font-size: calc(3vw + 3.75px);
+  line-height: 100%;
+  text-align: center;
+  opacity: 0.8;
+}

@@ -1,0 +1,42 @@
+@import 'styles/variables.css';
+@import 'styles/default.css';
+
+@import 'styles/persistent/basic.css';
+
+/* Frameworks and plugins */
+@import "styles/elastasys.css";
+@import "styles/script-styles/index.css";
+
+@import 'styles/persistent/sheet.css';
+@import 'styles/persistent/chepulislogo.css';
+@import 'styles/persistent/button.css';
+
+
+.flex-container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+@media (max-width: 900px) {
+  .flex-container {
+    display: block;
+    position: relative;
+    left: calc(24vw - 75px + 15.625px - 5vw);
+    width: calc(44vw + 175px);
+  }
+}
+
+.col {
+  vertical-align: top;
+  margin: 0 calc(1vw + 10px) 0 0;
+  min-width: 25%;
+}
+
+
+
+
