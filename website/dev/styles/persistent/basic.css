@@ -18,9 +18,9 @@ body {
 
 
 	font-family: 'Fira sans', 'Helvetica neue', Helvetica, sans-serif;
-	font-size: calc(0.33vw + 10pt);
+	font-size: 16px;
   font-weight: 300;
-	line-height: 133%;
+	line-height: 25px;
   color: white;
   overflow: hidden;
 }
@@ -28,7 +28,7 @@ body {
 
 small, .small {
 	font-size: 14px;
-	line-height: 133%;
+	line-height: 20px;
 }
 
 a {
@@ -223,51 +223,12 @@ p.number {
   top: 80px;
   left: 120px;
   color: #666;
+  min-width: 300px;
 }
 
 .plus {
   font-weight: 600;
   font-size: 22px;
-}
-
-
-
-
-.chrome-window {
-  position: absolute;
-  top: 50px;
-  left: calc(15vw + 350px);
-  
-  width: 45vw;
-  height: 80vw;
-  min-width: 450px;
-  min-height: 800px;
-  max-width: 600px;
-  max-height: 1000px;
-  
-  background-image: url("/img/chrome-window.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 5px;
-  box-shadow: 0px 50px 100px -25px black;
-}
-
-.product {
-  position: absolute;
-  top: 100px;
-  left: 150px;
-  
-  width: 30vw;
-  height: 45vw;
-  min-width: 300px;
-  min-height: 450px;
-  max-width: 400px;
-  max-height: 600px;
-  
-  background-image: url("/img/product.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-
 }
 
 

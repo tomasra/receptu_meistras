@@ -1,0 +1,81 @@
+
+
+
+.chrome-window {
+  position: absolute;
+  top: 50px;
+  left: calc(15vw + 350px);
+  
+  width: 600px;
+  height: 800px;
+  
+  background-image: url("/img/chrome-window.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  box-shadow: 0px 50px 100px -25px black;
+}
+
+.product {
+  position: absolute;
+  top: 100px;
+  left: 150px;
+
+  
+  width: 400px;
+  height: 600px;
+    
+  background-image: url("/img/product.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+
+
+@media (max-width: 1100px) {
+
+  
+  .chrome-window {
+    width: 450px;
+    height: 700px;    
+  }
+
+  .product {
+    top: 80px;
+    left: 100px;
+    
+    width: 300px;
+    height: 450px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+  .chrome-window {
+    background: none;
+    box-shadow: none;
+    
+    top: calc(100vh - 150px);
+    left: calc(50vw - 150px);
+    
+    width: 100%;
+    height: 100%;
+  }
+
+  .product {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    
+    width: 200px;
+    height: 300px;
+    
+    min-width: none;
+    min-height: none;
+    max-width: none;
+    max-height: none;
+    
+  }
+
+}

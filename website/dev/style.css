@@ -10,7 +10,7 @@
 @import 'styles/persistent/sheet.css';
 @import 'styles/persistent/chepulislogo.css';
 @import 'styles/persistent/button.css';
-
+@import 'styles/chrome-screenshot.css';
 
 .flex-container {
   display: -webkit-box;
