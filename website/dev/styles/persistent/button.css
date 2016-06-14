@@ -2,7 +2,7 @@
 .button, button.button {
     position: absolute;
     top: 30px;
-    left: calc(2vw + 95px);
+    left: calc(1vw + 120px);
     background: #5080d8;
     font-weight: 400;
     color: white;

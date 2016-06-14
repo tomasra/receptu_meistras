@@ -6,6 +6,13 @@
   font-family: 'Fira Sans', sans-serif;
   font-size: 16px;
   text-decoration:none;
+  
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  
+  cursor: default;
 }
 
 *:focus {
@@ -50,50 +57,60 @@ footer {
 ​
 .productName, .quantity, .unitPrice, .price {
   text-align: left;
-  margin-left: 5px;
+  margin-left: 3px;
   word-wrap: break-word;
+  
+  font-weight: 300;
+  font-style: italic;
+  font-size: 14px;
+  color: #deac00;
 }
 
-select{
-    width: 280px;
-    margin-left: 28px;
-    background-color: #fff;
-    border:1px solid #deac00;
-    color: 333;
-    height: 30px;
-    font-weight: 300;
+select {
+  width: 280px;
+  margin-left: 28px;
+  background-color: #fff;
+  border: 1px solid #deac00;
+  color: 333;
+  height: 30px;
+  font-weight: 200;
+  font-size: 14px;
+  
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
   }​
+  
+  .quantity {
+    width: 40px;
+    }​
+    
+  .unitPrice {
+    width: 55px;
+  }
+  
+  .price {
+    width: 85px;
+  }
 
-.productName {
-  width: 135px;
-  height: 50px;
-  text-overflow: ellipsis;
-  background-color: red;
+select:hover {
+  border: 1px solid #ad7317;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  background: #f4f1ea;
 }
-​
-.quantity {
-  width: 40px;
-}
-​
-.unitPrice {
-  width: 55px;
-}
-​
-.price {
-  width: 85px;
-}
-
 
 .checkbox-wrapper {
   position: relative;
   left: -2px;
-  top: 40px;
+  top: 39px;
   display: block;
   width: 25px;
   height: 25px;
   display: inline-block;
   margin: 0px 5px 0px 0px;
 }
+
+
 
 /* Base for label styling */
 [type="checkbox"]:not(:checked),
@@ -139,10 +156,10 @@ select{
 /* checked mark aspect */
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
-  content: url(tick.svg);
+  content: url(graphics/tick.png);
   position: absolute;
-  top: 3px;
-  left: 1px;
+  top: 6px;
+  left: 2px;
   color: #333;
   transition: all .2s;
 }
@@ -159,7 +176,7 @@ select{
 /* hover style just for information */
 label:hover:before {
   border: 1px solid #ad7317!important;
-  background-color: #eee!important;
+  background-color: #f4f1ea!important;
 }
 
 
@@ -178,6 +195,7 @@ label:hover:before {
     border-radius: 5px;
     -webkit-transition: all 1s ease-out;
     transition: all 1s ease-out;
+    cursor: pointer;
 }
 
 .button:hover, button.button:hover {
@@ -194,9 +212,8 @@ label:hover:before {
     transition: all 0.2s ease-out;
     background: #9c0734;
     border-top: 2px solid #87153e;
-    border-bottom: 2px solid #e07b36;
+    border-bottom: 2px solid #87153e;
 }
-
 
 
 .button-order {
@@ -208,11 +225,11 @@ label:hover:before {
 
 h1 {
   width: 350px;
-  font-weight: 500;
+  font-weight: 200;
   font-size: 24px;
   position: relative;
-  top: 30px;
-  left: 45px;
+  top: 35px;
+  left: 50px;
   color: white;
   text-transform: lowercase;
 }
@@ -222,18 +239,22 @@ h1::first-letter {
 }
 
 h3 {
-  font-weight: 400;
+  font-weight: 300;
   position: relative;
   top: 30px;
-  left: 45px;
+  left: 50px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
 }
 
 .footer-comment {
-  font-weight: 300;
-  color: white;
+  font-weight: 200;
+  color: #ccc;
   position: relative;
-  top: -25px;
-  left: 40px;
+  top: -30px;
+  left: 45px;
+  line-height: 23px;
 }
 
 .rm-logo {
@@ -275,6 +296,7 @@ h3 {
 
 .produkto-dropdown {
     margin-top: 8px;
+    cursor: pointer;
 }
 
 
@@ -310,7 +332,9 @@ h3 {
     border-radius: 6px;
     -webkit-transition: all 1s ease-out;
     transition: all 1s ease-out;
-}
+    user-select: none;
+    cursor: pointer;
+  }
 
 .button-buy:hover {
     -webkit-transition: all 0.2s ease-out;
@@ -318,7 +342,6 @@ h3 {
     background: #e8371f;
     border-top: 1px solid #f2982c;
     border-bottom: 1px solid #931634;
-
 }
 
 .button-buy:active{
@@ -326,7 +349,7 @@ h3 {
     transition: all 0.2s ease-out;
     background: #9c0734;
     border-top: 1px solid #87153e;
-    border-bottom: 1px solid #e07b36;
+    border-bottom: 1px solid #87153e;
 }
 
 .recipe-not-found {

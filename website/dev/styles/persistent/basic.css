@@ -14,8 +14,6 @@
 
 body {
   background-color: #909caa;
-
-
 	font-family: 'Fira sans', 'Helvetica neue', Helvetica, sans-serif;
 	font-size: 16px;
   font-weight: 300;
@@ -117,12 +115,13 @@ h1 {
   width: 100%;
   height: 100%;
   background-color: #909caa;
+
 }
 
 
 .wrapper-first {
   position: relative;
-  left: calc(5vw + 25px);
+  left: calc(5vw + 50px);
   padding-top: 100px;
   width: 400px;
 }
@@ -205,8 +204,8 @@ p.number {
 
 .download-main {
   position: relative;
-  left: 3vw;
-  width: 94vw;
+  left: 4vw;
+  width: 92vw;
   height: 150px;
   background-color: white;
   margin-top: 20px;
@@ -220,7 +219,7 @@ p.number {
   position: absolute;
   font-weight: 300;
   top: 80px;
-  left: calc(2vw + 100px);
+  left: calc(1vw + 125px);
   color: #666;
   min-width: 300px;
 }
