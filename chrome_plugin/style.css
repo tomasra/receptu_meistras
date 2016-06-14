@@ -87,7 +87,7 @@ select{
 .checkbox-wrapper {
   position: relative;
   left: -2px;
-  top: 38px;
+  top: 40px;
   display: block;
   width: 25px;
   height: 25px;
@@ -117,7 +117,7 @@ select{
   left:0; top: 2px;
   width: 20px;
   height: 20px;
-  border: 1px solid #deac00;
+  border: 1px solid #666;
   background: #fff;
   opacity:0.5;
   border-radius: 3px;
@@ -138,7 +138,7 @@ select{
 /* checked mark aspect */
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
-  content: url("tick.png");
+  content: url(tick.svg);
   position: absolute;
   top: 3px;
   left: 1px;
