@@ -34,7 +34,7 @@ h3 {
 .lead {
   width: 300px;
   position: relative;
-  margin: 50px 0 20px 35px;
+  margin: 50px 0 15px 35px;
   
   font-size: 24px;
   line-height: 30px;
@@ -55,6 +55,8 @@ a.lead {
 
 .suggestion-thumbnail {
   position: relative;
+  display: block;
+  border: 0;
   margin: 0 0 15px 35px;
   width: 330px;
   height: 100px;
@@ -66,10 +68,10 @@ a.lead {
 }
 
 .suggestion-thumbnail:hover {
-  background-size: 100%;
   background-position: 0px -100px;
   cursor: pointer;
   transition: 0.2s ease-out;
+  border: 0;
 }
 
 
