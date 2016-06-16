@@ -5,7 +5,7 @@
   box-sizing: border-box;
   font-family: 'Fira Sans', sans-serif;
   font-size: 16px;
-  text-decoration:none;
+  text-decoration: none;
   
   -moz-user-select: none;
   -khtml-user-select: none;
@@ -23,8 +23,21 @@
 body {
   height: 600px;
   width: 400px;
+  /*
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  */
 }
 
+/*
+body:hover {
+  height: 600px;
+  width: 800px;
+  
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+*/
 
 header {
   height: 130px;
@@ -45,6 +58,34 @@ footer {
   /*box-shadow: 0px -20px 50px 20px rgba(255,255,255,1);
   z-index: 2; */
 }
+
+
+a {
+  color: rgba(255, 165, 0, 1);
+  background: none;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 165, 0, 0.2);
+  height: 100%;
+  transition: color 0.2s ease-out;
+  transition: border-bottom 0.2s ease-out;
+  cursor: pointer;
+}
+
+a:hover, a.hover {
+	color: rgba(255, 140, 0, 1);
+	border-bottom: 1px solid rgba(255, 140, 0, 0.5);
+	transition: color 0s;
+	transition: border-bottom 0s;
+}
+
+a:active {
+	color: rgba(255, 69, 0, 1);
+	border-bottom: 1px solid rgba(255, 69, 0, 0.5);
+	transition: color 1s ease-in;
+	transition: border-bottom 1s ease-in;
+}
+
+
 
 .inline {
 display: inline-block;
@@ -148,7 +189,7 @@ select:hover {
   height: 20px;
   border: 1px solid #deac00;
   background: #fff;
-  transition: all .2s;
+  transition: all .3s;
     border-radius: 3px;
 }
 
@@ -160,7 +201,7 @@ select:hover {
   top: 6px;
   left: 2px;
   color: #333;
-  transition: all .2s;
+  transition: all .3s;
 }
 /* checked mark aspect changes */
 [type="checkbox"]:not(:checked) + label:after {

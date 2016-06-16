@@ -1,0 +1,97 @@
+body {
+  background: #333;
+  color: white;
+  font-weight: 200;
+}
+
+header {
+  width: 400px;
+  text-align: center;
+  position: absolute ;
+  left: 0px;
+  top: 15px;
+}
+
+section {
+  position: absolute;
+  top: 130px;
+  width: 400px;
+  height: 470px;
+}
+
+
+.rm-logo {
+  left: 175px;
+}
+
+h3 {
+  width: 200px;
+  top: 90px;
+  left: 100px;
+  color: black;
+}
+
+.lead {
+  width: 300px;
+  position: relative;
+  margin: 50px 0 20px 35px;
+  
+  font-size: 24px;
+  line-height: 30px;
+}
+
+a.lead {
+  margin: 0;
+}
+
+.soon {
+  width: 300px;
+  position: relative;
+  margin: 0 0 50px 35px;
+
+  font-weight: 100;
+  line-height: 20px;
+}
+
+.suggestion-thumbnail {
+  position: relative;
+  margin: 0 0 15px 35px;
+  width: 330px;
+  height: 100px;
+  background-image: url(graphics/suggestion-thumbnail.jpg);
+  background-color: red;
+  background-size: 100%;
+  background-position: 0px -20px;
+  transition: 0.2s ease-out;
+}
+
+.suggestion-thumbnail:hover {
+  background-size: 100%;
+  background-position: 0px -100px;
+  cursor: pointer;
+  transition: 0.2s ease-out;
+}
+
+
+.suggestion-link {
+  position: relative;
+  margin: 0 0 15px 35px;
+}
+
+.suggestion-price-total {
+  position: relative;
+  margin: 0 0 15px 130px;
+  font-size: 25px;
+  top: -25px;
+  left: 140px;  
+  font-weight: 400;
+  color: #deac00;
+}
+
+.euros {
+  font-size: 25px;
+}
+
+.cents {
+  font-size: 7pt;
+}
