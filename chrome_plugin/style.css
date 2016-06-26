@@ -20,24 +20,60 @@
 }
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans);
 
+
+@keyframes body-drawer {
+  from {width: 400px;}
+  to {width: 600px;}
+}
+
 body {
   height: 600px;
   width: 400px;
-  /*
-  -webkit-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
-  */
+  background: white;
+  
+  animation-name: body-drawer;
+  animation-duration: 0.3s;
+  animation-delay: 0.2s;
+  animation-timing-function: ease-in-out;
+  
+  animation-fill-mode: forwards;
+-webkit-animation-fill-mode:  forwards;
 }
 
-/*
-body:hover {
-  height: 600px;
-  width: 800px;
-  
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+
+.screen__5__wrapper {
+  position: fixed;
+  background-color: white;
+  left: 0px;
+  width: 400px;
+  height: 800px;
 }
-*/
+
+
+
+
+
+@keyframes sc6-drawer {
+  from {left: 200px; background-color: white;}
+  to {left: 400px;  background-color: #222;}
+}
+
+.screen__6__wrapper {
+  position: fixed;
+  width: 200px;
+  height: 800px;
+  
+  animation-name: sc6-drawer;
+  animation-duration: .3s;
+  animation-delay: 0.5s;
+  animation-timing-function: ease-in-out;
+  
+  animation-fill-mode: forwards;
+-webkit-animation-fill-mode:  forwards;
+
+box-shadow: inset 15px 0px 50px -20px rgba(0,0,0,1);
+}
+
 
 header {
   height: 130px;
@@ -55,6 +91,8 @@ footer {
   width: 400px;
   height: 150px;
   background-color: #333;
+  position: fixed; top: 450px; left: 0px; right: 0px; overflow: hidden;
+
   /*box-shadow: 0px -20px 50px 20px rgba(255,255,255,1);
   z-index: 2; */
 }
@@ -347,12 +385,8 @@ h3 {
     /*height:200px;*/
 }
 
-.footer {
-    position:absolute; bottom:0px;left:0px; right:0px; overflow:hidden;
-     /*height:200px;*/
-}
 .main-content {
-    position:absolute;  left:0px; right:0px; overflow:auto;
+    position: absolute;  left:0px; right:0px; overflow:auto;
     top:130px; bottom:130px;
 }
 
