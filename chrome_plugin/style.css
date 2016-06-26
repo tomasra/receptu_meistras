@@ -46,7 +46,7 @@ body {
   background-color: white;
   left: 0px;
   width: 400px;
-  height: 800px;
+  height: 600px;
 }
 
 
@@ -72,6 +72,8 @@ body {
 -webkit-animation-fill-mode:  forwards;
 
 box-shadow: inset 15px 0px 50px -20px rgba(0,0,0,1);
+
+padding: 80px 15px 30px 15px;
 }
 
 
@@ -434,4 +436,26 @@ h3 {
   width: 400px;
   height: 600px;
   overflow: hidden;
+}
+
+
+
+.howto{
+  color: #ccc;
+  font-weight: 200;
+  line-height: 20px;
+  font-size: 15px;
+}
+
+h4 {
+  font-size: 32px;
+  font-weight: 200;
+  letter-spacing: 5px;
+  line-height: 40px;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+span.login-to-barbora {
+  color: white;
 }
