@@ -68,6 +68,8 @@ a.lead {
   background-size: 100%;
   background-position: 0px -20px;
   transition: 0.2s ease-out;
+  -webkit-transition: 0.2s ease-out;
+
 }
 
 .suggestion-thumbnail:hover {
@@ -75,7 +77,8 @@ a.lead {
   cursor: pointer;
   transition: 0.2s ease-out;
   border: 0;
-  border: none;
+  border: none;  
+  -webkit-transition: 0.2s ease-out;
 }
 
 
