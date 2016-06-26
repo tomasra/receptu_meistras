@@ -2,6 +2,9 @@ body {
   background: #333;
   color: white;
   font-weight: 200;
+  height: 600px;
+  width: 400px;
+  animation: none;
 }
 
 header {
@@ -72,6 +75,7 @@ a.lead {
   cursor: pointer;
   transition: 0.2s ease-out;
   border: 0;
+  border: none;
 }
 
 
