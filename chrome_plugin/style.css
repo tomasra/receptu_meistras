@@ -50,6 +50,9 @@ body {
   left: 0px;
   width: 400px;
   height: 600px;
+  
+  box-shadow:  -15px 0px 100px 30px rgba(0,0,0,0.8);
+
   }
 
 
