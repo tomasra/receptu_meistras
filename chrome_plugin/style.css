@@ -21,6 +21,9 @@
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans);
 
 
+
+
+
 @keyframes body-drawer {
   from {width: 400px;}
   to {width: 600px;}
@@ -77,10 +80,33 @@ padding: 80px 15px 30px 15px;
 }
 
 
+
+
+@keyframes an-pseudo-loader {
+  from {top: 600px; opacity: 1;}
+  to {top: 0px; opacity: 0.3;}
+}
+
+.pseudo-loader {
+  position: absolute;
+  top: 600px;
+  height: 600px;
+  left: 395px;
+  width: 5px;
+  background: #222;
+  
+  animation-name: an-pseudo-loader;
+  animation-duration: 1.2s;
+  animation-delay: 0s;
+  animation-timing-function: ease-in-out;
+}
+
+
+
 header {
   height: 130px;
   width: 400px;
-  background-color: #deac00;
+  background-color: #f7f7f7;
   box-shadow: inset -35px 0px 50px -20px rgba(255,255,255,0.2);
 }
 
@@ -93,9 +119,9 @@ header {
 footer {
   width: 400px;
   height: 150px;
-  background-color: #333;
+  background-color: #eee;
   position: fixed; top: 450px; left: 0px; right: 0px; overflow: hidden;
-  box-shadow: inset -35px 0px 50px -20px rgba(255,255,255,0.05);
+  box-shadow: inset -35px 0px 50px -20px rgba(255,255,255,0.3);
 
   /*box-shadow: 0px -20px 50px 20px rgba(255,255,255,1);
   z-index: 2; */
@@ -312,8 +338,8 @@ h1 {
   font-size: 24px;
   position: relative;
   top: 35px;
-  left: 50px;
-  color: white;
+  left: 45px;
+  color: #deac00;
   text-transform: lowercase;
 }
 
@@ -325,7 +351,7 @@ h3 {
   font-weight: 300;
   position: relative;
   top: 30px;
-  left: 50px;
+  left: 45px;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 12px;
@@ -333,7 +359,7 @@ h3 {
 
 .footer-comment {
   font-weight: 200;
-  color: #ccc;
+  color: #333;
   position: relative;
   top: -30px;
   left: 45px;
@@ -349,7 +375,7 @@ h3 {
 }
 
 .brighter-bg {
-  background-color: #e5c32e;
+  background-color: #eee;
   height: 130px;
   width: 90px;
   position: absolute;
@@ -470,3 +496,10 @@ span.login-to-barbora {
     vertical-align: super;
     text-transform: lowercase;
 }
+
+
+}
+
+
+
+
