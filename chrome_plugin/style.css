@@ -163,7 +163,7 @@ display: inline-block;
 }
 
 .product {
-  margin: 0px 0px 10px 0px
+  margin: 0px 0px 20px 0px
 }
 ​
 .productName, .quantity, .unitPrice, .price {
@@ -176,6 +176,13 @@ display: inline-block;
   font-size: 14px;
   color: #deac00;
 }
+
+.productName {
+  background: ;
+  max-width: 250px;
+  
+}
+
 
 select {
   width: 280px;
@@ -498,9 +505,6 @@ span.login-to-barbora {
     font-size: 10pt;
     vertical-align: super;
     text-transform: lowercase;
-}
-
-
 }
 
 

@@ -76,9 +76,9 @@ function getProduktoHtml(item, i, dropDownHtml){
 </div> \
 <div class="productName inline"> \
 {{produktoPavadinimas}} \
-</div> \
 <div class="quantity inline"> \
 {{produktoKiekis}} \
+</div> \
 </div> \
 <select class="produkto-dropdown" id="produkto{{Nr}}dropdown"> \
 {{produktoDropdownHtml}} \
