@@ -16,10 +16,12 @@ header {
 }
 
 section {
-  position: absolute;
+  position: fixed;
   top: 130px;
   width: 400px;
   height: 470px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 
@@ -67,18 +69,21 @@ a.lead {
   background-color: red;
   background-size: 100%;
   background-position: 0px -20px;
-  transition: 0.2s ease-out;
-  -webkit-transition: 0.2s ease-out;
-
+  transition: 0.5s ease-out;
 }
 
-.suggestion-thumbnail:hover {
+.suggestion-thumbnail:hover, .suggestion-thumbnail.hover {
   background-position: 0px -100px;
   cursor: pointer;
   transition: 0.2s ease-out;
-  border: 0;
   border: none;  
-  -webkit-transition: 0.2s ease-out;
+}
+
+.suggestion-thumbnail:active {
+  background-position: 0px -90px;
+  cursor: pointer;
+  transition: 0.2s ease-out;
+  border: none;  
 }
 
 
@@ -104,3 +109,51 @@ a.lead {
 .cents {
   font-size: 7pt;
 }
+
+
+.suggestion-wide__wrapper{
+  position: relative;
+}
+
+
+.suggestions-masonry { 
+  position: relative;
+  width: 340px;
+  margin: -10px 35px 40px 35px;
+  column-count: 2;
+  column-gap: 10px;
+}
+.suggestion-masonry {  
+  display: inline-block;
+  width: 155px;
+  margin: 0 0 30px 0px;
+} 
+
+.recipe-pic {
+  display: block;
+  width: 100%;
+  min-height: 155px;
+  background-color: rgba(0, 0, 0, 0.5);;
+  margin: 0 0 10px 0px;
+  border: 0;
+  background-size: cover;
+  background-position: -20px 00px;
+  transition: 0.5s ease-out;
+}
+
+
+.recipe-pic:hover, .recipe-pic.hover {
+  background-position: 100% 0px;
+  cursor: pointer;
+  transition: 1.5s ease-out;
+  border: none;  
+}
+
+.recipe-pic:active {
+  background-position: 100% 0px;
+  cursor: pointer;
+  transition: 0.2s ease-out;
+  border: none;  
+}
+
+
