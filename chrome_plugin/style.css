@@ -33,7 +33,7 @@ body {
   
   animation-name: body-drawer;
   animation-duration: 0.3s;
-  animation-delay: 0.2s;
+  animation-delay: 1.2s;
   animation-timing-function: ease-in-out;
   
   animation-fill-mode: forwards;
@@ -47,7 +47,7 @@ body {
   left: 0px;
   width: 400px;
   height: 600px;
-}
+  }
 
 
 
@@ -65,7 +65,7 @@ body {
   
   animation-name: sc6-drawer;
   animation-duration: .3s;
-  animation-delay: 0.5s;
+  animation-delay: 1.5s;
   animation-timing-function: ease-in-out;
   
   animation-fill-mode: forwards;
@@ -81,6 +81,7 @@ header {
   height: 130px;
   width: 400px;
   background-color: #deac00;
+  box-shadow: inset -35px 0px 50px -20px rgba(255,255,255,0.2);
 }
 
 .section {
@@ -94,6 +95,7 @@ footer {
   height: 150px;
   background-color: #333;
   position: fixed; top: 450px; left: 0px; right: 0px; overflow: hidden;
+  box-shadow: inset -35px 0px 50px -20px rgba(255,255,255,0.05);
 
   /*box-shadow: 0px -20px 50px 20px rgba(255,255,255,1);
   z-index: 2; */
