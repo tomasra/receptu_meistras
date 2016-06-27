@@ -1,10 +1,11 @@
 body {
-  background: #333;
+  background: #222;
   color: white;
   font-weight: 200;
   height: 600px;
   width: 400px;
   animation: none;
+  overflow-x: hidden;
 }
 
 header {
@@ -13,6 +14,7 @@ header {
   position: absolute ;
   left: 0px;
   top: 15px;
+  overflow-x: hidden;
 }
 
 section {
@@ -118,10 +120,10 @@ a.lead {
 
 .suggestions-masonry { 
   position: relative;
-  width: 340px;
+  width: 330px;
   margin: -10px 35px 40px 35px;
   column-count: 2;
-  column-gap: 10px;
+  column-gap: 20px;
 }
 .suggestion-masonry {  
   display: inline-block;
