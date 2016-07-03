@@ -45,7 +45,7 @@ if (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl) {
     // console.log(jsonString);
     $.ajax({
         type: "post",
-        url: "http://tomasra.com:5000/match",
+        url: "http://tomasra.com/reciprice/api/match",
         data: jsonString,
         dataType: "json",
         contentType: "application/json; charset=utf-8",
@@ -78,7 +78,7 @@ if (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl) {
             // });
         },
         error: function (jq, status, message) {
-            var msg = '$.ajax post error when calling http://tomasra.com:5000/match : ' + status + ' - Message: ' + message;
+            var msg = '$.ajax post error when calling http://tomasra.com/reciprice/api/match : ' + status + ' - Message: ' + message;
             console.error(msg);
             alert(msg);
         }
