@@ -1,6 +1,5 @@
 ﻿"use strict";
 
-
 var tukstReceptuUrl = "http://www.delfi.lt/1000receptu/receptai/";
 
 function getJsonFromRecipyTable(receptu_langas, url) {
@@ -57,7 +56,8 @@ if (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl) {
             var keyTitle = 'recipe-title-' + window.location.href;
             var obj = {};
             obj[keyIngr] = data;
-            obj[keyTitle] = jsonObjektas.recipeTitle;
+            obj["recipeTitle"] = jsonObjektas.recipeTitle;
+            //recipeTitle = jsonObjektas.recipeTitle;
             chrome.storage.local.set(obj);
 
             // chrome.storage.local.set({

@@ -76,9 +76,9 @@ function getProduktoHtml(item, i, dropDownHtml){
 </div> \
 <div class="productName inline"> \
 {{produktoPavadinimas}} \
-</div> \
 <div class="quantity inline"> \
 {{produktoKiekis}} \
+</div> \
 </div> \
 <select class="produkto-dropdown" id="produkto{{Nr}}dropdown"> \
 {{produktoDropdownHtml}} \
@@ -112,9 +112,11 @@ function getDropdownHtml(products){
     return selectHtml;
 }
 
-function updateRecipeTitle() {
-    chrome.storage.local.get("recipeTitle", function(obj) {
-        $('h1.title-pavadinimas').text(obj.recipeTitle);
+function updateRecipeTitle(keyRecipeTitle) {
+ 
+    chrome.storage.local.get(keyRecipeTitle, function (data) { //recipeTitle
+        console.log(data);
+        $('h1.title-pavadinimas').text(data[keyRecipeTitle]); 
     });
 }
 
@@ -143,21 +145,21 @@ function recipeFound() {
     chrome.tabs.query({active: true}, function(tab) {
         tab = tab[0];
         var keyIngredients = 'ingredients-' + tab.url;
-
+        var keyRecipeTitle = 'recipe-title-' + tab.url;
         chrome.storage.local.get(keyIngredients, function(data) {
             var ingredients = data[keyIngredients];
             if (ingredients) {
                 // Ingredients already loaded
                 spinner.stop();
                 populatePopupWithIngredients(ingredients);
-                updateRecipeTitle();
+                updateRecipeTitle(keyRecipeTitle);
             } else {
                 // Need to wait
                 chrome.storage.onChanged.addListener(function(changes, areaName) {
                     if (changes[keyIngredients] !== undefined) {
                         spinner.stop();
                         populatePopupWithIngredients(changes[keyIngredients].newValue);
-                        updateRecipeTitle();
+                        updateRecipeTitle(keyRecipeTitle);
                     }
                     // console.log(changes);
                 })
@@ -239,7 +241,7 @@ function recipeFound() {
                 fullUrl = "https://www.barbora.lt" + urlsToCall[i] + "?receptuMeistrasPridetiProdukta=1&receptuMeistrasAktyvinti=1";
             }
             else {
-                fullUrl = "https://www.barbora.lt" + urlsToCall[i] + "?receptuMeistrasPridetiProdukta=1&receptuMeistrasUzdaryti=1";
+                fullUrl = "https://www.barbora.lt" + urlsToCall[i] + "?receptuMeistrasPridetiProdukta=1";
             }
             //var selected1 = (i + 1 == urlsToCall.length);
             

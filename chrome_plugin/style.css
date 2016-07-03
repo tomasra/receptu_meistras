@@ -20,29 +20,97 @@
 }
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans);
 
+
+
+
+
+@keyframes body-drawer {
+  from {width: 400px;}
+  to {width: 600px;}
+}
+
 body {
   height: 600px;
   width: 400px;
-  /*
-  -webkit-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
-  */
+  background: white;
+  
+  animation-name: body-drawer;
+  animation-duration: 0.3s;
+  animation-delay: 1.2s;
+  animation-timing-function: ease-in-out;
+  
+  animation-fill-mode: forwards;
+-webkit-animation-fill-mode:  forwards;
 }
 
-/*
-body:hover {
+
+.screen__5__wrapper {
+  position: fixed;
+  background-color: white;
+  left: 0px;
+  width: 400px;
   height: 600px;
-  width: 800px;
   
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  box-shadow:  -15px 0px 100px 30px rgba(0,0,0,0.8);
+
+  }
+
+
+
+
+
+@keyframes sc6-drawer {
+  from {left: 200px; background-color: white;}
+  to {left: 400px;  background-color: #222;}
 }
-*/
+
+.screen__6__wrapper {
+  position: fixed;
+  width: 200px;
+  height: 800px;
+  
+  animation-name: sc6-drawer;
+  animation-duration: .3s;
+  animation-delay: 1.5s;
+  animation-timing-function: ease-in-out;
+  
+  animation-fill-mode: forwards;
+-webkit-animation-fill-mode:  forwards;
+
+box-shadow: inset 15px 0px 50px -20px rgba(0,0,0,1);
+
+padding: 80px 15px 30px 15px;
+}
+
+
+
+
+@keyframes an-pseudo-loader {
+  from {top: 600px; opacity: 1;}
+  to {top: 0px; opacity: 0.3;}
+}
+
+.pseudo-loader {
+  position: absolute;
+  top: 600px;
+  height: 600px;
+  left: 395px;
+  width: 5px;
+  background: #222;
+  
+  animation-name: an-pseudo-loader;
+  animation-duration: 1.2s;
+  animation-delay: 0s;
+  animation-timing-function: ease-in-out;
+}
+
+
 
 header {
   height: 130px;
   width: 400px;
-  background-color: #deac00;
+  background-color: #f7f7f7;
+  box-shadow: inset -35px 0px 50px -20px rgba(255,255,255,0.2);
 }
 
 .section {
@@ -54,7 +122,10 @@ header {
 footer {
   width: 400px;
   height: 150px;
-  background-color: #333;
+  background-color: #eee;
+  position: fixed; top: 450px; left: 0px; right: 0px; overflow: hidden;
+  box-shadow: inset -35px 0px 50px -20px rgba(255,255,255,0.3);
+
   /*box-shadow: 0px -20px 50px 20px rgba(255,255,255,1);
   z-index: 2; */
 }
@@ -92,7 +163,7 @@ display: inline-block;
 }
 
 .product {
-  margin: 0px 0px 10px 0px
+  margin: 0px 0px 20px 0px
 }
 ​
 .productName, .quantity, .unitPrice, .price {
@@ -105,6 +176,11 @@ display: inline-block;
   font-size: 14px;
   color: #deac00;
 }
+
+.productName {
+  max-width: 290px;  
+}
+
 
 select {
   width: 280px;
@@ -270,8 +346,8 @@ h1 {
   font-size: 24px;
   position: relative;
   top: 35px;
-  left: 50px;
-  color: white;
+  left: 45px;
+  color: #deac00;
   text-transform: lowercase;
 }
 
@@ -280,10 +356,11 @@ h1::first-letter {
 }
 
 h3 {
+  display: block;
   font-weight: 300;
   position: relative;
   top: 30px;
-  left: 50px;
+  left: 45px;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 12px;
@@ -291,7 +368,7 @@ h3 {
 
 .footer-comment {
   font-weight: 200;
-  color: #ccc;
+  color: #333;
   position: relative;
   top: -30px;
   left: 45px;
@@ -307,7 +384,7 @@ h3 {
 }
 
 .brighter-bg {
-  background-color: #e5c32e;
+  background-color: #eee;
   height: 130px;
   width: 90px;
   position: absolute;
@@ -347,12 +424,8 @@ h3 {
     /*height:200px;*/
 }
 
-.footer {
-    position:absolute; bottom:0px;left:0px; right:0px; overflow:hidden;
-     /*height:200px;*/
-}
 .main-content {
-    position:absolute;  left:0px; right:0px; overflow:auto;
+    position: absolute;  left:0px; right:0px; overflow:auto;
     top:130px; bottom:130px;
 }
 
@@ -360,18 +433,17 @@ h3 {
 
 .button-buy {
     position: relative;
-    top: 2px;
+    top: 3px;
     left: 3px;
-    background: #d81313;
+    background: #eee;
     font-weight: 600;
-    color: white;
+    color: #deac00;
     font-size: 20px;
-    text-shadow: 0px 1px 2px #87153e;
-    border-top: 1px solid #e07b36;
-    border-bottom: 1px solid #87153e;
+    text-shadow: 0px 1px 2px #fff;
+    border: 1px solid #deac00;
     cursor: pointer;
-    padding: 0px 8px 0px 7px;
-    border-radius: 3px;
+    padding: 0px 7px 0px 6px;
+    border-radius: 20px;
     
     -webkit-transition: all 1s ease-out;
     transition: all 1s ease-out;
@@ -384,20 +456,59 @@ h3 {
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
     background: #e8371f;
-    border-top: 1px solid #f2982c;
-    border-bottom: 1px solid #931634;
+    border: 1px solid #e8371f;
+    color: white;
+    text-shadow: 0px 1px 2px #deac00;
 }
 
 .button-buy:active{
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
     background: #9c0734;
-    border-top: 1px solid #87153e;
-    border-bottom: 1px solid #87153e;
+    border: 1px solid #87153e;
+    text-shadow: 0px 1px 2px #deac00;
+    color: white;
 }
 
 .recipe-not-found {
   width: 400px;
   height: 600px;
   overflow: hidden;
+}
+
+
+
+.howto{
+  color: #ccc;
+  font-weight: 200;
+  line-height: 20px;
+  font-size: 15px;
+}
+
+h4 {
+  font-size: 32px;
+  font-weight: 200;
+  letter-spacing: 5px;
+  line-height: 40px;
+  font-style: italic;
+  text-transform: uppercase;
+  color: #ddd;
+}
+
+span.login-to-barbora {
+  color: white;
+}
+
+.beta {
+    color: #997a23;
+    font-size: 10pt;
+    vertical-align: super;
+    text-transform: lowercase;
+}
+
+
+
+.wrongplace-iframe {
+  width: 400px;
+  height: 600px;
 }
