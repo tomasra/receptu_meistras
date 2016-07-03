@@ -56,8 +56,7 @@ if (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl) {
             var keyTitle = 'recipe-title-' + window.location.href;
             var obj = {};
             obj[keyIngr] = data;
-            obj["recipeTitle"] = jsonObjektas.recipeTitle;
-            //recipeTitle = jsonObjektas.recipeTitle;
+            obj[keyTitle] = jsonObjektas.recipeTitle;
             chrome.storage.local.set(obj);
 
             // chrome.storage.local.set({

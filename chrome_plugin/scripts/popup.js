@@ -24,10 +24,8 @@ function populatePopupWithIngredients(items){
         var produktuHtml = "";
         for (var i in items) {
             var item = items[i];
-            console.log(item);
             var dropDownHtml = getDropdownHtml(item.products);
             var produktoHtml = getProduktoHtml(item, i, dropDownHtml);
-            console.log(produktoHtml);
             produktuHtml = produktuHtml.concat(produktoHtml);
         }
         $resultsForm.html(produktuHtml);
@@ -112,10 +110,9 @@ function getDropdownHtml(products){
     return selectHtml;
 }
 
-function updateRecipeTitle(keyRecipeTitle) {
- 
-    chrome.storage.local.get(keyRecipeTitle, function (data) { //recipeTitle
-        console.log(data);
+function updateRecipeTitle(keyRecipeTitle) { 
+    chrome.storage.local.get(keyRecipeTitle, function (data) { //recipeTitle)
+        // console.log("updateRecipeTitle " + keyRecipeTitle + ' ' + data[keyRecipeTitle]);
         $('h1.title-pavadinimas').text(data[keyRecipeTitle]); 
     });
 }
