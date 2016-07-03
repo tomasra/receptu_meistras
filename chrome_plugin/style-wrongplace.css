@@ -66,18 +66,18 @@ a.lead {
   border: 0;
   margin: 0 0 15px 35px;
   width: 330px;
-  height: 100px;
+  height: 120px;
   background-image: url(graphics/suggestion-thumbnail.jpg);
   background-color: red;
   background-size: 100%;
   background-position: 0px -20px;
-  transition: 0.5s ease-out;
+  transition: 0.8s ease-out;
 }
 
 .suggestion-thumbnail:hover, .suggestion-thumbnail.hover {
   background-position: 0px -100px;
   cursor: pointer;
-  transition: 0.2s ease-out;
+  transition: 0.5s ease-out;
   border: none;  
 }
 
@@ -121,7 +121,7 @@ a.lead {
 .suggestions-masonry { 
   position: relative;
   width: 330px;
-  margin: -10px 35px 40px 35px;
+  margin: 30px 35px 40px 35px;
   column-count: 2;
   column-gap: 20px;
 }
@@ -140,14 +140,14 @@ a.lead {
   border: 0;
   background-size: cover;
   background-position: -20px 00px;
-  transition: 0.5s ease-out;
+  transition: 0.8s ease-out;
 }
 
 
 .recipe-pic:hover, .recipe-pic.hover {
   background-position: 100% 0px;
   cursor: pointer;
-  transition: 1.5s ease-out;
+  transition: 0.5s ease-out;
   border: none;  
 }
 
