@@ -504,7 +504,8 @@ span.login-to-barbora {
     font-size: 10pt;
     vertical-align: super;
     text-transform: lowercase;
-}
+    line-height: 0px;
+}    
 
 
 

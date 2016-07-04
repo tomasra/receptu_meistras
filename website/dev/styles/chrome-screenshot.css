@@ -19,10 +19,9 @@
 .product {
   position: absolute;
   top: 100px;
-  left: 150px;
+  left: 50px;
 
-  
-  width: 400px;
+  width: 600px;
   height: 600px;
     
   background-image: url("/img/product.png");
