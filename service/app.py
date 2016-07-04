@@ -33,7 +33,7 @@ def read_products(path):
     return products
 
 def match_products(ingredients, limit=5):
-    products = read_products('../data/barbora_20160603.csv')
+    products = read_products('/home/tomas/receptu_meistras/data/barbora.csv')
     all_matches = []
     # for ingredient, amount in ingredients:
     for ingr_dict in ingredients:
