@@ -25,7 +25,7 @@ if (pridetiProdukta == 1) {
     //executinam clicka
     //alert("noriu clickint!");
 
-    $(".b-add-to-cart").click();
+    $(".col-md-6 .b-add-to-cart").click();
 
     if (uzdaryti == 1) {
         setTimeout(function () {
