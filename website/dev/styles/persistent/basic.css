@@ -71,12 +71,13 @@ a:active {
 h1 {
   position: relative;
   display: block;
+  width: 300px;
   
 	font-weight: 400;
 	font-size: 16px;  
   color: #FCB028;
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: 4px;
 }
 
 .capitel {
@@ -196,11 +197,11 @@ h1 {
 
 p.number {
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   
   font-size: 12px;
-  line-height: 20px;
+  line-height: 18px;
   font-weight: 400;
   border-radius: 15px;
   border: solid 1px rgba(0,0,0,0.5);
@@ -208,7 +209,7 @@ p.number {
 
   text-align: center;
   
-  margin: 0 0 -24px -28px;
+  margin: 0 0 -23px -28px;
 }
 
 .download-main {
