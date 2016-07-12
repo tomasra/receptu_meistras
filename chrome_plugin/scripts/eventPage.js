@@ -24,12 +24,9 @@ function checkWebpage(loadingStatus) {
             }
         });
     } else if (loadingStatus === 'complete') {
-        //BUG? Cia gali buti paselektintas kitas tabas!
         chrome.tabs.query({active: true}, function(tab) {
             tab = tab[0];
             chrome.tabs.sendMessage(tab.id, "getDOM", {}, function (response){
-            //chrome.tabs.sendRequest(tab.id, { action: "getDOM" }, function (response) {
-                // console.log(response);
                 if (response && response.jsonObjektas) {
                     var jsonObjektas = response.jsonObjektas;
                     // console.log(jsonObjektas);

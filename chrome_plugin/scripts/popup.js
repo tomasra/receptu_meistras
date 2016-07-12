@@ -119,7 +119,7 @@ function updateRecipeTitle(keyRecipeTitle) {
 
 function recipeFound() {
     $('.recipe-not-found').detach();
-    console.log("pradedam loadint..");
+    console.log("function recipeFound() iskviesta");
 
     $("#resultsForm").on("click", "a.button-buy", function () {
         var nr = $(this).data("nr");
@@ -162,54 +162,8 @@ function recipeFound() {
                 })
             }
 
-            // console.log(data);
-
-            // // console.log(items);
-            // if (items.ingredientuSarasas !== undefined) {
-            //     spinner.stop();
-            //     populatePopupWithIngredients(items.ingredientuSarasas);
-            //     updateRecipeTitle();
-            // } else {
-            //     chrome.storage.onChanged.addListener(function(changes, areaName) {
-            //         // HACK: checking if ingredient list was cleared or populated in eventPage.js
-            //         if (changes.ingredientuSarasas.newValue === undefined) {
-            //             // Cleared - need to wait for data
-            //             spinner.spin();
-            //             // console.log(changes);
-            //         } else {
-            //             // Populated
-            //             spinner.stop();
-            //             populatePopupWithIngredients(changes.ingredientuSarasas.newValue);
-            //             updateRecipeTitle();
-            //             // console.log(changes);
-            //         }
-            //     });
-            // }
         })
 
-        // chrome.storage.local.get("ingredientuSarasas", function(items) {
-        //     // console.log(items);
-        //     if (items.ingredientuSarasas !== undefined) {
-        //         spinner.stop();
-        //         populatePopupWithIngredients(items.ingredientuSarasas);
-        //         updateRecipeTitle();
-        //     } else {
-        //         chrome.storage.onChanged.addListener(function(changes, areaName) {
-        //             // HACK: checking if ingredient list was cleared or populated in eventPage.js
-        //             if (changes.ingredientuSarasas.newValue === undefined) {
-        //                 // Cleared - need to wait for data
-        //                 spinner.spin();
-        //                 // console.log(changes);
-        //             } else {
-        //                 // Populated
-        //                 spinner.stop();
-        //                 populatePopupWithIngredients(changes.ingredientuSarasas.newValue);
-        //                 updateRecipeTitle();
-        //                 // console.log(changes);
-        //             }
-        //         });
-        //     }
-        // })
     });
 
     var checkPageButton = document.getElementById('checkPage');

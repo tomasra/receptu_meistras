@@ -29,7 +29,6 @@ function getJsonFromRecipyTable(receptu_langas, url) {
     return jsonObjektas;
 }
 
-
 var fullUrl = window.location.href;
 if (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl) {
     var key = 'recipe-found-' + window.location.href;
@@ -51,7 +50,6 @@ if (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl) {
         success: function (data){
             // console.log(data);
             //Gavus duomenis, cia galime deti i chrome localStorage:
-            // var key = 'ingredients-' + window.location.href;
             var keyIngr = 'ingredients-' + window.location.href;
             var keyTitle = 'recipe-title-' + window.location.href;
             var obj = {};
@@ -59,22 +57,8 @@ if (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl) {
             obj[keyTitle] = jsonObjektas.recipeTitle;
             chrome.storage.local.set(obj);
 
-            // chrome.storage.local.set({
-            //     keyIngr: data,
-            //     keyTitle: jsonObjektas.recipeTitle,
-            //     // ingredientuSarasas : data,
-            //     // recipeTitle: response.jsonObjektas.recipeTitle,
-            // });
-
-            // chrome.storage.local.get(key, function(data) {
-            //     console.log(data[key]);
-            // })
-
             console.log('data');
-            // chrome.storage.local.set({
-            //     ingredientuSarasas : data,
-            //     recipeTitle: response.jsonObjektas.recipeTitle,
-            // });
+
         },
         error: function (jq, status, message) {
             var msg = '$.ajax post error when calling http://tomasra.com/reciprice/api/match : ' + status + ' - Message: ' + message;
@@ -83,7 +67,6 @@ if (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl) {
         }
     });
 
-    // chrome.storage.local.set({ recipeFound: true });
     chrome.browserAction.setBadgeText({ text: "!" });
     chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-active.png" });
 } else {
@@ -93,26 +76,6 @@ if (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl) {
     console.log(key);
     chrome.storage.local.set(obj);
 
-    // console.log('recipe not found');
-    // var key = 'recipe-found-' + window.location.href;
-    // chrome.storage.local.set({ key: false });
-
-    // chrome.storage.local.set({ recipeFound: false });
     chrome.browserAction.setBadgeText({ text: "" });
     chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-neutral.png" });
 }
-
-
-
-
-// chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-// //chrome.extension.onRequest.addListener(function (request, sender, sendResponse) {
-//     //alert("is background.js ateina!");
-//     if (request == "getDOM") {
-//         var receptu_langas = $(".recipe-ingredients table tbody tr");
-//         var jsonObjektas = getJsonFromRecipyTable(receptu_langas, window.location.href );
-//         sendResponse({ jsonObjektas: jsonObjektas });
-//     }
-//     else
-//         sendResponse({}); // Send nothing..
-// });
