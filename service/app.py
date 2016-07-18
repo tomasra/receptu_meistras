@@ -40,17 +40,16 @@ def match_products(ingredients, limit=5):
         amount = ingr_dict.get('amount', None)
         ingredient = ingr_dict.get('ingredient', None)
         try:
-            general_name = ingr_dict['general_name'].replace('-', ' ')
-
+            # general_name = ingr_dict['general_name'].replace('-', ' ')
             product_ratios = []
             for product in products:
                 name_ratio = fuzz.partial_ratio(ingredient, product['name'])
                 cat3_ratio = fuzz.partial_ratio(ingredient, product['category3'])
-                gen_name_ratio = fuzz.partial_ratio(general_name, remove_accents(product['name']).lower())
+                # gen_name_ratio = fuzz.partial_ratio(general_name, remove_accents(product['name']).lower())
                 product_ratios.append((
                     product,
-                    [name_ratio, cat3_ratio, gen_name_ratio]
-                    # [name_ratio, cat3_ratio]
+                    # [name_ratio, cat3_ratio, gen_name_ratio]
+                    [name_ratio, cat3_ratio]
                 ))
             # Order by sum of ratios
             ingr_matches = sorted(product_ratios, key=lambda p: sum(p[1]), reverse=True)[:limit]
