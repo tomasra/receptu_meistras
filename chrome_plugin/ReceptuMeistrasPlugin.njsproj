@@ -48,6 +48,7 @@
     <Compile Include="scripts\hover.js" />
     <Compile Include="scripts\jquery-2.2.4.min.js" />
     <Compile Include="scripts\popup.js" />
+    <Compile Include="scripts\recipe_strategies.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="graphics\" />

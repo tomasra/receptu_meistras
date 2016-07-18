@@ -1,6 +1,6 @@
 ﻿// alert("eventPage loadina!");
+console.log("Vykdomas eventPage.js")
 var tukstReceptuUrl = "http://www.delfi.lt/1000receptu/receptai/";
-
 function checkWebpage(loadingStatus) {
     if (loadingStatus === undefined) {
         // No url yet or no changes in it
@@ -11,7 +11,9 @@ function checkWebpage(loadingStatus) {
         chrome.tabs.query({active: true}, function(tab) {
             tab = tab[0];
             var fullUrl = tab.url;
-            if (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl) {
+            console.log(fullUrl);
+            var recipeSiteExtractor = GetRecipeExtractor(fullUrl);
+            if (recipeSiteExtractor) {
                 // console.log('recipe found');
                 chrome.storage.local.set({ recipeFound: true });
                 chrome.browserAction.setBadgeText({ text: "!" });
@@ -66,13 +68,18 @@ function checkWebpage(loadingStatus) {
 
                 chrome.tabs.query({ active: true }, function (tab) {
                     tab = tab[0];
-                    var fullUrl = tab.url;
-                    var arTukstantisReceptuLangas = (fullUrl.substring(0, tukstReceptuUrl.length) === tukstReceptuUrl);
-                    console.log("arTukstantisReceptuLangas: " + arTukstantisReceptuLangas);
+                var fullUrl = tab.url;
+                
+                var recipeSiteExtractor = GetRecipeExtractor(fullUrl);
+                var arReceptoLangas = false;
+                if (recipeSiteExtractor) {
+                    arReceptoLangas = true;
+                }
+                   console.log("arReceptoLangas: " + arReceptoLangas);
                     var arYraIngredientuSarasas = data && data.ingredientuSarasas;
                     console.log("arYraIngredientuSarasas: " + arYraIngredientuSarasas);
 
-                    if (arTukstantisReceptuLangas && arYraIngredientuSarasas) {
+                    if (arReceptoLangas && arYraIngredientuSarasas) {
                         console.log('recipe found');
                         chrome.storage.local.set({ recipeFound: true });
                         chrome.browserAction.setBadgeText({ text: "!" });
@@ -91,6 +98,7 @@ function checkWebpage(loadingStatus) {
 
 
 chrome.tabs.onActivated.addListener(function (activeInfo) {
+    console.log("onActivated loadint..");
     chrome.tabs.get(activeInfo.tabId, function(tab) {
         // console.log(tab.url);
         var keyRecipeFound = 'recipe-found-' + tab.url;

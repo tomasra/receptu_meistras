@@ -22,19 +22,19 @@
         "http://*/*",
         "https://*/*"
       ],
-      "js": [ "scripts/jquery-2.2.4.min.js", "scripts/content_script.js" ],
+      "js": [ "scripts/libs/jquery-2.2.4.min.js", "scripts/recipe_strategies.js", "scripts/content_script.js" ],
       "run_at": "document_end"
     },
     {
       "matches": [
         "https://www.barbora.lt/produktai/*"
       ],
-      "js": [ "scripts/jquery-2.2.4.min.js", "scripts/context_barbora.js" ],
+      "js": [ "scripts/libs/jquery-2.2.4.min.js", "scripts/context_barbora.js" ],
       "run_at": "document_end"
     }
   ],
   "background": {
-    "scripts": [ "scripts/jquery-2.2.4.min.js", "scripts/eventPage.js" ],
+    "scripts": [ "scripts/libs/jquery-2.2.4.min.js", "scripts/recipe_strategies.js", "scripts/eventPage.js" ],
     "persistent": true
   }
 }

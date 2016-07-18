@@ -1,0 +1,16 @@
+﻿<div class="product"  id="produktas{{Nr}}"> 
+<div class="checkbox-wrapper">
+<input type="checkbox" class="producto-checkbox" id="checkbox{{Nr}}" checked />
+<label for="checkbox{{Nr}}"></label> 
+</div> 
+<div class="productName inline">
+{{produktoPavadinimas}} 
+<div class="quantity inline"> 
+{{produktoKiekis}}
+</div> 
+</div> 
+<select class="produkto-dropdown" id="produkto{{Nr}}dropdown"> 
+{{{produktoDropdownHtml}}}
+</select>
+<a class="button-buy" id="buttonBuy{{Nr}}" href="#" data-nr="{{Nr}}" target="_blank">+</a> 
+</div>

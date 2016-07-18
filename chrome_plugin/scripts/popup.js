@@ -14,41 +14,45 @@
 //  }
 ///
 function populatePopupWithIngredients(items){
-
     console.log(items);
     var $resultsForm = $("#resultsForm");
-
     $resultsForm.html("");
 
     if (items.length > 0) {
         var produktuHtml = "";
-        for (var i in items) {
-            var item = items[i];
-            var dropDownHtml = getDropdownHtml(item.products);
-            var produktoHtml = getProduktoHtml(item, i, dropDownHtml);
-            produktuHtml = produktuHtml.concat(produktoHtml);
-        }
-        $resultsForm.html(produktuHtml);
-        // Listen to selection changes
-        $('select.produkto-dropdown').each(function(idx, select) {
-            $(select).change(function() {
-                updateTotalPrice();
+        $.when($.get('../views/templates/ingredient-item.html')
+            , $.get('../views/templates/ingredient-item-option.html')
+        )
+        .then(function (ingredientItemTemplate, ingredientItemOptionTemplate) {
+            console.log(ingredientItemTemplate);
+
+            for (var i in items) {
+                var item = items[i];
+                var dropDownHtml = getDropdownHtml(item.products, ingredientItemOptionTemplate[0]);
+                var produktoHtml = getProduktoHtml(item, i, dropDownHtml, ingredientItemTemplate[0]);
+                produktuHtml = produktuHtml.concat(produktoHtml);
+            }
+            $resultsForm.html(produktuHtml);
+            // Listen to selection changes
+            $('select.produkto-dropdown').each(function (idx, select) {
+                $(select).change(function () {
+                    updateTotalPrice();
+                })
+            });
+            // Listen to checkboxes too
+            $resultsForm.find(':checkbox').each(function (idx, checkbox) {
+                $(checkbox).change(function () {
+                    updateTotalPrice();
+                })
             })
+            updateTotalPrice();
+
         });
-        // Listen to checkboxes too
-        $resultsForm.find(':checkbox').each(function(idx, checkbox) {
-            $(checkbox).change(function() {
-                updateTotalPrice();
-            })
-        })
-        updateTotalPrice();
     }
     else {
         console.error("ingredientuSarasas tuscias!");
         alert("ingredientuSarasas tuscias!");
     }
-
-    //$resultsForm.html(produktoHtml);
 }
 
 function updateTotalPrice() {
@@ -65,53 +69,34 @@ function updateTotalPrice() {
     $('.cents').html(parts[1]);
 }
 
-function getProduktoHtml(item, i, dropDownHtml){
-    var productTemplate =
- '<div class="product"  id="produktas{{Nr}}"> \
-<div class="checkbox-wrapper"> \
-<input type="checkbox" class="producto-checkbox" id="checkbox{{Nr}}" checked /> \
-<label for="checkbox{{Nr}}"></label> \
-</div> \
-<div class="productName inline"> \
-{{produktoPavadinimas}} \
-<div class="quantity inline"> \
-{{produktoKiekis}} \
-</div> \
-</div> \
-<select class="produkto-dropdown" id="produkto{{Nr}}dropdown"> \
-{{produktoDropdownHtml}} \
-</select> \
-<a class="button-buy" id="buttonBuy{{Nr}}" href="#" data-nr="{{Nr}}" target="_blank">+</a> \
-</div>';
-
-    var ingredientName = item.ingredient;
-    var ingredientKiekis = item.amount;
-    var produktoHtml = productTemplate.replace(/{{Nr}}/g, i);
-    produktoHtml = produktoHtml.replace(/{{produktoPavadinimas}}/g, ingredientName);
-    produktoHtml = produktoHtml.replace(/{{produktoPavadinimas}}/g, ingredientName);
-    produktoHtml = produktoHtml.replace(/{{produktoKiekis}}/g, ingredientKiekis);
-    produktoHtml = produktoHtml.replace(/{{produktoDropdownHtml}}/g, dropDownHtml);
-    return produktoHtml;
+function getProduktoHtml(item, i, dropDownHtml, ingredientItemTemplate){
+    var templateValues = {
+        produktoPavadinimas : item.ingredient,
+        produktoKiekis : item.amount,
+        Nr: i,
+        produktoDropdownHtml : dropDownHtml
+    }
+        var rendered = Mustache.render(ingredientItemTemplate, templateValues);
+    return rendered;
 }
 
-function getDropdownHtml(products){
-    var selectTemplate = '<option value="{{optionUrl}}" data-price="{{optionPrice}}">{{optionPrice}}€ {{optionText}}</option>';
+function getDropdownHtml(products, ingredientItemOptionTemplate){
     var selectHtml = "";
     for (var j in products) {
         var product = products[j];
-        var productPrice = product.price;
-        var productName = product.name;
-        var productUrl = product.url;
-        var workingSelectTemplate = selectTemplate.replace(/{{optionPrice}}/g, productPrice);
-        workingSelectTemplate = workingSelectTemplate.replace(/{{optionUrl}}/g, productUrl);
-        workingSelectTemplate = workingSelectTemplate.replace(/{{optionText}}/g, productName);
-        selectHtml += workingSelectTemplate;
+        
+        var templateValues = {
+            optionPrice : products[j].price,
+            optionUrl : products[j].url,
+            optionText: products[j].name
+        }
+        selectHtml +=  Mustache.render(ingredientItemOptionTemplate, templateValues);
     }
     return selectHtml;
 }
 
 function updateRecipeTitle(keyRecipeTitle) { 
-    chrome.storage.local.get(keyRecipeTitle, function (data) { //recipeTitle)
+    chrome.storage.local.get(keyRecipeTitle, function (data) { 
         // console.log("updateRecipeTitle " + keyRecipeTitle + ' ' + data[keyRecipeTitle]);
         $('h1.title-pavadinimas').text(data[keyRecipeTitle]); 
     });
@@ -119,7 +104,6 @@ function updateRecipeTitle(keyRecipeTitle) {
 
 function recipeFound() {
     $('.recipe-not-found').detach();
-    console.log("function recipeFound() iskviesta");
 
     $("#resultsForm").on("click", "a.button-buy", function () {
         var nr = $(this).data("nr");
@@ -143,8 +127,11 @@ function recipeFound() {
         tab = tab[0];
         var keyIngredients = 'ingredients-' + tab.url;
         var keyRecipeTitle = 'recipe-title-' + tab.url;
+        console.log(keyIngredients);
+        console.log(keyRecipeTitle);
         chrome.storage.local.get(keyIngredients, function(data) {
             var ingredients = data[keyIngredients];
+            console.log("ingredients: " + ingredients);
             if (ingredients) {
                 // Ingredients already loaded
                 spinner.stop();
@@ -244,28 +231,16 @@ document.addEventListener('DOMContentLoaded', function () {
         var keyRecipeFound = 'recipe-found-' + tab.url;
         var keyIngredients = 'ingredients-' + tab.url;
 
-        // var spinner = new Spinner({
-        //     scale: 2.0,
-        // }).spin();
-        // $('.section').append(spinner.el);
-
         chrome.storage.local.get(keyRecipeFound, function(data) {
             var valRecipeFound = data[keyRecipeFound];
             console.log(data);
             if (valRecipeFound === true) {
+                console.log("document.addEventListener('DOMContentLoaded). Receptas BUVO rastas localStorage. ");
                 console.log(valRecipeFound);
-                // TODO
                 recipeFound();
-            } else if (valRecipeFound === false) {
-                // spinner.stop();
-                recipeNotFound();
             } else {
+                console.log("document.addEventListener('DOMContentLoaded) Receptas NEBUVO rastas localStorage. Ne recepto puslapis, arba laukiama rezultato!");
                 recipeNotFound();
-                // Need to wait, up until then show spinner
-                // var spinner = new Spinner({
-                //     scale: 2.0,
-                // }).spin();
-                // $('.section').append(spinner.el);
             }
         })
 
@@ -273,13 +248,4 @@ document.addEventListener('DOMContentLoaded', function () {
         // console.log(keyIngredients);
     })
 
-
-
-    // chrome.storage.local.get("recipeFound", function(obj) {
-    //     if (obj.recipeFound === true) {
-    //         recipeFound();
-    //     } else {
-    //         recipeNotFound();
-    //     }
-    // });
 });
