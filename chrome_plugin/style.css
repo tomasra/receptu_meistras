@@ -6,13 +6,12 @@
   font-family: 'Fira Sans', sans-serif;
   font-size: 16px;
   text-decoration: none;
-  
-  /*
+
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
   -o-user-select: none;
-  */
+  
   cursor: default;
 }
 
