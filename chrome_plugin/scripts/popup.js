@@ -109,7 +109,7 @@ function recipeFound() {
         var nr = $(this).data("nr");
         var dropDownId = "#produkto" + nr + "dropdown";
         var url = $(dropDownId).val();
-        var fullUrl = "https://www.barbora.lt" + url + "?receptuMeistrasPridetiProdukta=1";
+        var fullUrl = "https://www.barbora.lt" + url + "?reciplayAddProduct=1";
         chrome.tabs.create({ url: fullUrl, selected: false }, function (tab) {
             //chrome.tabs.update(tab.id, { selected: true });
         });
@@ -176,10 +176,10 @@ function recipeFound() {
                 selected1 = true;
             }
             if (selected1) {
-                fullUrl = "https://www.barbora.lt" + urlsToCall[i] + "?receptuMeistrasPridetiProdukta=1&receptuMeistrasAktyvinti=1";
+                fullUrl = "https://www.barbora.lt" + urlsToCall[i] + "?reciplayAddProduct=1&reciplayFocus=1";
             }
             else {
-                fullUrl = "https://www.barbora.lt" + urlsToCall[i] + "?receptuMeistrasPridetiProdukta=1";
+                fullUrl = "https://www.barbora.lt" + urlsToCall[i] + "?reciplayAddProduct=1";
             }
             //var selected1 = (i + 1 == urlsToCall.length);
             

@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Reciplay meistras",
   "description": "Reciplay meistras leidžia peržiūrint maisto gaminimo receptus iškart matyti ir kainas, bei greičiau užsisakyti produktus.",
-  "version": "0.6.6.9",
+  "version": "0.6.7.0",
   "short_name": "Reciplay meistras",
     "browser_action": {
     "default_icon": "graphics/receptumeistras-icon-chrome-38-2-neutral.png",
