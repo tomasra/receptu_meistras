@@ -1,6 +1,4 @@
-﻿var ingredientuSarasas = 'ingredientuSarasas';
-
-///
+﻿///
 //"ingredient": "Vištiena",
 //"products": [
 //{
@@ -13,7 +11,7 @@
 //    "url": "/produktai/vistienos-rinkinys-seimai-file-kepsniams-ir-blauzd-be-san-1-kg"
 //  }
 ///
-function populatePopupWithIngredients(items){
+function populatePopupWithIngredients(items) {
     console.log(items);
     var $resultsForm = $("#resultsForm");
     $resultsForm.html("");
@@ -23,31 +21,31 @@ function populatePopupWithIngredients(items){
         $.when($.get('../views/templates/ingredient-item.html')
             , $.get('../views/templates/ingredient-item-option.html')
         )
-        .then(function (ingredientItemTemplate, ingredientItemOptionTemplate) {
-            console.log(ingredientItemTemplate);
+            .then(function (ingredientItemTemplate, ingredientItemOptionTemplate) {
+                console.log(ingredientItemTemplate);
 
-            for (var i in items) {
-                var item = items[i];
-                var dropDownHtml = getDropdownHtml(item.products, ingredientItemOptionTemplate[0]);
-                var produktoHtml = getProduktoHtml(item, i, dropDownHtml, ingredientItemTemplate[0]);
-                produktuHtml = produktuHtml.concat(produktoHtml);
-            }
-            $resultsForm.html(produktuHtml);
-            // Listen to selection changes
-            $('select.produkto-dropdown').each(function (idx, select) {
-                $(select).change(function () {
-                    updateTotalPrice();
+                for (var i in items) {
+                    var item = items[i];
+                    var dropDownHtml = getDropdownHtml(item.products, ingredientItemOptionTemplate[0]);
+                    var produktoHtml = getProduktoHtml(item, i, dropDownHtml, ingredientItemTemplate[0]);
+                    produktuHtml = produktuHtml.concat(produktoHtml);
+                }
+                $resultsForm.html(produktuHtml);
+                // Listen to selection changes
+                $('select.produkto-dropdown').each(function (idx, select) {
+                    $(select).change(function () {
+                        updateTotalPrice();
+                    })
+                });
+                // Listen to checkboxes too
+                $resultsForm.find(':checkbox').each(function (idx, checkbox) {
+                    $(checkbox).change(function () {
+                        updateTotalPrice();
+                    })
                 })
+                updateTotalPrice();
+
             });
-            // Listen to checkboxes too
-            $resultsForm.find(':checkbox').each(function (idx, checkbox) {
-                $(checkbox).change(function () {
-                    updateTotalPrice();
-                })
-            })
-            updateTotalPrice();
-
-        });
     }
     else {
         console.error("ingredientuSarasas tuscias!");
@@ -56,49 +54,47 @@ function populatePopupWithIngredients(items){
 }
 
 function updateTotalPrice() {
-    total = 0.0;
-    $('.product').each(function(idx, product) {
+    let total = 0.0;
+    $('.product').each(function (idx, product) {
         var checkbox = $(product).find(':checkbox');
         if ($(checkbox).is(':checked')) {
             var selected_option = $(product).find('select.produkto-dropdown option:selected');
             total += parseFloat($(selected_option).attr('data-price'));
         }
     })
-    parts = total.toFixed(2).toString().split('.');
+    let parts = total.toFixed(2).toString().split('.');
     $('.euros').html(parts[0]);
     $('.cents').html(parts[1]);
 }
 
-function getProduktoHtml(item, i, dropDownHtml, ingredientItemTemplate){
+function getProduktoHtml(item, i, dropDownHtml, ingredientItemTemplate) {
     var templateValues = {
-        produktoPavadinimas : item.ingredient,
-        produktoKiekis : item.amount,
+        produktoPavadinimas: item.ingredient,
+        produktoKiekis: item.amount,
         Nr: i,
-        produktoDropdownHtml : dropDownHtml
+        produktoDropdownHtml: dropDownHtml
     }
-        var rendered = Mustache.render(ingredientItemTemplate, templateValues);
+    var rendered = Mustache.render(ingredientItemTemplate, templateValues);
     return rendered;
 }
 
-function getDropdownHtml(products, ingredientItemOptionTemplate){
+function getDropdownHtml(products, ingredientItemOptionTemplate) {
     var selectHtml = "";
     for (var j in products) {
-        var product = products[j];
-        
+
         var templateValues = {
-            optionPrice : products[j].price,
-            optionUrl : products[j].url,
+            optionPrice: products[j].price,
+            optionUrl: products[j].url,
             optionText: products[j].name
         }
-        selectHtml +=  Mustache.render(ingredientItemOptionTemplate, templateValues);
+        selectHtml += Mustache.render(ingredientItemOptionTemplate, templateValues);
     }
     return selectHtml;
 }
 
-function updateRecipeTitle(keyRecipeTitle) { 
-    chrome.storage.local.get(keyRecipeTitle, function (data) { 
-        // console.log("updateRecipeTitle " + keyRecipeTitle + ' ' + data[keyRecipeTitle]);
-        $('h1.title-pavadinimas').text(data[keyRecipeTitle]); 
+function updateRecipeTitle(keyRecipeTitle) {
+    chrome.storage.local.get(keyRecipeTitle, function (data) {
+        $('h1.title-pavadinimas').text(data[keyRecipeTitle]);
     });
 }
 
@@ -111,10 +107,7 @@ function recipeFound() {
         var url = $(dropDownId).val();
         var fullUrl = "https://www.barbora.lt" + url + "?reciplayAddProduct=1";
         chrome.tabs.create({ url: fullUrl, selected: false }, function (tab) {
-            //chrome.tabs.update(tab.id, { selected: true });
         });
-
-        //window.open(fullUrl, '_blank');
         return false;
     });
 
@@ -123,13 +116,13 @@ function recipeFound() {
     }).spin();
     $('.section').append(spinner.el);
 
-    chrome.tabs.query({active: true}, function(tab) {
+    chrome.tabs.query({ active: true }, function (tab) {
         tab = tab[0];
         var keyIngredients = 'ingredients-' + tab.url;
         var keyRecipeTitle = 'recipe-title-' + tab.url;
         console.log(keyIngredients);
         console.log(keyRecipeTitle);
-        chrome.storage.local.get(keyIngredients, function(data) {
+        chrome.storage.local.get(keyIngredients, function (data) {
             var ingredients = data[keyIngredients];
             console.log("ingredients: " + ingredients);
             if (ingredients) {
@@ -139,13 +132,12 @@ function recipeFound() {
                 updateRecipeTitle(keyRecipeTitle);
             } else {
                 // Need to wait
-                chrome.storage.onChanged.addListener(function(changes, areaName) {
+                chrome.storage.onChanged.addListener(function (changes, areaName) {
                     if (changes[keyIngredients] !== undefined) {
                         spinner.stop();
                         populatePopupWithIngredients(changes[keyIngredients].newValue);
                         updateRecipeTitle(keyRecipeTitle);
                     }
-                    // console.log(changes);
                 })
             }
 
@@ -167,7 +159,7 @@ function recipeFound() {
         });
         console.log(urlsToCall);
 
-        for (i in urlsToCall) {
+        for (let i in urlsToCall) {
             var fullUrl = "";
             var selected1 = false;
             console.log("selected1");
@@ -181,8 +173,7 @@ function recipeFound() {
             else {
                 fullUrl = "https://www.barbora.lt" + urlsToCall[i] + "?reciplayAddProduct=1";
             }
-            //var selected1 = (i + 1 == urlsToCall.length);
-            
+
             if (selected1) {
                 setTimeout(function () {
                     chrome.tabs.create({ url: fullUrl, selected: selected1 }, function (tab) {
@@ -190,35 +181,19 @@ function recipeFound() {
                     });
                 }, 3000);
             }
-            else
-            {
+            else {
                 chrome.tabs.create({ url: fullUrl, selected: selected1 }, function (tab) {
                     //chrome.tabs.update(tab.id, { selected: true });
                 });
             }
         }
-
-        //chrome.tabs.getSelected(null, function (tab) {
-        //    d = document;
-
-        //    var f = d.createElement('form');
-        //    f.action = 'http://gtmetrix.com/analyze.html?bm';
-        //    f.method = 'post';
-        //    var i = d.createElement('input');
-        //    i.type = 'hidden';
-        //    i.name = 'url';
-        //    i.value = tab.url;
-        //    f.appendChild(i);
-        //    d.body.appendChild(f);
-        //    f.submit();
-        //});
     }, false);
 
     chrome.browserAction.getBadgeText({}, function (badgeText) {
         if (badgeText) {
 
         }
-    });    
+    });
 }
 
 function recipeNotFound() {
@@ -226,12 +201,10 @@ function recipeNotFound() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    chrome.tabs.query({active: true}, function(tab) {
+    chrome.tabs.query({ active: true }, function (tab) {
         tab = tab[0];
         var keyRecipeFound = 'recipe-found-' + tab.url;
-        var keyIngredients = 'ingredients-' + tab.url;
-
-        chrome.storage.local.get(keyRecipeFound, function(data) {
+        chrome.storage.local.get(keyRecipeFound, function (data) {
             var valRecipeFound = data[keyRecipeFound];
             console.log(data);
             if (valRecipeFound === true) {
@@ -243,9 +216,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 recipeNotFound();
             }
         })
-
-        // console.log(keyRecipeFound);
-        // console.log(keyIngredients);
     })
 
 });

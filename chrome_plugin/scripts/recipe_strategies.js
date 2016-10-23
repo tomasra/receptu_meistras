@@ -1,5 +1,5 @@
 ﻿"use strict";
-var TukstReceptuStrategy = function () {
+const TukstReceptuStrategy = function () {
     this.extractRecipeData = function () {
         var receptu_langas = $(".recipe-ingredients table tbody tr");
         var jsonObjektas = this._getJsonFromRecipyTable(receptu_langas, window.location.href);
@@ -35,7 +35,7 @@ var TukstReceptuStrategy = function () {
 
 };
 
-var GaspadineStrategy = function () {
+const GaspadineStrategy = function () {
     this.extractRecipeData = function () {
         var receptu_langas = $("#ingredients ul.ingredients > li");
         var jsonObjektas = this._getJsonFromRecipyTable(receptu_langas, window.location.href);
@@ -75,6 +75,45 @@ var GaspadineStrategy = function () {
     }
 };
 
+const ReceptaiStrategy = function () {
+    this.extractRecipeData = function () {
+        var receptu_langas = $("ul.ingredients > li");
+        var jsonObjektas = this._getJsonFromRecipyTable(receptu_langas, window.location.href);
+        return jsonObjektas
+    };
+    this.getName = function () {
+        return "Receptai";
+    };
+
+    this._getJsonFromRecipyTable = function (receptu_langas, url) {
+        var jsonObjektas = {};
+        jsonObjektas.recipeTitle = $("div.article.recipe div h1[itemprop='name']").text();
+        jsonObjektas.url = url;
+        jsonObjektas.ingredients = [];
+
+        $(receptu_langas).each(function (i, item) {
+            console.log(i);
+            console.log(item);
+            var ingredientas = {};
+            var amount = $(item).find("[itemprop='amount']").html();//irgi gali buti optional
+            if (amount) {
+                ingredientas.amount = amount;
+            }
+            ingredientas.ingredient = $(item).find("[itemprop='name']").html();
+            var optionalContents = $(item).contents().filter(function () { return this.nodeType === 3; });
+            if (optionalContents && optionalContents.length > 0 && optionalContents[0]) {
+                var optionalContent = optionalContents[0].textContent.trim();
+                if (optionalContent !== ',' && optionalContent.length > 0) {
+                    ingredientas.optional_details = optionalContent;
+                }
+            }
+            jsonObjektas.ingredients.push(ingredientas);
+        });
+        console.log(jsonObjektas);
+        return jsonObjektas;
+    }
+};
+
 const RECEPTU_PSL_URL_PREFIX_STRATEGIES = [
     {
         url: "www.delfi.lt/1000receptu/receptai/",
@@ -83,11 +122,13 @@ const RECEPTU_PSL_URL_PREFIX_STRATEGIES = [
     {
         url: "www.gaspadine.lt/receptas/",
         strategy: GaspadineStrategy
-    }
+    },
+    {
+        url: "www.receptai.lt/receptas/",
+        strategy: ReceptaiStrategy
+    },    
 ];
-
 var RecipeSiteExtractor = function () {
-    //this._recipeSiteStrategy = {};
 };
 
 RecipeSiteExtractor.prototype = {
