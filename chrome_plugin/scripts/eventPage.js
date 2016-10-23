@@ -10,7 +10,6 @@ function checkWebpage(loadingStatus) {
         chrome.tabs.query({ active: true }, function (tab) {
             tab = tab[0];
             var fullUrl = tab.url;
-            console.log(fullUrl);
             var recipeSiteExtractor = GetRecipeExtractor(fullUrl);
             if (recipeSiteExtractor) {
                 chrome.storage.local.set({ recipeFound: true });
@@ -54,10 +53,6 @@ function checkWebpage(loadingStatus) {
     }
     else if (loadingStatus == "onActivated") {
         chrome.storage.local.get("ingredientuSarasas", function (data) {
-            console.log("ingredientuSarasas!!");
-
-            console.log(data);
-
             chrome.tabs.query({ active: true }, function (tab) {
                 tab = tab[0];
                 var fullUrl = tab.url;
@@ -67,17 +62,12 @@ function checkWebpage(loadingStatus) {
                 if (recipeSiteExtractor) {
                     arReceptoLangas = true;
                 }
-                console.log("arReceptoLangas: " + arReceptoLangas);
                 var arYraIngredientuSarasas = data && data.ingredientuSarasas;
-                console.log("arYraIngredientuSarasas: " + arYraIngredientuSarasas);
-
                 if (arReceptoLangas && arYraIngredientuSarasas) {
-                    console.log('recipe found');
                     chrome.storage.local.set({ recipeFound: true });
                     chrome.browserAction.setBadgeText({ text: "!" });
                     chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-active.png" });
                 } else {
-                    console.log('recipe not found');
                     chrome.storage.local.set({ recipeFound: false });
                     chrome.browserAction.setBadgeText({ text: "" });
                     chrome.browserAction.setIcon({ path: "graphics/receptumeistras-icon-chrome-38-2-neutral.png" });
