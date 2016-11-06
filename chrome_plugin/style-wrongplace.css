@@ -51,14 +51,21 @@ a.lead {
   margin: 0;
 }
 
-.soon {
+.supported-sites {
   width: 300px;
   position: relative;
-  margin: 0 0 50px 35px;
+  margin: 0 0 30px 35px;
 
   font-weight: 100;
   line-height: 20px;
 }
+
+.supported-list {
+  margin: 0 0 10px 20px;
+  line-height: 25px;
+  color: #999;
+}
+
 
 .suggestion-thumbnail {
   position: relative;
