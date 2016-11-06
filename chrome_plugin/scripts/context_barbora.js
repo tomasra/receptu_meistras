@@ -1,66 +1,48 @@
 ﻿"use strict";
-function notify() {
-    alert("clicked");
-}
 
-var getUrlParameter = function getUrlParameter(sParam) {
-    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
-    
-    for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
-        
-        if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined ? true : sParameterName[1];
+/** Runs when barbora.lt window is opened. 
+ * Checks if there are parameters in url like reciplayAddProduct 
+ * and if yes, runs various actions against the page, like simulate button click.
+ * @param {any} object, must have fullUrl property.
+ */
+function ContextBarbora(options) {
+    this.init = function (options) {
+        const addProduct = this.getUrlParameter('reciplayAddProduct', options.fullUrl);
+        const closeWindow = this.getUrlParameter('reciplayClose', options.fullUrl);
+        const focusWindow = this.getUrlParameter('reciplayFocus', options.fullUrl);
+        if (addProduct) {
+            $(".col-md-6 .b-add-to-cart").click();
+
+        }
+        if (closeWindow) {
+            setTimeout(function () {
+                window.close();
+            }, 1000);
+        }
+        if (focusWindow) {
+            setTimeout(function () {
+                window.focus();
+            }, 200);
         }
     }
-};
-
-var pridetiProdukta = getUrlParameter('receptuMeistrasPridetiProdukta');
-var uzdaryti = getUrlParameter('receptuMeistrasUzdaryti');
-var aktyvinti = getUrlParameter('receptuMeistrasAktyvinti');
-if (pridetiProdukta == 1) {
-    //executinam clicka
-    //alert("noriu clickint!");
-
-    $(".col-md-6 .b-add-to-cart").click();
-
-    if (uzdaryti == 1) {
-        setTimeout(function () {
-                //chrome.tabs.getCurrent(function (tab) {
-            //chrome.tabs.remove(tab.id, function () { });
-                //});
-                window.close();
-        }, 1000);
-    }
-    if (aktyvinti == 1) {
-        setTimeout(function () {
-            //chrome.tabs.getCurrent(function (tab) {
-            //chrome.tabs.remove(tab.id, function () { });
-            //});
-            window.focus();
-        }, 200);
+    /** Gets value of parameter from url string.
+     * @param {string} parameterName
+     * @param {string} fullUrl
+     */
+    this.getUrlParameter = function (parameterName, fullUrl) {
+        const sPageURL = decodeURIComponent(fullUrl),
+            sURLVariables = sPageURL.split('&');
+        for (let i = 0; i < sURLVariables.length; i++) {
+            const sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] === parameterName) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+        return null;
     }
 
-        //if (uzdaryti == 1) {
-        //    chrome.tabs.getCurrent(function (tab) {
-        //        chrome.tabs.remove(tab.id, function () { });
-        //    });
-        //}
-    //
+    this.init(options);
 }
 
-//chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-////chrome.extension.onRequest.addListener(function (request, sender, sendResponse) {
-//    //alert("is background.js ateina!");
-//    if (request == "getDOM") {
-//        var receptu_langas = $(".recipe-ingredients table tbody tr");
-//        var jsonObjektas = getJsonFromRecipyTable(receptu_langas, window.location.href );
-//        sendResponse({ jsonObjektas: jsonObjektas });
-//    }
-//    else
-//        sendResponse({}); // Send nothing..
-//});
+new ContextBarbora({ fullUrl: window.location.search.substring(1) });
 
