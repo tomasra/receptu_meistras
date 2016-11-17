@@ -72,6 +72,58 @@ const GaspadineStrategy = function () {
     }
 };
 
+const BeatosVirtuveRecipesStrategy = function () {
+    this.extractRecipeData = function () {
+        var receptu_langas = $('.ingridientai > .ingridentu_informacija > ul > li');
+        var jsonObjektas = this._getJsonFromRecipyTable(receptu_langas, window.location.href);
+        return jsonObjektas
+    };
+    this.getName = function () {
+        return "BeatosVirtuve";
+    };
+
+    this._getJsonFromRecipyTable = function (receptu_langas, url) {
+        var jsonObjektas = {};
+        jsonObjektas.recipeTitle = $('.iraso_antraste > h2').text()
+        jsonObjektas.url = url;
+        jsonObjektas.ingredients = [];
+
+        $(receptu_langas).each(function (i, item) {
+            var ingredientas = {};
+            ingredientas.ingredient = item.textContent;
+            jsonObjektas.ingredients.push(ingredientas);
+        });
+        return jsonObjektas;
+    }
+};
+
+const BeatosVirtuveVideosStrategy = function () {
+    this.extractRecipeData = function () {
+        var receptu_langas = $('.iraso_informacija2').text().trim().split(/\.\s|\,\s/);
+        var jsonObjektas = this._getJsonFromRecipyTable(receptu_langas, window.location.href);
+        return jsonObjektas
+    };
+    this.getName = function () {
+        return "BeatosVirtuve";
+    };
+
+    this._getJsonFromRecipyTable = function (receptu_langas, url) {
+        var jsonObjektas = {};
+        jsonObjektas.recipeTitle = document.title.split(' - ')[0];
+        jsonObjektas.url = url;
+        jsonObjektas.ingredients = [];
+
+        const regex = /.*[r|R]eikės:\s(.+)/gu;
+        $(receptu_langas).each(function (i, item) {
+            var ingredientas = {};
+            const parsedItem = item.replace(regex, '$1');
+            ingredientas.ingredient = parsedItem;
+            jsonObjektas.ingredients.push(ingredientas);
+        });
+        return jsonObjektas;
+    }
+};
+
 const RECEPTU_PSL_URL_PREFIX_STRATEGIES = [
     {
         url: "www.delfi.lt/1000receptu/receptai/",
@@ -84,7 +136,15 @@ const RECEPTU_PSL_URL_PREFIX_STRATEGIES = [
     {
         url: "www.receptai.lt/receptas/",
         strategy: GaspadineStrategy
-    },    
+    },
+    {
+        url: "TODO:www.beatosvirtuve.lt/recipes/",
+        strategy: BeatosVirtuveRecipesStrategy
+    },
+    {
+        url: "TODO:www.beatosvirtuve.lt/videos/",
+        strategy: BeatosVirtuveVideosStrategy
+    },
 ];
 var RecipeSiteExtractor = function () {
 };
@@ -112,9 +172,13 @@ const GetRecipeExtractor = function (fullUrl) {
     let i = 0;
     while (yraReceptuPuslapis === false && i < RECEPTU_PSL_URL_PREFIX_STRATEGIES.length) {
         if (urlWithoutHttp.substring(0, RECEPTU_PSL_URL_PREFIX_STRATEGIES[i].url.length) === RECEPTU_PSL_URL_PREFIX_STRATEGIES[i].url) {
+          let recipeUrlPart = urlWithoutHttp.substring(RECEPTU_PSL_URL_PREFIX_STRATEGIES[i].url.length);
+          if (recipeUrlPart.length > 0){
             yraReceptuPuslapis = true;
             recipeSiteExtractor.setStrategy(RECEPTU_PSL_URL_PREFIX_STRATEGIES[i].strategy);
             return recipeSiteExtractor;
+          }
+            return null;
         }
         i++;
     }
