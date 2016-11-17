@@ -138,11 +138,11 @@ const RECEPTU_PSL_URL_PREFIX_STRATEGIES = [
         strategy: GaspadineStrategy
     },
     {
-        url: "TODO:www.beatosvirtuve.lt/recipes/",
+        url: "www.beatosvirtuve.lt/recipes/",
         strategy: BeatosVirtuveRecipesStrategy
     },
     {
-        url: "TODO:www.beatosvirtuve.lt/videos/",
+        url: "www.beatosvirtuve.lt/videos/",
         strategy: BeatosVirtuveVideosStrategy
     },
 ];
