@@ -149,7 +149,7 @@ def match_products_elastic(ingredients, limit=5):
                 'query': {
                     'query_string': {
                         'query': ingredient,
-                        'fields': ['item_brand', 'name', 'category1', 'category2', 'category3'],
+                        'fields': ['item_brand', 'name', 'category1', 'category2', 'category3^2'],
                     }
                 }
             })
