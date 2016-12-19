@@ -159,7 +159,12 @@ RecipeSiteExtractor.prototype = {
     },
 
     extractRecipeData: function () {
-        return this._recipeSiteStrategy.extractRecipeData();
+        let recipeData = this._recipeSiteStrategy.extractRecipeData();
+
+        //Taking out "Tešlai:" from beatosvirtuve:
+        recipeData.ingredients = recipeData.ingredients.filter(e => !e.ingredient.match(/:$/));
+        
+        return recipeData;
     }
 };
 
