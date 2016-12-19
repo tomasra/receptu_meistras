@@ -149,7 +149,7 @@ def match_products_elastic(ingredients, limit=5):
                 'query': {
                     'query_string': {
                         'query': ingredient,
-                        'fields': ['item_brand', 'name', 'category1', 'category2', 'category3^2'],
+                        'fields': ['item_brand', 'name^2', 'category1', 'category2', 'category3'],
                     }
                 }
             })
@@ -172,4 +172,5 @@ def match():
     return jsonify(matches)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=False)
+    debug = 'DEBUG' in os.environ
+    app.run(host='0.0.0.0', debug=debug)
