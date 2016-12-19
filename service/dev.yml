@@ -17,7 +17,11 @@ services:
   backend:
     build:
       context: ./backend
+    command: python app.py
+    volumes:
+      - ./backend:/code
     ports:
-      - "8000:8000"
+      - "8000:5000"
     environment:
       - ELASTIC_HOST=elasticsearch
+      - DEBUG=True

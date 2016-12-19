@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  elasticsearch:
+    build: elasticsearch
+    working_dir: /data
+    # command: /elasticsearch/bin/elasticsearch -Des.config=/data/config/elasticsearch.yml
+    volumes:
+      - /var/lib/docker/reciplay/elasticsearch/data:/data
+      - ./elasticsearch/config:/data/config
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      # Heap size fixed at 512 mb
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+  backend:
+    build:
+      context: ./backend
+    command: gunicorn --bind 0.0.0.0:8000 app:app
+    ports:
+      - "8000:8000"
+    environment:
+      - ELASTIC_HOST=elasticsearch
